@@ -48,6 +48,30 @@ export const CreateNewRecipe = async (req, res) => {
     }
   };
 
+  export const GetSingleRecipe = async (req, res) => {
+    try {
+      const { recipeId } = req.body;
+      if (!recipeId) {
+        return res.json({ success: false, error: "Recipe ID is required." });
+      }
+      const recipe = await Recipe.findById(recipeId);
+      res.json({ success: true, recipe });
+    } catch (error) {
+      return res.json({ error, success: false });
+    }
+  };
+
+  export const YourAddedRecipes = async (req, res) => {
+    try {
+      const { userId } = req.body;
+      const recipes = await Recipe.find({ creatorId: userId });
+      return res.json({ success: true, recipes });
+    } catch (error) {
+      console.log(error, "error");
+      return res.json({ error: error, success: false });
+    }
+  };
+
   export const search = async (req, res) => {
     try {
       const { searchedWord } = req.body;

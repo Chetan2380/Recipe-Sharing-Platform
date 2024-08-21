@@ -11,6 +11,8 @@ import { useContext } from 'react';
 import { AuthContext } from './context/auth.context';
 import CreateNewRecipe from './components/CreateNewRecipe';
 import AllRecipes from './components/AllRecipes';
+import SingleRecipe from './components/SingleRecipe';
+import UserProfile from './components/UserProfile';
 
 function App() {
   const { state, dispatch } = useContext(AuthContext);
@@ -25,6 +27,8 @@ function App() {
         <Route path="/admin-login" element={<AdminLogin/>}/>
         <Route path="/create-new-recipe" element={<CreateNewRecipe/>}/>
         <Route path="/all-recipes" element={<AllRecipes/>}/>
+        <Route path="/single-recipe/:id" element={<SingleRecipe/>}/>
+        <Route path="/user-profile" element={<UserProfile/>}/>
       </Routes>
     </div>
   );
