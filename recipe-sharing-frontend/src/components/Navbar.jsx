@@ -10,6 +10,21 @@ const Navbar = () => {
     const { state, dispatch } = useContext(AuthContext);
     const [searchTerm, setSearchTerm] = useState("");
 
+    async function handleLogout() {
+        try {
+            const response = await Api.post("/auth/logout");
+            if (response.data.success) {
+                dispatch({ type: "LOGOUT" });
+                router("/login");
+                toast.success(response.data.message);
+            } else {
+                toast.error("Logout failed.");
+            }
+        } catch (error) {
+            toast.error("Failed to logout.");
+        }
+    }
+
     async function handleSearch() {
         try {
             const response = await Api.post("/recipe/search", { searchedWord: searchTerm });
@@ -50,11 +65,13 @@ const Navbar = () => {
                         <div onClick={()=>router("/")}>Home</div>
                         {state?.user?.role === "user" && (<div onClick={()=>router("/all-recipes")}>All Recipes</div>)}
                         {state?.user?.role === "user" && (<div onClick={()=>router("/create-new-recipe")}>Add Recipe</div>)}
-                        {!state?.user && (<div onClick={()=>router("/admin-register")}><span>Register</span></div>)}                    </div>
+                        {!state?.user && (<div onClick={()=>router("/admin-register")}><span>Register</span></div>)}
+                        {state?.user && (<div onClick={()=>router("/user-profile")}><span>User Profile</span></div>)}
+                        <div>{state?.user ? (<span onClick={handleLogout}>Logout</span>) : (<span onClick={()=>router("/login")}>Login</span>)}</div>                   </div>
                 </div>
             </div>
     </div>
     )
 }
 
-export default Navbar
+export default Navbar;

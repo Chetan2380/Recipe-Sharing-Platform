@@ -93,7 +93,20 @@ const CreateNewRecipe = () => {
             <label>Cooking Time:</label><br/>
             <input type='text' name='cookingTime' onChange={handleChange} value={recipeData.cookingTime}/><br/>
             <label>Category:</label><br/>
-            <input type='text' name='category' onChange={handleChange} value={recipeData.category}/><br/>
+            <select
+                        name="category"
+                        value={recipeData.category}
+                        onChange={handleChange}
+                    >
+                        <option value="">Select Category</option>
+                        <option value="Veg">Veg</option>
+                        <option value="Non veg">Non Veg</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Special Recipe">Special Recipes</option>
+                        <option value="Healthy">Healthy</option>
+            </select><br/>
+            
+            {/* <input type='text' name='category' onChange={handleChange} value={recipeData.category}/><br/> */}
             <label>Cuisine:</label><br/>
             <input type='text' name='cuisine' onChange={handleChange} value={recipeData.cuisine}/><br/>
             <label>Image URL:</label><br/>
