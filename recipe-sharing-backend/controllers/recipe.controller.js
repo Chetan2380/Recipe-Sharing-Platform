@@ -86,6 +86,18 @@ export const CreateNewRecipe = async (req, res) => {
     }
   };
 
+  export const YourReviewedRecipes = async (req, res) => {
+    try {
+      const { userId } = req.body;
+      const recipes = await Review.find({ userId: userId });
+      return res.json({ success: true, recipes });
+    } catch (error) {
+      console.log(error, "error");
+      return res.json({ error: error, success: false });
+    }
+  };
+
+
 export const search = async (req, res) => {
     try {
       const { searchedWord } = req.body;

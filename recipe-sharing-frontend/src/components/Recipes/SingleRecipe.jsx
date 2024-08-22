@@ -121,7 +121,7 @@ const SingleRecipe = () => {
                         <div id="sb-recipeshow">
                             <div id="sp-desctext">
                                 <p><b>Rating</b>: {review.rating}</p>
-                                <p><b>Ingredients</b>: {review.review}</p>
+                                <p><b>Review</b>: {review.review}</p>
                                 <p><b>Username</b>: {review.userId ? review.userId.name : 'Anonymous'}</p>
                             </div>
                         </div>
