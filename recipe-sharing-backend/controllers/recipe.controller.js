@@ -1,4 +1,5 @@
 import Recipe from "../models/recipe.model.js";
+import Review from "../models/review.model.js";
 
 export const CreateNewRecipe = async (req, res) => {
     try {
@@ -42,7 +43,19 @@ export const CreateNewRecipe = async (req, res) => {
   export const GetAllRecipes = async (req, res) => {
     try {
       const recipes = await Recipe.find({});
-      res.json({ success: true, recipes });
+
+      const recipesWithRatings = await Promise.all(recipes.map(async (recipe) => {
+        const reviews = await Review.find({ recipeId: recipe._id });
+        const averageRating = reviews.length > 0 
+            ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length 
+            : 0;
+        return {
+            ...recipe._doc, // Spread the existing recipe data
+            averageRating: averageRating.toFixed(1) // Round to one decimal place
+        };
+    }));
+
+      res.json({ success: true, recipes: recipesWithRatings });
     } catch (error) {
       return res.json({ error, success: false });
     }
@@ -54,6 +67,7 @@ export const CreateNewRecipe = async (req, res) => {
       if (!recipeId) {
         return res.json({ success: false, error: "Recipe ID is required." });
       }
+      
       const recipe = await Recipe.findById(recipeId);
       res.json({ success: true, recipe });
     } catch (error) {

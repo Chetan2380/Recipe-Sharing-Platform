@@ -22,6 +22,7 @@ import Punjabi from './components/Cuisines/Punjabi';
 import Rajasthani from './components/Cuisines/Rajasthani';
 import SouthIndian from './components/Cuisines/SouthIndian';
 import NorthEast from './components/Cuisines/NorthEast';
+import ReviewRating from './components/Review_Rating/ReviewRating';
 
 function App() {
   const { state, dispatch } = useContext(AuthContext);
@@ -47,6 +48,7 @@ function App() {
         <Route path="/maharashtrian-recipes" element={<Rajasthani/>}/>
         <Route path="/maharashtrian-recipes" element={<SouthIndian/>}/>
         <Route path="/maharashtrian-recipes" element={<NorthEast/>}/>
+        <Route path="/review-rating" element={<ReviewRating/>}/>
       </Routes>
     </div>
   );

@@ -4,6 +4,7 @@ import AdminRoutes from "../routes/admin.routes.js"
 import RecipeRoutes from "../routes/recipe.routes.js"
 import RecipeCategoryRoutes from "../routes/recipecategory.routes.js"
 import CuisinesRoutes from "../routes/cuisines.routes.js"
+import ReviewRoutes from "../routes/review.routes.js"
 
 const router = Router();
 
@@ -12,5 +13,6 @@ router.use("/admin", AdminRoutes);
 router.use("/recipe", RecipeRoutes);
 router.use("/recipe-category", RecipeCategoryRoutes);
 router.use("/cuisine", CuisinesRoutes);
+router.use("/review", ReviewRoutes);
 
 export default router;

@@ -57,6 +57,7 @@ const AllRecipes = () => {
                             <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
                             <p><b>Category</b>: {recipe.category}</p>
                             <p><b>Cuisine</b>: {recipe.cuisine}</p>
+                            <p><b>Average Rating</b>: {recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}</p>
                         </div>
                     ))}
                 </div>
