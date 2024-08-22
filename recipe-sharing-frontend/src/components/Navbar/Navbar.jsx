@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from '../../context/auth.context';
 import toast from 'react-hot-toast';
-import Api from '../axiosconfig';
-import "../styles/Navbar.css"
+import Api from '../../axiosconfig';
+import "../Navbar/Navbar.css"
 
 const Navbar = () => {
     const router = useNavigate();

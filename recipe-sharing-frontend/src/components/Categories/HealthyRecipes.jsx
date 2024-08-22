@@ -1,20 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
-import Api from '../axiosconfig';
+import React from 'react'
 
-const AllRecipes = () => {
+const HealthyRecipes = () => {
     const router=useNavigate();
     const[allRecipes,setAllRecipes]=useState([]);
+    const[category,setCategory]=useState("Healthy");
     const [loading, setLoading] = useState(false);
-    const{state}=useContext(AuthContext);
 
     console.log(allRecipes);
 
-    async function GetRecipe(){
+    async function GetHealthyRecipe(){
         setLoading(true);
         try{
-            const response = await Api.get("/recipe/get-all-recipe")
+            const response = await Api.get("/recipe-category/healthy-recipes",{ params: { category: category } })
             if(response.data.success){
                 setLoading(false);
                 setAllRecipes(response.data.recipes);
@@ -26,17 +23,8 @@ const AllRecipes = () => {
     }
 
     useEffect(() => {
-        GetRecipe();
+        GetHealthyRecipe();
       }, []);
-
-      useEffect(() => {
-        if (state.searchResults.length > 0) {
-            setAllRecipes(state.searchResults);
-        } else {
-            GetRecipe();
-        }
-    }, [state.searchResults]);
-
 
     return(
         <div id="main">
@@ -65,4 +53,4 @@ const AllRecipes = () => {
     );
 }
 
-export default AllRecipes;
+export default HealthyRecipes

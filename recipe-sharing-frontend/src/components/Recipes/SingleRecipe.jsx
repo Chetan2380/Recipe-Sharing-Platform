@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
-import Api from '../axiosconfig';
+import { AuthContext } from '../../context/auth.context';
+import Api from '../../axiosconfig';
 
 const SingleRecipe = () => {
     const { state } = useContext(AuthContext);

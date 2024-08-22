@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from '../../context/auth.context';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import Api from '../axiosconfig';
+import Api from '../../axiosconfig';
 
 const Login = () => {
     const {state,dispatch}=useContext(AuthContext);

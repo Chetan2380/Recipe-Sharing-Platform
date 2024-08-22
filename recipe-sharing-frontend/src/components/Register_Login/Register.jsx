@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
-import Api from '../axiosconfig';
+import Api from '../../axiosconfig';
 
 const Register = () => {
     const router=useNavigate();

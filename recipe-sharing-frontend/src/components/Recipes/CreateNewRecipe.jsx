@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from '../../context/auth.context';
 import toast from 'react-hot-toast';
-import Api from '../axiosconfig';
+import Api from '../../axiosconfig';
 
 const CreateNewRecipe = () => {
     const { state } = useContext(AuthContext);
@@ -100,7 +100,7 @@ const CreateNewRecipe = () => {
                     >
                         <option value="">Select Category</option>
                         <option value="Veg">Veg</option>
-                        <option value="Non veg">Non Veg</option>
+                        <option value="Non Veg">Non Veg</option>
                         <option value="Vegan">Vegan</option>
                         <option value="Special Recipe">Special Recipes</option>
                         <option value="Healthy">Healthy</option>

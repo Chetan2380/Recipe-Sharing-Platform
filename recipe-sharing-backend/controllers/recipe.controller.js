@@ -72,7 +72,7 @@ export const CreateNewRecipe = async (req, res) => {
     }
   };
 
-  export const search = async (req, res) => {
+export const search = async (req, res) => {
     try {
       const { searchedWord } = req.body;
   
