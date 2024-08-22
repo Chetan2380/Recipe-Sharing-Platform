@@ -1,7 +1,7 @@
 import mongoose, { model, Schema, Types } from "mongoose";
 
 const reviewSchema = new Schema({
-    reviewerId : { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    userId : { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
     recipeId: { type: mongoose.Schema.Types.ObjectId, ref: "Recipe" },
     rating: { type: Number, min: 1, max: 5, required: true },
     review: { type: String, required: true }

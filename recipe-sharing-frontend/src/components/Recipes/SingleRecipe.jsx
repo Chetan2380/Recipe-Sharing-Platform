@@ -52,7 +52,7 @@ const SingleRecipe = () => {
     async function handleSubmit() {
         try {
             const response = await Api.post(`/review/add-review/${review}`, {
-                reviewData: editFormData
+                reviewData: editFormData, recipeId: id, userId: state?.user?.userId
             });
             if (response.data.success) {
                 GetRecipeReview();
@@ -118,7 +118,7 @@ const SingleRecipe = () => {
                             <div id="sp-desctext">
                                 <p><b>Rating</b>: {review.rating}</p>
                                 <p><b>Ingredients</b>: {review.review}</p>
-                                {/* <p><b>Username</b>: {review.reviewerId.name}</p> */}
+                                <p><b>Username</b>: {review.userId ? review.userId.name : 'Anonymous'}</p>
                             </div>
                         </div>
                     ))}

@@ -7,23 +7,21 @@ export const ReviewRating = async (req, res) => {
         const { userId, recipeId } = req.body;
         console.log(userId)
         console.log(recipeId)
-        if (!rating || !review || !userId || !recipeId) {
+        if (!rating || !review) {
           return res.json({ success: false, error: "All fields are required." });
         }
-        const isRecipeExist = await Review.findOne({
-          rating,
-          review,
-          reviewerId: userId,
+        const isReviewExist = await Review.findOne({
+            userId: userId,
           recipeId:recipeId
         });
-        if (isRecipeExist) {
+        if (isReviewExist) {
           return res.json({ success: false, error: "Review have already been submitted." });
         }
     
         const newReview = new Review({
             rating:rating,
             review:review,
-            reviewerId: userId,
+            userId: userId,
             recipeId:recipeId
         });
         await newReview.save();
@@ -42,7 +40,7 @@ export const ReviewRating = async (req, res) => {
 export const AddedReviewsByRecipes = async (req, res) => {
     try {
       const { recipeId } = req.body;
-      const reviews = await Review.find({ recipeId: recipeId }).populate('reviewerId', 'name'); ;
+      const reviews = await Review.find({ recipeId: recipeId }).populate('userId', 'name'); ;
       console.log(reviews)
       return res.json({ success: true, reviews });
     } catch (error) {
