@@ -65,7 +65,7 @@ const Navbar = () => {
                         <div onClick={()=>router("/")}>Home</div>
                         {state?.user?.role === "user" && (<div onClick={()=>router("/all-recipes")}>All Recipes</div>)}
                         {state?.user?.role === "user" && (<div onClick={()=>router("/create-new-recipe")}>Add Recipe</div>)}
-                        {!state?.user && (<div onClick={()=>router("/admin-register")}><span>Register</span></div>)}
+                        {!state?.user && (<div onClick={()=>router("/register")}><span>Register</span></div>)}
                         {state?.user && (<div onClick={()=>router("/user-profile")}><span>User Profile</span></div>)}
                         <div>{state?.user ? (<span onClick={handleLogout}>Logout</span>) : (<span onClick={()=>router("/login")}>Login</span>)}</div>                   </div>
                 </div>

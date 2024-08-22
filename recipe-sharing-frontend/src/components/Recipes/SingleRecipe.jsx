@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import Api from '../../axiosconfig';
+import toast from 'react-hot-toast';
 
 const SingleRecipe = () => {
     const { state } = useContext(AuthContext);
@@ -61,9 +62,12 @@ const SingleRecipe = () => {
                     rating: "",
                     review: ""
                 });
+            } else {
+                toast.error(response.data.error || "Error submitting review.");
             }
         } catch (error) {
             console.log(error);
+            toast.error(error.response?.data?.error || "An unexpected error occurred.");
         }
     }
 
