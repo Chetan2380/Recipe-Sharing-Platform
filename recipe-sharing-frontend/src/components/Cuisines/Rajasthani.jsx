@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Api from '../../axiosconfig';
 
-const Maharashtiran = () => {
+const Rajasthani = () => {
     const router=useNavigate();
     const[allRecipes,setAllRecipes]=useState([]);
     const[cuisine,setCuisine]=useState("Maharashtrian");
@@ -10,10 +10,10 @@ const Maharashtiran = () => {
 
     console.log(allRecipes);
 
-    async function GetMaharashtrianRecipe(){
+    async function GetRajasthaniRecipe(){
         setLoading(true);
         try{
-            const response = await Api.get("/cuisine/maharashtrian-recipes",{ params: { cuisine: cuisine } })
+            const response = await Api.get("/cuisine/rajasthani-recipes",{ params: { cuisine: cuisine } })
             if(response.data.success){
                 setLoading(false);
                 setAllRecipes(response.data.recipes);
@@ -25,7 +25,7 @@ const Maharashtiran = () => {
     }
 
     useEffect(() => {
-        GetMaharashtrianRecipe();
+        GetRajasthaniRecipe();
       }, []);
 
     return(
@@ -55,4 +55,4 @@ const Maharashtiran = () => {
     );
 }
 
-export default Maharashtiran
+export default Rajasthani

@@ -108,7 +108,20 @@ const CreateNewRecipe = () => {
             
             {/* <input type='text' name='category' onChange={handleChange} value={recipeData.category}/><br/> */}
             <label>Cuisine:</label><br/>
-            <input type='text' name='cuisine' onChange={handleChange} value={recipeData.cuisine}/><br/>
+            <select
+                        name="cuisine"
+                        value={recipeData.cuisine}
+                        onChange={handleChange}
+                    >
+                        <option value="">Select Cuisine</option>
+                        <option value="Maharashtrian">Maharashtrian</option>
+                        <option value="Gujarati">Gujarati</option>
+                        <option value="Punjabi">Punjabi</option>
+                        <option value="Rajasthani">Rajasthani</option>
+                        <option value="North East">North East</option>
+                        <option value="South Indian">South Indian</option>
+            </select><br/>
+            {/* <input type='text' name='cuisine' onChange={handleChange} value={recipeData.cuisine}/><br/> */}
             <label>Image URL:</label><br/>
             <input type='text' name='image' onChange={handleChange} value={recipeData.image}/><br/>
             {errors.length > 0 && (
