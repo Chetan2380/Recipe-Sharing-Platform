@@ -3,6 +3,7 @@ import { AuthContext } from '../../context/auth.context';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../axiosconfig';
+import "./Login.css";
 
 const Login = () => {
     const {state,dispatch}=useContext(AuthContext);
@@ -41,18 +42,19 @@ const Login = () => {
           toast.error(error?.response?.data?.error);
         }
       }
-  return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <h1>Login</h1>
-            <label>Email:</label><br/>
-            <input type='email' name='email' onChange={handleChange} value={userData.email}/><br/>
-            <label>Password:</label><br/>
-            <input type='password' name='password' onChange={handleChange} value={userData.password}/><br/>
-            <input type='submit' value="Login" />
-        </form>
-    </div>
-  )
+      return (
+        <div className="login-container">
+            <form className="login-form" onSubmit={handleSubmit}>
+                <h1 className="login-heading">Login</h1>
+                <label className="login-label">Email:</label><br />
+                <input className="login-input" type='email' name='email' onChange={handleChange} value={userData.email} /><br />
+                <label className="login-label">Password:</label><br />
+                <input className="login-input" type='password' name='password' onChange={handleChange} value={userData.password} /><br />
+                <input className="login-submit" type='submit' value="Login" />
+                <p>Don't have account. <span onClick={()=>router("/register")}><b><u>Create Account</u></b></span></p>
+            </form>
+        </div>
+    );
 }
 
 export default Login

@@ -46,7 +46,7 @@ const Navbar = () => {
                 <div className="logo">
                     <img src={logo} alt="Navbar Logo" />
                 </div>
-                <div className="search-container">
+                {state?.user && (<div className="search-container">
                     <input
                         type="text"
                         placeholder="Search recipes..."
@@ -55,7 +55,7 @@ const Navbar = () => {
                         onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                     />
                     <i className="fa-solid fa-magnifying-glass" onClick={handleSearch}></i>
-                </div>
+                </div>)}
                 <div className="nav-links">
                     <div onClick={() => router("/")}>Home</div>
                     <div onClick={() => router("/all-recipes")}>Recipes</div>
@@ -85,10 +85,10 @@ const Navbar = () => {
                     )}
 
                     {!state?.user ? (
-                        <>
-                            <div onClick={() => router("/register")}>Register</div>
+                        <div>
+                            {/* <div onClick={() => router("/register")}>Register</div> */}
                             <div onClick={() => router("/login")}>Login</div>
-                        </>
+                        </div>
                     ) : (
                         <>
                             <div className="nav-icon dropdown">
