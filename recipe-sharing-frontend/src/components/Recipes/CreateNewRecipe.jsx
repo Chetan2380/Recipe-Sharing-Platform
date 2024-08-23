@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/auth.context';
 import toast from 'react-hot-toast';
 import Api from '../../axiosconfig';
 import "./CreateNewRecipe.css"
+import Footer from '../Footer/Footer';
 
 const CreateNewRecipe = () => {
     const { state } = useContext(AuthContext);
@@ -50,7 +51,11 @@ const CreateNewRecipe = () => {
     }
 
       return (
+        <div>
         <div className="create-recipe-container">
+            <head>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            </head>
             <form onSubmit={handleSubmit}>
                 <h1>Share Your Recipe</h1>
                 <label>Title:</label>
@@ -97,15 +102,11 @@ const CreateNewRecipe = () => {
                 <label>Image URL:</label>
                 <input type='text' name='image' onChange={handleChange} value={recipeData.image}/>
 
-                {errors.length > 0 && (
-                    <div className="error-messages">
-                        {errors.map((error, i) => (
-                            <p key={i}>{error}*</p>
-                        ))}
-                    </div>
-                )}
+                
                 <input type="submit" value="ADD RECIPE" disabled={disable}/>
             </form>
+        </div>
+        <Footer />
         </div>
     )
 }
