@@ -10,7 +10,7 @@ import { AuthContext } from './context/auth.context';
 import CreateNewRecipe from './components/Recipes/CreateNewRecipe';
 import AllRecipes from './components/Recipes/AllRecipes';
 import SingleRecipe from './components/Recipes/SingleRecipe';
-import UserProfile from './components/UserProfile';
+import UserProfile from './components/User_Profile/UserProfile';
 import VegRecipes from './components/Categories/VegRecipes';
 import NonVegRecipes from './components/Categories/NonVegRecipes';
 import Vegan from './components/Categories/Vegan';
