@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Api from '../../axiosconfig';
+import "../Categories/styles/healthy.css"
 
 const HealthyRecipes = () => {
     const router=useNavigate();

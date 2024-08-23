@@ -50,6 +50,34 @@ const CreateNewRecipe = () => {
         }
     }
 
+    useEffect(() => {
+        const errorsArray = [];
+        if (!recipeData.title) {
+          errorsArray.push("Title is required.");
+        }
+        if (!recipeData.ingredients) {
+          errorsArray.push("Ingredients are required.");
+        }
+        if (!recipeData.instructions) {
+          errorsArray.push("Instructions are required.");
+        }
+        if (!recipeData.cookingTime) {
+          errorsArray.push("Cooking Time is required.");
+        }if (!recipeData.category) {
+          errorsArray.push("Category is required.");
+        }if (!recipeData.cuisine) {
+            errorsArray.push("Cuisine is required.");
+        }if (!recipeData.image) {
+            errorsArray.push("Image is required.");
+        }
+        setErrors(errorsArray);
+        if (errorsArray.length == 0) {
+          setDisable(false);
+        } else {
+          setDisable(true);
+        }
+      }, [recipeData]);
+
       return (
         <div>
         <div className="create-recipe-container">
@@ -103,7 +131,7 @@ const CreateNewRecipe = () => {
                 <input type='text' name='image' onChange={handleChange} value={recipeData.image}/>
 
                 
-                <input type="submit" value="ADD RECIPE" disabled={disable}/>
+                <input type="submit" value="ADD RECIPE"/>
             </form>
         </div>
         <Footer />

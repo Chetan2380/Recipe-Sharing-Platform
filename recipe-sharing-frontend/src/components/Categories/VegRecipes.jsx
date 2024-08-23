@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Api from '../../axiosconfig';
 import { useNavigate } from 'react-router-dom';
+import "../Categories/styles/Veg.css"
 
 const VegRecipes = () => {
     const router=useNavigate();
@@ -28,29 +29,32 @@ const VegRecipes = () => {
         GetVegRecipe();
       }, []);
 
-    return(
-        <div id="main">
-            <h1>All Recipes</h1>
-            
-            <div style={{width:"100%",marginTop:"20px", display:"flex",flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+      return (
+        <div className="veg-recipes-page">
+            <div className="veg-recipes-header">
+                <h1>All Veg Recipes</h1>
             </div>
-                {loading?(<div>
-                    <h1>Loading....</h1>                    
-                </div>):(
-                    <div id="allrecipesshow">
-                    {allRecipes.map((recipe)=>(
-                        <div id="recipeshow" onClick={()=>router(`/single-recipe/${recipe._id}`)}>
-                            <img src={recipe.image} alt="recipe"/>
-                            <p><b>Title</b>: {recipe.title}</p>
-                            <p><b>Ingrediets</b>: {recipe.ingredients}</p>
-                            <p><b>Instructions</b>: ₹{recipe.instructions}</p>
-                            <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
-                            <p><b>Category</b>: {recipe.category}</p>
-                            <p><b>Cuisine</b>: {recipe.cuisine}</p>
+            {loading ? (
+                <div className="veg-recipes-loader">Loading....</div>
+            ) : (
+                <div className="veg-recipes-list">
+                    {allRecipes.map((recipe) => (
+                        <div key={recipe._id} className="veg-recipe-card" onClick={() => router(`/single-recipe/${recipe._id}`)}>
+                            <img src={recipe.image} alt="recipe" />
+                            <div className="veg-recipe-card-info">
+                                <h3 className="veg-recipe-card-title">{recipe.title}</h3>
+                                <div className="veg-recipe-card-details">
+                                    <p><b>Ingredients</b>: {recipe.ingredients}</p>
+                                    <p><b>Instructions</b>: {recipe.instructions}</p>
+                                    <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
+                                    <p><b>Category</b>: {recipe.category}</p>
+                                    <p><b>Cuisine</b>: {recipe.cuisine}</p>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
-                )} 
+            )}
         </div>
     );
 }
