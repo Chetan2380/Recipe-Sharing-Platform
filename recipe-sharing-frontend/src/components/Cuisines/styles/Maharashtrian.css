@@ -65,6 +65,9 @@
     border-radius: 0px 5px 5px 0px;
     height: 40px;
     width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .maharashtiran-rating-container {

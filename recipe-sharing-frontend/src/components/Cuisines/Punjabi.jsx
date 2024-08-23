@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Api from '../../axiosconfig';
 import "../Cuisines/styles/Punjabi.css"
+import Footer from '../Footer/Footer';
 
 const Punjabi = () => {
     const router=useNavigate();
@@ -30,6 +31,7 @@ const Punjabi = () => {
       }, []);
 
       return (
+        <div>
         <div className="punjabi-page">
         <head>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -68,6 +70,8 @@ const Punjabi = () => {
                     ))
                 )}
             </div>
+        </div>
+        <Footer />
         </div>
     );
 }

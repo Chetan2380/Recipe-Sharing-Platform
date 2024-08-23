@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/auth.context';
 import Api from '../../axiosconfig';
 import toast from 'react-hot-toast';
 import "./SingleRecipe.css"
+import Footer from '../Footer/Footer';
 
 const SingleRecipe = () => {
     const { state } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const SingleRecipe = () => {
         review: "",
         reviewerId: ""
     });
-    const [showReviews, setShowReviews] = useState(false); // State to toggle reviews visibility
+    const [showReviews, setShowReviews] = useState(false); 
     const router = useNavigate();
 
     async function GetSingleRecipe() {
@@ -59,11 +60,11 @@ const SingleRecipe = () => {
                     review: ""
                 });
             } else {
-                toast.error(response.data.error || "Error submitting review.");
+                toast.error(response.data.error);
             }
         } catch (error) {
             console.log(error);
-            toast.error(error.response?.data?.error || "An unexpected error occurred.");
+            toast.error(error.response?.data?.error);
         }
     }
 
@@ -95,6 +96,7 @@ const SingleRecipe = () => {
     }, [id]);
 
     return (
+        <div>
         <div id="sp-main">
             {loading ? (
                 <div>
@@ -162,6 +164,8 @@ const SingleRecipe = () => {
                     )}
                 </div>
             )}
+        </div>
+        <Footer />
         </div>
     );
 };
