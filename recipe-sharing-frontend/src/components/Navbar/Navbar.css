@@ -1,6 +1,6 @@
 .navbar-container {
   height: 90px;
-  background-color: #f06909; 
+  background-color: #f06909;
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -21,9 +21,9 @@
 }
 
 .logo img {
-  height: 92px; 
+  height: 92px;
   width: 100px;
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 .search-container {
@@ -31,25 +31,17 @@
   align-items: center;
   margin-right: auto;
   background-color: white;
-  height: 43px; 
+  height: 43px;
 }
 
 .search-container input {
-  height: 30px; 
+  height: 30px;
   padding: 5px;
   font-size: 16px;
   border: none;
   border-radius: 4px;
   outline: none;
 }
-
-/* .search-logo{
-  height: 100%;
-  background-color: gainsboro;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-} */
 
 .search-container i {
   font-size: 18px;
@@ -61,17 +53,73 @@
 .nav-links {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .nav-links div {
-  margin-left: 20px; 
   cursor: pointer;
-  color: white; 
-  line-height: 80px; 
+  color: white;
   font-weight: 500;
   font-size: 18px;
+  line-height: 80px;
+  padding: 0 15px;
+  margin: 0;
+  text-align: center;
 }
 
 .nav-links div:hover {
   text-decoration: underline;
+}
+
+.nav-icon {
+  position: relative;
+}
+
+.nav-icon i {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-header {
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  padding: 0 10px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  top: 100%;
+  right: 0;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.dropdown-menu div {
+  padding: 4px 8px;
+  margin: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.dropdown-menu div:hover {
+  background-color: #444;
+}
+
+.nav-icon:hover .dropdown-menu,
+.dropdown:hover .dropdown-menu {
+  display: block;
 }

@@ -117,6 +117,30 @@ export const Login = async (req, res) => {
     }
   };
 
+  export const updateProfile = async (req, res) => {
+    try {
+        const token = req.cookies.token;
+        const { name, email } = req.body;
+        if (!name || !email) {
+            return res.json({ success: false, error: "All fields are required." });
+        }
+
+        const data = await jwt.verify(token, process.env.JWT_SECRET);
+        if (!data?.userId) {
+            return res.json({ success: false, error: "User not found." });
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(data.userId, { name, email }, { new: true });
+        if (!updatedUser) {
+            return res.json({ success: false, error: "User update failed." });
+        }
+
+        return res.json({ success: true, message: "Profile updated successfully." });
+    } catch (error) {
+        return res.json({ success: false, error });
+    }
+};
+
 export const Logout = async (req, res) => {
     try {
         res.clearCookie("token");

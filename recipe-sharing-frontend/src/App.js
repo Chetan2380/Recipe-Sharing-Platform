@@ -23,6 +23,7 @@ import Rajasthani from './components/Cuisines/Rajasthani';
 import SouthIndian from './components/Cuisines/SouthIndian';
 import NorthEast from './components/Cuisines/NorthEast';
 import ReviewRating from './components/Review_Rating/ReviewRating';
+import EditProfile from './components/User_Profile/EditProfile';
 
 function App() {
   const { state, dispatch } = useContext(AuthContext);
@@ -37,17 +38,18 @@ function App() {
         <Route path="/all-recipes" element={<AllRecipes/>}/>
         <Route path="/single-recipe/:id" element={<SingleRecipe/>}/>
         <Route path="/user-profile" element={<UserProfile/>}/>
+        <Route path="/edit-profile" element={<EditProfile/>}/>
         <Route path="/veg-recipes" element={<VegRecipes/>}/>
         <Route path="/non-veg-recipes" element={<NonVegRecipes/>}/>
         <Route path="/vegan-recipes" element={<Vegan/>}/>
         <Route path="/special-recipes" element={<SpecialRecipes/>}/>
         <Route path="/healthy-recipes" element={<HealthyRecipes/>}/>
         <Route path="/maharashtrian-recipes" element={<Maharashtiran/>}/>
-        <Route path="/maharashtrian-recipes" element={<Gujarati/>}/>
-        <Route path="/maharashtrian-recipes" element={<Punjabi/>}/>
-        <Route path="/maharashtrian-recipes" element={<Rajasthani/>}/>
-        <Route path="/maharashtrian-recipes" element={<SouthIndian/>}/>
-        <Route path="/maharashtrian-recipes" element={<NorthEast/>}/>
+        <Route path="/gujarati-recipes" element={<Gujarati/>}/>
+        <Route path="/punjabi-recipes" element={<Punjabi/>}/>
+        <Route path="/rajasthani-recipes" element={<Rajasthani/>}/>
+        <Route path="/south-inian-recipes" element={<SouthIndian/>}/>
+        <Route path="/north-east-recipes" element={<NorthEast/>}/>
         <Route path="/review-rating" element={<ReviewRating/>}/>
       </Routes>
     </div>
