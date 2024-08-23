@@ -32,29 +32,30 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="home-container">
-            <div className="welcome-container">
-                <h1>Welcome to RecipeShare, {state?.user?.name}!</h1>
+        <div className="home-page">
+            <div className="home-welcome-container">
+                {state?.user && (<h1>Welcome to RecipeShare, {state?.user?.name}!</h1>)}
+                {!state?.user && (<h1>Welcome to RecipeShare</h1>)}
                 <p>Discover and share your favorite recipes</p>
             </div>
             {loading ? (
-                <div className="loader">Loading...</div>
+                <div className="home-loader">Loading...</div>
             ) : (
-                <section className="recipes-section">
+                <section className="home-recipes-section">
                     <h2>Latest Recipes</h2>
-                    <div className="recipes-grid">
+                    <div className="home-recipes-grid">
                         {latestRecipes.length > 0 ? (
                             latestRecipes.map((recipe) => (
-                                <div key={recipe._id} className="recipe-card">
-                                    <img src={recipe.image} alt={recipe.title} className="recipe-image" />
-                                    <div className="recipe-info">
-                                        <h3 className="recipe-title">{recipe.title}</h3>
-                                        <p className="recipe-cuisine">Cuisine: {recipe.cuisine}</p>
-                                        <p className="recipe-category">Category: {recipe.category}</p>
-                                        <p className="recipe-time">Cooking Time: {recipe.cookingTime} mins</p>
-                                        <p className="recipe-rating">Rating: {recipe.averageRating}</p>
+                                <div key={recipe._id} className="home-recipe-card">
+                                    <img src={recipe.image} alt={recipe.title} className="home-recipe-image" />
+                                    <div className="home-recipe-info">
+                                        <h3 className="home-recipe-title">{recipe.title}</h3>
+                                        <p className="home-recipe-cuisine">Cuisine: {recipe.cuisine}</p>
+                                        <p className="home-recipe-category">Category: {recipe.category}</p>
+                                        <p className="home-recipe-time">Cooking Time: {recipe.cookingTime} mins</p>
+                                        <p className="home-recipe-rating">Rating: {recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}</p>
                                         <button
-                                            className="view-details-btn"
+                                            className="home-view-details-btn"
                                             onClick={() => router(`/recipe/${recipe._id}`)}
                                         >
                                             View Details
@@ -63,41 +64,41 @@ const Home = () => {
                                 </div>
                             ))
                         ) : (
-                            <p className="no-recipes">No recipes available at the moment.</p>
+                            <p className="home-no-recipes">No recipes available at the moment.</p>
                         )}
                     </div>
                 </section>
             )}
-            <section className="categories-section">
+            <section className="home-categories-section">
                 <h2>Categories</h2>
-                <div className="categories-grid">
+                <div className="home-categories-grid">
                     <div
-                        className="category-card veg"
-                        onClick={() => router("/category/veg")}
+                        className="home-category-card veg"
+                        onClick={() => router("/veg-recipes")}
                     >
                         Veg
                     </div>
                     <div
-                        className="category-card non-veg"
-                        onClick={() => router("/category/non-veg")}
+                        className="home-category-card non-veg"
+                        onClick={() => router("/non-veg-recipes")}
                     >
                         Non Veg
                     </div>
                     <div
-                        className="category-card vegan"
-                        onClick={() => router("/category/vegan")}
+                        className="home-category-card vegan"
+                        onClick={() => router("/vegan-recipes")}
                     >
                         Vegan
                     </div>
                     <div
-                        className="category-card special-recipes"
-                        onClick={() => router("/category/special-recipes")}
+                        className="home-category-card special-recipes"
+                        onClick={() => router("/special-recipes")}
                     >
                         Special Recipes
                     </div>
                     <div
-                        className="category-card healthy"
-                        onClick={() => router("/category/healthy")}
+                        className="home-category-card healthy"
+                        onClick={() => router("/healthy-recipes")}
                     >
                         Healthy
                     </div>
