@@ -3,25 +3,31 @@
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #f9f9f9; 
 }
 
 .user-info-container {
     flex: 1;
     margin-right: 20px;
+    height: 400px;
 }
 
-.user-name {
-    font-size: 32px; /* 2rem */
-    margin-bottom: 10px;
-}
-
-.user-email {
-    font-size: 16px; /* 1rem */
+.user-box {
+    background: white; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-.user-total-recipes {
-    font-size: 16px; /* 1rem */
+.user-name {
+    font-size: 44px; 
+    margin-bottom: 10px;
+    color: black;
+}
+
+.user-email {
+    font-size: 16px; 
     margin-bottom: 20px;
 }
 
@@ -36,8 +42,16 @@
     margin-bottom: 20px;
 }
 
+.user-box {
+    background: white; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
 .section-title {
-    font-size: 24px; /* 1.5rem */
+    font-size: 34px; 
     margin-bottom: 10px;
 }
 
@@ -48,32 +62,39 @@
 }
 
 .recipe-item {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    width: calc(50% - 20px); /* Adjust width to fit 2 items per row */
-    box-sizing: border-box;
+    position: relative;
+    background: white; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    width: calc(50% - 20px); 
+    height: 250px; 
     cursor: pointer;
-    transition: transform 0.3s;
-    height: 400px; /* Decreased height of cards */
-    overflow: hidden; /* Hide overflow content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
 }
 
 .recipe-item:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .recipe-image {
     width: 100%;
-    height: 260px;
-    border-radius: 5px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .recipe-item p {
     margin: 5px 0;
+    font-size: 24px;
+    margin-top: 26px;
 }
 
 .loading-indicator {
     text-align: center;
     margin-top: 20px;
+    font-size: 24px;
+    color: #BF5700;
 }
