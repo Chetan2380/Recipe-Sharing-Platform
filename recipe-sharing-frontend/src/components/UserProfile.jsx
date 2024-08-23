@@ -10,6 +10,7 @@ const UserProfile = () => {
     const[reviewedRecipes,setReviewedRecipes]=useState([]);
     const [loading, setLoading] = useState(false);
     console.log(allRecipes);
+    console.log(reviewedRecipes)
 
     async function GetReviewedRecipe(){
         setLoading(true);
@@ -18,7 +19,7 @@ const UserProfile = () => {
             console.log(state?.user?.userId)
             if(response.data.success){
                 setLoading(false);
-                setReviewedRecipes(response.data.recipes);
+                setReviewedRecipes([response.data.recipes]);
             } 
         }
         catch(error){
@@ -68,8 +69,8 @@ const UserProfile = () => {
                             <p><b>Cuisine</b>: {recipe.cuisine}</p>
                         </div>
                     ))}
-                    <h1>Your Reviewed Recipes</h1>
-                    {reviewedRecipes.map((reviewedrecipe)=>(
+                    {/* <h1>Your Reviewed Recipes</h1>
+                    {reviewedRecipes.recipeId.map((reviewedrecipe)=>(
                         <div id="recipeshow" onClick={()=>router(`/single-recipe/${reviewedrecipe._id}`)}>
                             <img src={reviewedrecipe.image} alt="recipe"/>
                             <p><b>Title</b>: {reviewedrecipe.title}</p>
@@ -82,7 +83,7 @@ const UserProfile = () => {
                             <p><b>Review</b>: {reviewedrecipe.review}</p>
                             <p><b>Username</b>: {reviewedrecipe.userId ? reviewedrecipe.userId.name : 'Anonymous'}</p>
                         </div>
-                    ))}
+                    ))} */}
                 </div>
                 )} 
         </div>
