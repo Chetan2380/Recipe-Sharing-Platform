@@ -2,7 +2,6 @@
     font-family: 'Arial', sans-serif;
     color: #333;
     padding: 20px;
-    /* background-image: url(https://t4.ftcdn.net/jpg/08/16/22/81/360_F_816228114_BQsMoU6mKBjkWqvz3cuZZaP6x7iTcaA7.jpg); */
     background-color: #555;
     background-size: cover;
     background-position: center;
@@ -101,4 +100,39 @@
     text-align: center;
     font-size: 20px; 
     color: #888;
+}
+
+.categories-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.categories-section h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.categories-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    background-color: #f3f3f3;
+    color: #BF5700;
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    cursor: pointer;
+    flex: 1 1 150px;
+    max-width: 200px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 700;
+}
+
+.category-card:hover {
+    background-color: #BF5700;
+    color: #ffffff;
 }

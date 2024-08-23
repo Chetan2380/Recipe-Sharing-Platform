@@ -8,7 +8,7 @@ import Footer from '../Footer/Footer';
 
 const Home = () => {
     const { state } = useContext(AuthContext);
-    const navigate = useNavigate();
+    const router = useNavigate();
     const [latestRecipes, setLatestRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -37,6 +37,7 @@ const Home = () => {
                 <h1>Welcome to RecipeShare, {state?.user?.name}!</h1>
                 <p>Discover and share your favorite recipes</p>
             </div>
+
             {loading ? (
                 <div className="loader">Loading...</div>
             ) : (
@@ -55,7 +56,7 @@ const Home = () => {
                                         <p className="recipe-rating">Rating: {recipe.averageRating}</p>
                                         <button 
                                             className="view-details-btn"
-                                            onClick={() => navigate(`/recipe/${recipe._id}`)}
+                                            onClick={() => router(`/recipe/${recipe._id}`)}
                                         >
                                             View Details
                                         </button>
@@ -68,6 +69,43 @@ const Home = () => {
                     </div>
                 </section>
             )}
+
+            <section className="categories-section">
+                <h2>Browse by Category</h2>
+                <div className="categories-grid">
+                    <div
+                        className="category-card"
+                        onClick={() => router('/veg-recipes')}
+                    >
+                        Veg
+                    </div>
+                    <div
+                        className="category-card"
+                        onClick={() => router('/non-veg-recipes')}
+                    >
+                        Non Veg
+                    </div>
+                    <div
+                        className="category-card"
+                        onClick={() => router('/vegan-recipes')}
+                    >
+                        Vegan
+                    </div>
+                    <div
+                        className="category-card"
+                        onClick={() => router('/special-recipes')}
+                    >
+                        Special Recipes
+                    </div>
+                    <div
+                        className="category-card"
+                        onClick={() => router('/healthy-recipes')}
+                    >
+                        Healthy
+                    </div>
+                </div>
+            </section>
+
             <Footer />
         </div>
     );
