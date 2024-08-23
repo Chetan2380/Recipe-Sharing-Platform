@@ -75,7 +75,7 @@ const Navbar = () => {
                             <div onClick={() => router("maharashtrian-recipes")}>Maharashtrian</div>
                             <div onClick={() => router("/gujarati-recipes")}>Gujarati</div>
                             <div onClick={() => router("/punjabi-recipes")}>Punjabi</div>
-                            <div onClick={() => router("/rajasthanirecipes")}>Rajasthani</div>
+                            <div onClick={() => router("/rajasthani-recipes")}>Rajasthani</div>
                             <div onClick={() => router("/south-indian-recipes")}>South Indian</div>
                             <div onClick={() => router("/north-east-recipes")}>North East</div>
                         </div>

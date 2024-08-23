@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Api from '../../axiosconfig';
+import "../Cuisines/styles/Punjabi.css"
 
 const Punjabi = () => {
     const router=useNavigate();
     const[allRecipes,setAllRecipes]=useState([]);
-    const[cuisine,setCuisine]=useState("Maharashtrian");
+    const[cuisine,setCuisine]=useState("Punjabi");
     const [loading, setLoading] = useState(false);
 
     console.log(allRecipes);
@@ -28,29 +29,42 @@ const Punjabi = () => {
         GetPunjabiRecipe();
       }, []);
 
-    return(
-        <div id="main">
-            <h1>All Recipes</h1>
-            
-            <div style={{width:"100%",marginTop:"20px", display:"flex",flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-            </div>
-                {loading?(<div>
-                    <h1>Loading....</h1>                    
-                </div>):(
-                    <div id="allrecipesshow">
-                    {allRecipes.map((recipe)=>(
-                        <div id="recipeshow" onClick={()=>router(`/single-recipe/${recipe._id}`)}>
-                            <img src={recipe.image} alt="recipe"/>
-                            <p><b>Title</b>: {recipe.title}</p>
-                            <p><b>Ingrediets</b>: {recipe.ingredients}</p>
-                            <p><b>Instructions</b>: ₹{recipe.instructions}</p>
-                            <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
-                            <p><b>Category</b>: {recipe.category}</p>
-                            <p><b>Cuisine</b>: {recipe.cuisine}</p>
+      return (
+        <div className="punjabi-page">
+            <h1>All Punjabi Recipes</h1>
+            <div className="punjabi-grid">
+                {loading ? (
+                    <div className="punjabi-loading">Loading....</div>
+                ) : (
+                    allRecipes.map((recipe) => (
+                        <div
+                            key={recipe._id}
+                            className="punjabi-card"
+                            onClick={() => router(`/single-recipe/${recipe._id}`)}
+                        >
+                            <img
+                                className="punjabi-image"
+                                src={recipe.image}
+                                alt="recipe"
+                            />
+                            <div className="punjabi-details">
+                                <p className="punjabi-title"><b>Title</b>: {recipe.title}</p>
+                                <p><b>Ingredients</b>: {recipe.ingredients}</p>
+                                <p><b>Instructions</b>: {recipe.instructions}</p>
+                                <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
+                                <p><b>Category</b>: {recipe.category}</p>
+                                <p><b>Cuisine</b>: {recipe.cuisine}</p>
+                            </div>
+                            <div className="punjabi-cooking-time-container">
+                                <span>Cooking Time</span>
+                            </div>
+                            <div className="punjabi-rating-container">
+                                <span className="punjabi-rating">Rating</span>
+                            </div>
                         </div>
-                    ))}
-                </div>
-                )} 
+                    ))
+                )}
+            </div>
         </div>
     );
 }

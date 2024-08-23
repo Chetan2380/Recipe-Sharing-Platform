@@ -50,8 +50,8 @@ export const CreateNewRecipe = async (req, res) => {
             ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length 
             : 0;
         return {
-            ...recipe._doc, // Spread the existing recipe data
-            averageRating: averageRating.toFixed(1) // Round to one decimal place
+            ...recipe._doc,
+            averageRating: averageRating.toFixed(1) 
         };
     }));
 
@@ -121,7 +121,7 @@ export const search = async (req, res) => {
     try {
         const recipes = await Recipe.find({})
             .sort({ createdAt: -1 })
-            .limit(4); // Limit to the latest 4 recipes
+            .limit(4); 
         
         const recipesWithRatings = await Promise.all(recipes.map(async (recipe) => {
             const reviews = await Review.find({ recipeId: recipe._id });
@@ -129,8 +129,8 @@ export const search = async (req, res) => {
                 ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length 
                 : 0;
             return {
-                ...recipe._doc, // Spread the existing recipe data
-                averageRating: averageRating.toFixed(1) // Round to one decimal place
+                ...recipe._doc, 
+                averageRating: averageRating.toFixed(1) 
             };
         }));
 

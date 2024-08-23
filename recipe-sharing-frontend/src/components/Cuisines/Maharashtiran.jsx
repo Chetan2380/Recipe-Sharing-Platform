@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Api from '../../axiosconfig';
+import "../Cuisines/styles/Maharashtrian.css"
 
 const Maharashtiran = () => {
     const router=useNavigate();
@@ -28,31 +29,40 @@ const Maharashtiran = () => {
         GetMaharashtrianRecipe();
       }, []);
 
-    return(
-        <div id="main">
-            <h1>All Recipes</h1>
-            
-            <div style={{width:"100%",marginTop:"20px", display:"flex",flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-            </div>
-                {loading?(<div>
-                    <h1>Loading....</h1>                    
-                </div>):(
-                    <div id="allrecipesshow">
-                    {allRecipes.map((recipe)=>(
-                        <div id="recipeshow" onClick={()=>router(`/single-recipe/${recipe._id}`)}>
-                            <img src={recipe.image} alt="recipe"/>
-                            <p><b>Title</b>: {recipe.title}</p>
-                            <p><b>Ingrediets</b>: {recipe.ingredients}</p>
-                            <p><b>Instructions</b>: ₹{recipe.instructions}</p>
-                            <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
-                            <p><b>Category</b>: {recipe.category}</p>
-                            <p><b>Cuisine</b>: {recipe.cuisine}</p>
+      return (
+        <div className="maharashtiran-page">
+            <h1>All Maharashtrian Recipes</h1>
+            <div className="maharashtiran-grid">
+                {loading ? (
+                    <div className="maharashtiran-loading">Loading....</div>
+                ) : (
+                    allRecipes.map((recipe) => (
+                        <div
+                            key={recipe._id}
+                            className="maharashtiran-card"
+                            onClick={() => router(`/single-recipe/${recipe._id}`)}
+                        >
+                            <img
+                                className="maharashtiran-image"
+                                src={recipe.image}
+                                alt="recipe"
+                            />
+                            <div className="maharashtiran-details">
+                                <p className="maharashtiran-title"><b>{recipe.title}</b></p>
+                            </div>
+                            <div className="maharashtiran-cooking-time-container">
+                                <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>
+                            </div>
+                            <div className="maharashtiran-rating-container">
+                                <span className="maharashtiran-rating"><i class="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating ? recipe.averageRating : 'NA'}</span>
+                            </div>
                         </div>
-                    ))}
-                </div>
-                )} 
+                    ))
+                )}
+            </div>
         </div>
     );
+
 }
 
 export default Maharashtiran
