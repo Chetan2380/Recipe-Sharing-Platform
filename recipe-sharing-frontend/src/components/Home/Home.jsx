@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Api from '../../axiosconfig';
 import toast from 'react-hot-toast';
 import "./Home.css"
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     const { state } = useContext(AuthContext);
@@ -32,10 +33,10 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <header className="home-header">
+            <div className="welcome-container">
                 <h1>Welcome to RecipeShare, {state?.user?.name}!</h1>
                 <p>Discover and share your favorite recipes</p>
-            </header>
+            </div>
             {loading ? (
                 <div className="loader">Loading...</div>
             ) : (
@@ -54,7 +55,7 @@ const Home = () => {
                                         <p className="recipe-rating">Rating: {recipe.averageRating}</p>
                                         <button 
                                             className="view-details-btn"
-                                            onClick={() => navigate(`/single-recipe/${recipe._id}`)}
+                                            onClick={() => navigate(`/recipe/${recipe._id}`)}
                                         >
                                             View Details
                                         </button>
@@ -67,6 +68,7 @@ const Home = () => {
                     </div>
                 </section>
             )}
+            <Footer />
         </div>
     );
 };
