@@ -1,0 +1,206 @@
+#sp-main {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+#allrecipesshow {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#sb-recipeshow {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+#sp-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#sp-title h1 {
+    font-size: 34px; /* Bigger font size for title */
+    color: #333;
+}
+
+#sp-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#sp-desctext {
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#sp-desctext h1 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+#sp-desctext p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+
+#sp-desctext button {
+    margin-left: 60px; 
+}
+
+#sp-desctext button:last-child {
+    margin-left: 300px; /* Adds space between the "Show Reviews" button and other content */
+}
+
+#details-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#ingredients,
+#instructions {
+    flex: 1;
+    min-width: 300px;
+    white-space: pre-line;
+}
+
+#ingredients h2,
+#instructions h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#ingredients ul,
+#instructions ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    white-space: pre-line;
+}
+
+#ingredients li,
+#instructions li {
+    margin-bottom: 5px;
+    white-space: pre-line;
+}
+
+#review-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-item {
+    position: relative; /* Required for positioning username at the bottom right */
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-item:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.review-rating {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.review-username {
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-style: italic;
+}
+
+
+#editForm {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#editForm h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+#editForm label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+#editForm input,
+#editForm textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#editForm textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#editForm button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: brown;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#editForm button:hover {
+    background-color: rgb(128, 45, 45);
+}
+
+#sp-desctext button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: brown; /* Primary color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+#sp-desctext button:hover {
+    background-color: rgb(128, 45, 45); /* Darker shade for hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

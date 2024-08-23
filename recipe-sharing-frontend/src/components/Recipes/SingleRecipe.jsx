@@ -3,49 +3,45 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import Api from '../../axiosconfig';
 import toast from 'react-hot-toast';
+import "./SingleRecipe.css"
 
 const SingleRecipe = () => {
     const { state } = useContext(AuthContext);
-    const {id}=useParams();
-    const[singlerecipe,setSinglerecipe]=useState([]);
+    const { id } = useParams();
+    const [singlerecipe, setSinglerecipe] = useState([]);
     const [loading, setLoading] = useState(false);
-    const[recipeReview,setRecipeReview]=useState([]);
+    const [recipeReview, setRecipeReview] = useState([]);
     const [review, setReview] = useState(null);
     const [editFormData, setEditFormData] = useState({
         rating: "",
         review: "",
         reviewerId: ""
     });
-    console.log(singlerecipe);
-    console.log(recipeReview)
+    const [showReviews, setShowReviews] = useState(false); // State to toggle reviews visibility
     const router = useNavigate();
 
-    async function GetSingleRecipe(){
+    async function GetSingleRecipe() {
         setLoading(true);
-        try{
-            const response = await Api.post("/recipe/get-single-recipe",{recipeId: id});
-            console.log(response)
-            if(response.data.success){
+        try {
+            const response = await Api.post("/recipe/get-single-recipe", { recipeId: id });
+            if (response.data.success) {
                 setLoading(false);
                 setSinglerecipe([response.data.recipe]);
-            } 
-        }
-        catch(error){
+            }
+        } catch (error) {
             console.log(error);
         }
     }
 
-    async function GetRecipeReview(){
+    async function GetRecipeReview() {
         setLoading(true);
-        try{
-            const response = await Api.post("/review/added-reviews",{recipeId: id});
-            console.log(response)
-            if(response.data.success){
+        try {
+            const response = await Api.post("/review/added-reviews", { recipeId: id });
+            if (response.data.success) {
                 setLoading(false);
                 setRecipeReview(response.data.reviews);
-            } 
-        }
-        catch(error){
+            }
+        } catch (error) {
             console.log(error);
         }
     }
@@ -87,69 +83,87 @@ const SingleRecipe = () => {
         }));
     }
 
+    function toggleReviews() {
+        setShowReviews(prevShowReviews => !prevShowReviews);
+    }
 
-    useEffect(()=>{
-        if(id){
+    useEffect(() => {
+        if (id) {
             GetSingleRecipe();
             GetRecipeReview();
         }
-       },[id]);
+    }, [id]);
 
-    return(
+    return (
         <div id="sp-main">
-                {loading?(<div>
-                    <h1>Loading....</h1>                    
-                </div>):(
-                    <div id="allrecipesshow">
-                    {singlerecipe.map((recipe)=>(
-                        <div id="sb-recipeshow">
+            {loading ? (
+                <div>
+                    <h1>Loading....</h1>
+                </div>
+            ) : (
+                <div id="allrecipesshow">
+                    {singlerecipe.map((recipe) => (
+                        <div id="sb-recipeshow" key={recipe._id}>
+                            <div id="sp-title">
+                                <h1>{recipe.title}</h1>
+                            </div>
                             <div id="sp-image">
-                                <img src={recipe.image}/>
+                                <img src={recipe.image} alt={recipe.title} />
                             </div>
                             <div id="sp-desctext">
-                                <p><b>Title</b>: {recipe.title}</p>
-                                <p><b>Ingredients</b>: ₹{recipe.ingredients}</p>
-                                <p><b>Instructions</b>: ₹{recipe.instructions}</p>
-                                <p><b>Cooking Time</b>: ₹{recipe.cookingTime}</p>
+                                <p><b>Ingredients</b>: <br/> {recipe.ingredients.split('\n').map((item, index) => (
+                                    <span key={index}>• {item}<br/></span>
+                                ))}</p>
+                                <p><b>Instructions</b>: <br/> {recipe.instructions.split('\n').map((item, index) => (
+                                    <span key={index}>• {item}<br/></span>
+                                ))}</p>
+                                <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
                                 <p><b>Category</b>: {recipe.category}</p>
                                 <p><b>Cuisine</b>: {recipe.cuisine}</p>
                                 <button onClick={() => handleEdit(recipe)}>Please review recipe</button>
+                                <button onClick={toggleReviews}>
+                                    {showReviews ? "Hide Reviews" : "Show Reviews"}
+                                </button>
                             </div>
                         </div>
                     ))}
-                    {recipeReview.map((review)=>(
-                        <div id="sb-recipeshow">
-                            <div id="sp-desctext">
-                                <p><b>Rating</b>: {review.rating}</p>
-                                <p><b>Review</b>: {review.review}</p>
-                                <p><b>Username</b>: {review.userId ? review.userId.name : 'Anonymous'}</p>
-                            </div>
+                    {showReviews && (
+                        <div id="review-container">
+                            {recipeReview.map((review) => (
+                                <div className="review-item" key={review._id}>
+                                    <p className="review-rating"><b>Rating:</b> {review.rating}</p>
+                                    <p className="review-text"><b>Review:</b> {review.review}</p>
+                                    <p className="review-username">
+                                        <b>Username:</b> {review.userId ? review.userId.name : 'Anonymous'}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    )}
                     {review && (
-                <div id="editForm">
-                    <h2>Edit Task</h2>
-                    <input
-                        type="number"
-                        name="rating"
-                        value={editFormData.rating}
-                        onChange={handleInputChange}
-                    />
-                    <input
-                        type="text"
-                        name="review"
-                        value={editFormData.review}
-                        onChange={handleInputChange}
-                    />
-                    
-                    <button onClick={handleSubmit}>Update Task</button>
-                    <button onClick={() => setReview(null)}>Cancel</button>
+                        <div id="editForm">
+                            <h2>Edit Review</h2>
+                            <input
+                                type="number"
+                                name="rating"
+                                value={editFormData.rating}
+                                onChange={handleInputChange}
+                                placeholder="Rating"
+                            />
+                            <textarea
+                                name="review"
+                                value={editFormData.review}
+                                onChange={handleInputChange}
+                                placeholder="Review"
+                            />
+                            <button onClick={handleSubmit}>Update Review</button>
+                            <button onClick={() => setReview(null)}>Cancel</button>
+                        </div>
+                    )}
                 </div>
             )}
-                </div>
-                )} 
         </div>
     );
-}
+};
 
 export default SingleRecipe;
