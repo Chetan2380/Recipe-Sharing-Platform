@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import toast from 'react-hot-toast';
 import Api from '../../axiosconfig';
+import "./CreateNewRecipe.css"
 
 const CreateNewRecipe = () => {
     const { state } = useContext(AuthContext);
@@ -48,94 +49,65 @@ const CreateNewRecipe = () => {
         }
     }
 
-    useEffect(() => {
-        const errorsArray = [];
-        if (!recipeData.title) {
-          errorsArray.push("Title is required.");
-        }
-        if (!recipeData.ingredients) {
-          errorsArray.push("Ingredients is required.");
-        }
-        if (!recipeData.instructions) {
-          errorsArray.push("Instructions is required.");
-        }
-        if (!recipeData.cookingTime) {
-          errorsArray.push("Cooking Time is required.");
-        }
-        if (!recipeData.category) {
-          errorsArray.push("Category is required.");
-        }
-        if (!recipeData.cuisine) {
-          errorsArray.push("Cuisine is required.");
-        }if (!recipeData.image) {
-          errorsArray.push("Image is required.");
-        }
-        setErrors(errorsArray);
-        if (errorsArray.length == 0) {
-          setDisable(false);
-        } else {
-          setDisable(true);
-        }
-      }, [recipeData]);
+      return (
+        <div className="create-recipe-container">
+            <form onSubmit={handleSubmit}>
+                <h1>Share Your Recipe</h1>
+                <label>Title:</label>
+                <input type='text' name='title' onChange={handleChange} value={recipeData.title}/>
 
-  return (
-    
-    <div>
-      
-        <form onSubmit={handleSubmit}>
-            <h1>Create New Recipe</h1>
-            <label>Title:</label><br/>
-            <input type='text' name='title' onChange={handleChange} value={recipeData.title}/><br/>
-            <label>Ingredients:</label><br/>
-            <textarea name='ingredients' onChange={handleChange} value={recipeData.ingredients}></textarea><br/>
-            <label>Instructions:</label><br/>
-            <textarea name='instructions' onChange={handleChange} value={recipeData.instructions}></textarea><br/>
-            <label>Cooking Time:</label><br/>
-            <input type='text' name='cookingTime' onChange={handleChange} value={recipeData.cookingTime}/><br/>
-            <label>Category:</label><br/>
-            <select
-                        name="category"
-                        value={recipeData.category}
-                        onChange={handleChange}
-                    >
-                        <option value="">Select Category</option>
-                        <option value="Veg">Veg</option>
-                        <option value="Non Veg">Non Veg</option>
-                        <option value="Vegan">Vegan</option>
-                        <option value="Special Recipe">Special Recipes</option>
-                        <option value="Healthy">Healthy</option>
-            </select><br/>
-            
-            {/* <input type='text' name='category' onChange={handleChange} value={recipeData.category}/><br/> */}
-            <label>Cuisine:</label><br/>
-            <select
-                        name="cuisine"
-                        value={recipeData.cuisine}
-                        onChange={handleChange}
-                    >
-                        <option value="">Select Cuisine</option>
-                        <option value="Maharashtrian">Maharashtrian</option>
-                        <option value="Gujarati">Gujarati</option>
-                        <option value="Punjabi">Punjabi</option>
-                        <option value="Rajasthani">Rajasthani</option>
-                        <option value="North East">North East</option>
-                        <option value="South Indian">South Indian</option>
-            </select><br/>
-            {/* <input type='text' name='cuisine' onChange={handleChange} value={recipeData.cuisine}/><br/> */}
-            <label>Image URL:</label><br/>
-            <input type='text' name='image' onChange={handleChange} value={recipeData.image}/><br/>
-            {errors.length > 0 && (
-          <div>
-            {errors.map((error, i) => (
-              <p key={i}>{error}*</p>
-            ))}
-          </div>
-        )}
-            <input type="submit" value="ADD RECIPE" />
-        </form>
-        
-    </div>
-  )
+                <label>Ingredients:</label>
+                <textarea name='ingredients' onChange={handleChange} value={recipeData.ingredients}></textarea>
+
+                <label>Instructions:</label>
+                <textarea name='instructions' onChange={handleChange} value={recipeData.instructions}></textarea>
+
+                <label>Cooking Time:</label>
+                <input type='text' name='cookingTime' onChange={handleChange} value={recipeData.cookingTime}/>
+
+                <label>Category:</label>
+                <select
+                    name="category"
+                    value={recipeData.category}
+                    onChange={handleChange}
+                >
+                    <option value="">Select Category</option>
+                    <option value="Veg">Veg</option>
+                    <option value="Non Veg">Non Veg</option>
+                    <option value="Vegan">Vegan</option>
+                    <option value="Special Recipe">Special Recipes</option>
+                    <option value="Healthy">Healthy</option>
+                </select>
+
+                <label>Cuisine:</label>
+                <select
+                    name="cuisine"
+                    value={recipeData.cuisine}
+                    onChange={handleChange}
+                >
+                    <option value="">Select Cuisine</option>
+                    <option value="Maharashtrian">Maharashtrian</option>
+                    <option value="Gujarati">Gujarati</option>
+                    <option value="Punjabi">Punjabi</option>
+                    <option value="Rajasthani">Rajasthani</option>
+                    <option value="North East">North East</option>
+                    <option value="South Indian">South Indian</option>
+                </select>
+
+                <label>Image URL:</label>
+                <input type='text' name='image' onChange={handleChange} value={recipeData.image}/>
+
+                {errors.length > 0 && (
+                    <div className="error-messages">
+                        {errors.map((error, i) => (
+                            <p key={i}>{error}*</p>
+                        ))}
+                    </div>
+                )}
+                <input type="submit" value="ADD RECIPE" disabled={disable}/>
+            </form>
+        </div>
+    )
 }
 
 export default CreateNewRecipe;
