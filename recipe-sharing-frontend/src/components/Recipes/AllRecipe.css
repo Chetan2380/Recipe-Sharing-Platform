@@ -28,10 +28,9 @@ h1 {
 }
 
 .recipe-card {
-    position: relative; /* Added position relative */
+    position: relative; 
     background: gray;
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgb(150, 148, 148); */
     overflow: hidden;
     width: 22%;
     height: 320px;
@@ -71,7 +70,7 @@ h1 {
     position: absolute;
     bottom: 0px;
     right: 0px;
-    background: orange; /* semi-transparent background */
+    background: orange;
     color: white;
     padding: 5px;
     border-radius: 0px 0px 5px 0px;
@@ -85,7 +84,7 @@ h1 {
     position: absolute;
     bottom: 0px;
     left: 0px;
-    background: orange; /* semi-transparent background */
+    background: orange;
     color: white;
     padding: 5px;
     border-radius: 0px opx 5px 0px;

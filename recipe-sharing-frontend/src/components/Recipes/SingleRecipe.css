@@ -25,7 +25,7 @@
 }
 
 #sp-title h1 {
-    font-size: 34px; /* Bigger font size for title */
+    font-size: 34px; 
     color: #333;
 }
 
@@ -59,7 +59,7 @@
 }
 
 #sp-desctext button:last-child {
-    margin-left: 300px; /* Adds space between the "Show Reviews" button and other content */
+    margin-left: 300px; 
 }
 
 #details-container {
@@ -104,7 +104,7 @@
 }
 
 .review-item {
-    position: relative; /* Required for positioning username at the bottom right */
+    position: relative; 
     padding: 15px;
     margin-bottom: 20px;
     background-color: #fff;
@@ -191,7 +191,7 @@
     padding: 10px 20px;
     font-size: 16px;
     color: white;
-    background-color: brown; /* Primary color */
+    background-color: brown; 
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -200,7 +200,7 @@
 }
 
 #sp-desctext button:hover {
-    background-color: rgb(128, 45, 45); /* Darker shade for hover effect */
+    background-color: rgb(128, 45, 45); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

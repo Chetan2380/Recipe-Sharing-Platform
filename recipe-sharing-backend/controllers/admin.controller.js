@@ -59,7 +59,7 @@ export const LoginAdmin = async (req,res) => {
         return res.json({ success: false, error: "Password is wrong." });
       }
       const adminData = { name: isAdminExists.name, email: isAdminExists.email, role: "admin", userId: isAdminExists._id, };
-      // add admin data (context), add jwt token,
+      
   
       const token = await jwt.sign(
         { adminId: isAdminExists._id },
