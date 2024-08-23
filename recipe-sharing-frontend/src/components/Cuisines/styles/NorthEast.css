@@ -4,6 +4,10 @@
     padding: 20px;
 }
 
+.north-east-page >h1{
+    color: black;
+}
+
 .north-east-loading {
     text-align: center;
     font-size: 24px;
@@ -65,16 +69,17 @@
 
 .north-east-rating-container {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    background: rgba(255, 140, 0, 0.8);
+    bottom: 0px;
+    right: 0px;
+    background: orange; 
     color: white;
     padding: 5px;
-    border-radius: 0 0 5px 0;
+    border-radius: 5px 0px 0px 5px;
     height: 40px;
-    width: 40%;
+    width: 16%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .north-east-rating {
