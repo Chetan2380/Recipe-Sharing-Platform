@@ -10,6 +10,9 @@ export const ReviewRating = async (req, res) => {
         if (!rating || !review) {
           return res.json({ success: false, error: "All fields are required." });
         }
+        if (rating < 1 || rating > 5) {
+          return res.json({ success: false, error: "Rating must be between 1 and 5." });
+      }
         const isReviewExist = await Review.findOne({
             userId: userId,
           recipeId:recipeId

@@ -151,6 +151,8 @@ const SingleRecipe = () => {
                                 value={editFormData.rating}
                                 onChange={handleInputChange}
                                 placeholder="Rating"
+                                min="1" 
+                                max="5"
                             />
                             <textarea
                                 name="review"
