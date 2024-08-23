@@ -45,19 +45,21 @@ const UserProfile = () => {
         }
     }, [state]);
 
+    const userNameInitial = state?.user?.name?.charAt(0).toUpperCase();
+
     return (
         <div>
         <div className="user-profile-container">
-            <head>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-            </head>
-            <div className="user-info-container user-box">
-                <h1 className="user-name">{state?.user?.name}</h1>
-                <p className="user-email">{state?.user?.email}</p>
+            <div className="user-info-container">
+                <div className="user-box">
+                    <div className="profile-letter">{userNameInitial}</div>
+                    <h1 className="user-name">{state?.user?.name}</h1>
+                    <p className="user-email">{state?.user?.email}</p>
+                </div>
             </div>
             <div className="user-recipes-reviews">
-                <div className="user-recipes-container user-box">
-                    <h2 className="section-title">Recipes Shared By You</h2>
+                <div className="user-recipes-container">
+                    <h2 className="section-title">Your Added Recipes</h2>
                     {loading ? (
                         <div className="loading-indicator"><h1>Loading....</h1></div>
                     ) : (
@@ -75,8 +77,8 @@ const UserProfile = () => {
                         </div>
                     )}
                 </div>
-                <div className="user-reviews-container user-box">
-                    <h2 className="section-title">Recipes Reviewed By You</h2>
+                <div className="user-reviews-container">
+                    <h2 className="section-title">Your Reviewed Recipes</h2>
                     {loading ? (
                         <div className="loading-indicator"><h1>Loading....</h1></div>
                     ) : (
