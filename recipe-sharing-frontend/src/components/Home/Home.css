@@ -1,20 +1,23 @@
 .home-container {
     font-family: 'Arial', sans-serif;
     color: #333;
-    padding: 20px;
+    /* padding: 20px; */
     background-color: #555;
     background-size: cover;
     background-position: center;
-    height: 1500px;
+    height: 1300px;
 }
 
 .welcome-container {
-    background: rgba(0, 0, 0, 0.6); 
+    /* background: rgba(0, 0, 0, 0.6);  */
     color: white;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
     text-align: center;
+    width: 94%;
+    margin: auto;
+    padding-top: 20px;
 }
 
 .welcome-container h1 {
@@ -34,8 +37,10 @@
 
 .recipes-section {
     margin-top: 20px;
+    padding-top: 10px;
     color: white;
-    height: 500px;
+    height: 510px;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .recipes-grid {
@@ -120,19 +125,46 @@
 }
 
 .category-card {
-    background-color: #f3f3f3;
-    color: #BF5700;
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+    color: rgba(191, 87, 0, 0.8);
     padding: 20px;
-    border-radius: 25px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
     text-align: center;
     cursor: pointer;
-    flex: 1 1 150px;
-    max-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.3s, color 0.3s;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .category-card:hover {
-    background-color: #BF5700;
-    color: #ffffff;
+    background-color: rgba(191, 87, 0, 0.8);
+    color: white;
+}
+
+.category-card.veg {
+    background-image: url('https://example.com/veg-image.jpg');
+}
+
+.category-card.non-veg {
+    background-image: url('https://example.com/non-veg-image.jpg');
+}
+
+.category-card.vegan {
+    background-image: url('https://example.com/vegan-image.jpg'); 
+}
+
+.category-card.special-recipes {
+    background-image: url('https://example.com/special-recipes-image.jpg'); 
+}
+
+.category-card.healthy {
+    background-image: url('https://example.com/healthy-image.jpg'); 
 }

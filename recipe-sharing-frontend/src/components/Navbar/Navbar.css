@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   height: 100%;
 }
@@ -30,6 +30,8 @@
   display: flex;
   align-items: center;
   margin-right: auto;
+  background-color: white;
+  height: 43px; 
 }
 
 .search-container input {
@@ -38,11 +40,22 @@
   font-size: 16px;
   border: none;
   border-radius: 4px;
+  outline: none;
 }
 
+/* .search-logo{
+  height: 100%;
+  background-color: gainsboro;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+} */
+
 .search-container i {
+  font-size: 18px;
   margin-left: 10px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .nav-links {

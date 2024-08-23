@@ -37,7 +37,6 @@ const Home = () => {
                 <h1>Welcome to RecipeShare, {state?.user?.name}!</h1>
                 <p>Discover and share your favorite recipes</p>
             </div>
-
             {loading ? (
                 <div className="loader">Loading...</div>
             ) : (
@@ -47,14 +46,14 @@ const Home = () => {
                         {latestRecipes.length > 0 ? (
                             latestRecipes.map((recipe) => (
                                 <div key={recipe._id} className="recipe-card">
-                                    <img src={recipe.image} alt={recipe.title} className="recipe-image"/>
+                                    <img src={recipe.image} alt={recipe.title} className="recipe-image" />
                                     <div className="recipe-info">
                                         <h3 className="recipe-title">{recipe.title}</h3>
                                         <p className="recipe-cuisine">Cuisine: {recipe.cuisine}</p>
                                         <p className="recipe-category">Category: {recipe.category}</p>
                                         <p className="recipe-time">Cooking Time: {recipe.cookingTime} mins</p>
                                         <p className="recipe-rating">Rating: {recipe.averageRating}</p>
-                                        <button 
+                                        <button
                                             className="view-details-btn"
                                             onClick={() => router(`/recipe/${recipe._id}`)}
                                         >
@@ -69,43 +68,41 @@ const Home = () => {
                     </div>
                 </section>
             )}
-
             <section className="categories-section">
-                <h2>Browse by Category</h2>
+                <h2>Categories</h2>
                 <div className="categories-grid">
                     <div
-                        className="category-card"
-                        onClick={() => router('/veg-recipes')}
+                        className="category-card veg"
+                        onClick={() => router("/category/veg")}
                     >
                         Veg
                     </div>
                     <div
-                        className="category-card"
-                        onClick={() => router('/non-veg-recipes')}
+                        className="category-card non-veg"
+                        onClick={() => router("/category/non-veg")}
                     >
                         Non Veg
                     </div>
                     <div
-                        className="category-card"
-                        onClick={() => router('/vegan-recipes')}
+                        className="category-card vegan"
+                        onClick={() => router("/category/vegan")}
                     >
                         Vegan
                     </div>
                     <div
-                        className="category-card"
-                        onClick={() => router('/special-recipes')}
+                        className="category-card special-recipes"
+                        onClick={() => router("/category/special-recipes")}
                     >
                         Special Recipes
                     </div>
                     <div
-                        className="category-card"
-                        onClick={() => router('/healthy-recipes')}
+                        className="category-card healthy"
+                        onClick={() => router("/category/healthy")}
                     >
                         Healthy
                     </div>
                 </div>
             </section>
-
             <Footer />
         </div>
     );
