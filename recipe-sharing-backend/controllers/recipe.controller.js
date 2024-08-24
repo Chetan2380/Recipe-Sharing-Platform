@@ -66,7 +66,7 @@ export const CreateNewRecipe = async (req, res) => {
         },
         {
           $project: {
-            reviews: 0 // Exclude the reviews field from the final output
+            reviews: 0 
           }
         }
       ]);

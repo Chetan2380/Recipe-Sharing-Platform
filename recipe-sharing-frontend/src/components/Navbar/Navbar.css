@@ -122,4 +122,5 @@
 .nav-icon:hover .dropdown-menu,
 .dropdown:hover .dropdown-menu {
   display: block;
+  width: fit-content;
 }
