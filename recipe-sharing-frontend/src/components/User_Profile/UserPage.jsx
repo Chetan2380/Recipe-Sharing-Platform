@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Api from '../../axiosconfig';
 import { useNavigate } from 'react-router-dom';
-import './UserPage.css'; // Make sure to import your CSS
+import './UserPage.css'; 
+import Footer from '../Footer/Footer';
 
 const UserPage = () => {
     const [users, setUsers] = useState([]);
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [userRecipes, setUserRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+    const router = useNavigate();
 
-    // Fetch all users
+    
     useEffect(() => {
         const fetchUsers = async () => {
             setLoading(true);
             try {
-                const response = await Api.get('/auth/users');
+                const response = await Api.get('/auth/users'); 
                 if (response.data.success) {
                     setUsers(response.data.users);
                 }
@@ -28,7 +29,7 @@ const UserPage = () => {
         fetchUsers();
     }, []);
 
-    // Fetch recipes for a selected user
+    
     useEffect(() => {
         if (selectedUserId) {
             const fetchUserRecipes = async () => {
@@ -50,14 +51,15 @@ const UserPage = () => {
 
     const handleUserClick = (userId) => {
         setSelectedUserId(userId);
-        navigate(`/user-page/${userId}`);
+        router(`/user-page/${userId}`);
     };
 
     return (
+        <div>
         <div className="user-page-container">
             <div className="intro-message">
-                <h1>Welcome to the Community!</h1>
-                <p>Explore recipes shared by our amazing users. Click on a user to view their recipes and get inspired!</p>
+                <h1>Welcome to Our Community!</h1>
+                <p>Explore recipes shared by our users. Click on a username to view their recipes.</p>
             </div>
             <div className="content-container">
                 <div className="user-list-container">
@@ -65,21 +67,21 @@ const UserPage = () => {
                     {loading ? (
                         <div className="loading-indicator"><h1>Loading....</h1></div>
                     ) : (
-                        <ul className="user-list">
+                        <div className="user-list">
                             {users.map((user) => (
-                                <li
+                                <div
                                     key={user._id}
                                     onClick={() => handleUserClick(user._id)}
                                     className={`user-item ${user._id === selectedUserId ? 'selected' : ''}`}
                                 >
                                     {user.name}
-                                </li>
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     )}
                 </div>
                 <div className="user-recipes-container">
-                    <h2>Recipes Added by {users.find(user => user._id === selectedUserId)?.name || 'Selected User'}</h2>
+                    <h2>Recipes Added by {selectedUserId ? users.find(user => user._id === selectedUserId)?.name : 'Selected User'}</h2>
                     {loading ? (
                         <div className="loading-indicator"><h1>Loading....</h1></div>
                     ) : (
@@ -89,7 +91,7 @@ const UserPage = () => {
                                     <div
                                         className="recipe-item"
                                         key={recipe._id}
-                                        onClick={() => navigate(`/single-recipe/${recipe._id}`)}
+                                        onClick={() => router(`/single-recipe/${recipe._id}`)}
                                     >
                                         <img src={recipe.image} alt="recipe" className="recipe-image" />
                                         <p><b>{recipe.title}</b></p>
@@ -102,6 +104,8 @@ const UserPage = () => {
                     )}
                 </div>
             </div>
+        </div>
+        <Footer />
         </div>
     );
 };

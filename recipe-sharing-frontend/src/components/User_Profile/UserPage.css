@@ -1,15 +1,15 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5; /* Light Gray Background */
-    color: #2c2c2c; /* Dark Gray Text Color */
+    background-color: #f5f5f5; 
+    color: #2c2c2c; 
     margin: 0;
     padding: 0;
 }
 
 .navbar {
-    background-color: #f06909; /* Vibrant Orange */
+    background-color: #f06909; 
     padding: 15px;
-    color: #ffffff; /* White Text Color */
+    color: #ffffff; 
 }
 
 .user-page-container {
@@ -21,22 +21,22 @@ body {
 
 .intro-message {
     text-align: center;
-    background-color: #fff4e6; /* Soft Peach Background */
+    background-color: #fff4e6; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333333; /* Dark Gray Text Color */
+    color: #333333; 
 }
 
 .intro-message h1 {
     font-size: 2.5em;
     margin: 0;
-    color: #f06909; /* Vibrant Orange */
+    color: #f06909; 
 }
 
 .intro-message p {
     font-size: 1.2em;
-    color: #f0a500; /* Golden Yellow */
+    color: #f0a500; 
     line-height: 1.6;
 }
 
@@ -50,62 +50,64 @@ body {
     width: 250px;
     border-right: 2px solid #ddd;
     padding-right: 20px;
-    background-color: #2c2c2c; /* Dark Gray Background */
+    background-color: #2c2c2c; 
     border-radius: 8px;
-    color: #f0f0f0; /* Light Gray Text Color */
+    color: #f0f0f0; 
     margin-bottom: 20px;
 }
 
 .user-list-container h2 {
     font-size: 1.5em;
-    color: #f06909; /* Vibrant Orange */
+    color: #f06909; 
 }
 
 .user-item {
     cursor: pointer;
     padding: 10px;
-    border: 1px solid #444; /* Dark Border */
+    border: 1px solid #444; 
     margin: 5px 0;
     border-radius: 5px;
-    background-color: #3c3c3c; /* Medium Dark Gray */
+    background-color: #3c3c3c; 
     margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .user-item:hover {
-    background-color: #f0a500; /* Golden Yellow */
-    color: #ffffff; /* White Text Color */
+    background-color: #f0a500; 
+    color: #ffffff; 
 }
 
 .user-recipes-container {
     flex: 3;
     padding-left: 20px;
-    background-color: #383838; /* Very Dark Gray Background */
+    background-color: #383838; 
     border-radius: 8px;
-    color: #f0f0f0; /* Light Gray Text Color */
+    color: #f0f0f0; 
 }
 
 .recipe-item {
     cursor: pointer;
-    width: 22%;
-    border: 1px solid #444; /* Dark Border */
+    width: 30%;
+    border: 1px solid #444; 
     border-radius: 10px;
-    background-color: #4d4d4d; /* Dark Gray Background */
+    background-color: #4d4d4d; 
     margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 .recipe-item:hover {
-    background-color: #f0a500; /* Golden Yellow */
+    background-color: #f0a500; 
 }
 
 .recipe-image {
     width: 100%;
     height: 150px;
     object-fit: cover;
-    border-radius: 10px 10px 0 0; /* Rounded top corners */
+    border-radius: 10px 10px 0 0; 
 }
 
 .recipe-item p {
     padding: 10px;
     text-align: center;
-    color: #f0f0f0; /* Light Gray Text Color */
+    color: #f0f0f0; 
 }
