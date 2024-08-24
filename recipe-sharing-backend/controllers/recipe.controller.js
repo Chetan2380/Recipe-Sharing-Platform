@@ -66,7 +66,7 @@ export const CreateNewRecipe = async (req, res) => {
         },
         {
           $project: {
-            reviews: 0 
+            reviews: 0 // Exclude the reviews field from the final output
           }
         }
       ]);
@@ -135,39 +135,42 @@ export const search = async (req, res) => {
 
   export const GetLatestRecipes = async (req, res) => {
     try {
-        const recipes = await Recipe.find({})
-            .sort({ createdAt: -1 })
-            .limit(4); 
-        
-            const recipesWithRatings = await Recipe.aggregate([
-              {
-                $lookup: {
-                  from: 'reviews', 
-                  localField: '_id',
-                  foreignField: 'recipeId',
-                  as: 'reviews'
-                }
-              },
-              {
-                $addFields: {
-                  averageRating: {
-                    $cond: {
-                      if: { $gt: [{ $size: '$reviews' }, 0] },
-                      then: { $divide: [{ $sum: '$reviews.rating' }, { $size: '$reviews' }] },
-                      else: 0
-                    }
-                  }
-                }
-              },
-              {
-                $project: {
-                  reviews: 0 
-                }
+      
+      const recipesWithRatings = await Recipe.aggregate([
+        {
+          $sort: { createdAt: -1 } 
+        },
+        {
+          $limit: 4 
+        },
+        {
+          $lookup: {
+            from: 'reviews', 
+            localField: '_id',
+            foreignField: 'recipeId',
+            as: 'reviews'
+          }
+        },
+        {
+          $addFields: {
+            averageRating: {
+              $cond: {
+                if: { $gt: [{ $size: '$reviews' }, 0] },
+                then: { $divide: [{ $sum: '$reviews.rating' }, { $size: '$reviews' }] },
+                else: 0
               }
-            ]);
-
-        res.json({ success: true, recipes: recipesWithRatings });
+            }
+          }
+        },
+        {
+          $project: {
+            reviews: 0 
+          }
+        }
+      ]);
+  
+      res.json({ success: true, recipes: recipesWithRatings });
     } catch (error) {
-        res.json({ error, success: false });
+      res.json({ error, success: false });
     }
-};
+  };
