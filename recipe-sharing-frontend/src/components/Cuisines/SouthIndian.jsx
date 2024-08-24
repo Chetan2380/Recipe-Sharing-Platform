@@ -53,18 +53,13 @@ const SouthIndian = () => {
                                 alt="recipe"
                             />
                             <div className="south-indian-details">
-                                <p className="south-indian-title"><b>Title</b>: {recipe.title}</p>
-                                <p><b>Ingredients</b>: {recipe.ingredients}</p>
-                                <p><b>Instructions</b>: {recipe.instructions}</p>
-                                <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
-                                <p><b>Category</b>: {recipe.category}</p>
-                                <p><b>Cuisine</b>: {recipe.cuisine}</p>
+                                <p className="south-indian-title"><b>{recipe.title}</b></p>
                             </div>
                             <div className="south-indian-cooking-time-container">
-                                <span>Cooking Time</span>
+                                <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>
                             </div>
                             <div className="south-indian-rating-container">
-                                <span className="south-indian-rating">Rating</span>
+                                <span className="south-indian-rating"><i class="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating ? recipe.averageRating : 'NA'}</span>
                             </div>
                         </div>
                     ))

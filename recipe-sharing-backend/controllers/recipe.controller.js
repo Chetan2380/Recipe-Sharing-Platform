@@ -44,16 +44,32 @@ export const CreateNewRecipe = async (req, res) => {
     try {
       const recipes = await Recipe.find({});
 
-      const recipesWithRatings = await Promise.all(recipes.map(async (recipe) => {
-        const reviews = await Review.find({ recipeId: recipe._id });
-        const averageRating = reviews.length > 0 
-            ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length 
-            : 0;
-        return {
-            ...recipe._doc,
-            averageRating: averageRating.toFixed(1) 
-        };
-    }));
+      const recipesWithRatings = await Recipe.aggregate([
+        {
+          $lookup: {
+            from: 'reviews', 
+            localField: '_id',
+            foreignField: 'recipeId',
+            as: 'reviews'
+          }
+        },
+        {
+          $addFields: {
+            averageRating: {
+              $cond: {
+                if: { $gt: [{ $size: '$reviews' }, 0] },
+                then: { $divide: [{ $sum: '$reviews.rating' }, { $size: '$reviews' }] },
+                else: 0
+              }
+            }
+          }
+        },
+        {
+          $project: {
+            reviews: 0 
+          }
+        }
+      ]);
 
       res.json({ success: true, recipes: recipesWithRatings });
     } catch (error) {
@@ -123,16 +139,32 @@ export const search = async (req, res) => {
             .sort({ createdAt: -1 })
             .limit(4); 
         
-        const recipesWithRatings = await Promise.all(recipes.map(async (recipe) => {
-            const reviews = await Review.find({ recipeId: recipe._id });
-            const averageRating = reviews.length > 0 
-                ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length 
-                : 0;
-            return {
-                ...recipe._doc, 
-                averageRating: averageRating.toFixed(1) 
-            };
-        }));
+            const recipesWithRatings = await Recipe.aggregate([
+              {
+                $lookup: {
+                  from: 'reviews', 
+                  localField: '_id',
+                  foreignField: 'recipeId',
+                  as: 'reviews'
+                }
+              },
+              {
+                $addFields: {
+                  averageRating: {
+                    $cond: {
+                      if: { $gt: [{ $size: '$reviews' }, 0] },
+                      then: { $divide: [{ $sum: '$reviews.rating' }, { $size: '$reviews' }] },
+                      else: 0
+                    }
+                  }
+                }
+              },
+              {
+                $project: {
+                  reviews: 0 
+                }
+              }
+            ]);
 
         res.json({ success: true, recipes: recipesWithRatings });
     } catch (error) {

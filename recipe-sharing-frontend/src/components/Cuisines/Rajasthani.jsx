@@ -53,18 +53,13 @@ const Rajasthani = () => {
                                 alt="recipe"
                             />
                             <div className="rajasthani-details">
-                                <p className="rajasthani-title"><b>Title</b>: {recipe.title}</p>
-                                <p><b>Ingredients</b>: {recipe.ingredients}</p>
-                                <p><b>Instructions</b>: {recipe.instructions}</p>
-                                <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
-                                <p><b>Category</b>: {recipe.category}</p>
-                                <p><b>Cuisine</b>: {recipe.cuisine}</p>
+                                <p className="rajasthani-title"><b>{recipe.title}</b></p>
                             </div>
                             <div className="rajasthani-cooking-time-container">
-                                <span>Cooking Time</span>
+                                <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>
                             </div>
                             <div className="rajasthani-rating-container">
-                                <span className="rajasthani-rating">Rating</span>
+                                <span className="rajasthani-rating"><i class="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating ? recipe.averageRating : 'NA'}</span>
                             </div>
                         </div>
                     ))

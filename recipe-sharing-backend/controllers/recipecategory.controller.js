@@ -8,16 +8,32 @@ export const getRecipesByCategory = async (req, res) => {
             return res.json({ success: false, error: "Category is required." });
         }
         const recipes = await Recipe.find({ category: category });
-        const recipesWithRatings = await Promise.all(recipes.map(async (recipe) => {
-            const reviews = await Review.find({ recipeId: recipe._id });
-            const averageRating = reviews.length > 0 
-                ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length 
-                : 0;
-            return {
-                ...recipe._doc,
-                averageRating: averageRating.toFixed(1) 
-            };
-        }));
+        const recipesWithRatings = await Recipe.aggregate([
+            {
+              $lookup: {
+                from: 'reviews', 
+                localField: '_id',
+                foreignField: 'recipeId',
+                as: 'reviews'
+              }
+            },
+            {
+              $addFields: {
+                averageRating: {
+                  $cond: {
+                    if: { $gt: [{ $size: '$reviews' }, 0] },
+                    then: { $divide: [{ $sum: '$reviews.rating' }, { $size: '$reviews' }] },
+                    else: 0
+                  }
+                }
+              }
+            },
+            {
+              $project: {
+                reviews: 0 
+              }
+            }
+          ]);
     
           res.json({ success: true, recipes: recipesWithRatings });
         // res.json({ success: true, recipes });
@@ -35,16 +51,32 @@ export const getRecipesByCuisines = async (req, res) => {
             return res.json({ success: false, error: "cuisine is required." });
         }
         const recipes = await Recipe.find({ cuisine: cuisine });
-        const recipesWithRatings = await Promise.all(recipes.map(async (recipe) => {
-            const reviews = await Review.find({ recipeId: recipe._id });
-            const averageRating = reviews.length > 0 
-                ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length 
-                : 0;
-            return {
-                ...recipe._doc,
-                averageRating: averageRating.toFixed(1) 
-            };
-        }));
+        const recipesWithRatings = await Recipe.aggregate([
+            {
+              $lookup: {
+                from: 'reviews', 
+                localField: '_id',
+                foreignField: 'recipeId',
+                as: 'reviews'
+              }
+            },
+            {
+              $addFields: {
+                averageRating: {
+                  $cond: {
+                    if: { $gt: [{ $size: '$reviews' }, 0] },
+                    then: { $divide: [{ $sum: '$reviews.rating' }, { $size: '$reviews' }] },
+                    else: 0
+                  }
+                }
+              }
+            },
+            {
+              $project: {
+                reviews: 0 
+              }
+            }
+          ]);
     
           res.json({ success: true, recipes: recipesWithRatings });
         // res.json({ success: true, recipes });

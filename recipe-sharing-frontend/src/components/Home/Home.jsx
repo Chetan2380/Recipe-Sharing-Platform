@@ -52,11 +52,11 @@ const Home = () => {
                                         <h3 className="home-recipe-title">{recipe.title}</h3>
                                         <p className="home-recipe-cuisine">Cuisine: {recipe.cuisine}</p>
                                         <p className="home-recipe-category">Category: {recipe.category}</p>
-                                        <p className="home-recipe-time">Cooking Time: {recipe.cookingTime} mins</p>
+                                        <p className="home-recipe-time">Cooking Time: {recipe.cookingTime}</p>
                                         <p className="home-recipe-rating">Rating: {recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}</p>
                                         <button
                                             className="home-view-details-btn"
-                                            onClick={() => router(`/recipe/${recipe._id}`)}
+                                            onClick={() => router(`/single-recipe/${recipe._id}`)}
                                         >
                                             View Details
                                         </button>
