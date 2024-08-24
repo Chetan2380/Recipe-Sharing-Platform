@@ -149,3 +149,14 @@ export const Logout = async (req, res) => {
         return res.json({ success: false, error });
     }
 };
+
+
+export const GetAllUsers = async (req, res) => {
+    try {
+        const users = await User.find({}, 'name _id'); 
+        res.json({ success: true, users });
+    } catch (error) {
+        console.log(error, "error");
+        return res.json({ success: false, error: error.message });
+    }
+};

@@ -24,6 +24,7 @@ import SouthIndian from './components/Cuisines/SouthIndian';
 import NorthEast from './components/Cuisines/NorthEast';
 import ReviewRating from './components/Review_Rating/ReviewRating';
 import EditProfile from './components/User_Profile/EditProfile';
+import UserPage from './components/User_Profile/UserPage';
 
 function App() {
   const { state, dispatch } = useContext(AuthContext);
@@ -51,6 +52,8 @@ function App() {
         <Route path="/south-inian-recipes" element={<SouthIndian/>}/>
         <Route path="/north-east-recipes" element={<NorthEast/>}/>
         <Route path="/review-rating" element={<ReviewRating/>}/>
+        <Route path="/user-page/:userId" element={<UserPage />} />
+        <Route path="/user-page" element={<UserPage />} />
       </Routes>
     </div>
   );
