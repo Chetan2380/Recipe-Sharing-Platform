@@ -1,5 +1,5 @@
 .footer {
-    background-color: #BF5700;
+    background-color: #004b49;
     color: white;
     padding: 40px 20px;
     display: flex;
@@ -27,7 +27,7 @@
     max-width: 1200px;
 }
 
-.footer-slogan{
+.footer-slogan {
     text-align: left;
     margin-left: 50px;
 }
@@ -97,7 +97,6 @@
 .social-icon:last-child {
     margin-right: 0; 
 }
-
 
 .footer-bottom {
     text-align: center;

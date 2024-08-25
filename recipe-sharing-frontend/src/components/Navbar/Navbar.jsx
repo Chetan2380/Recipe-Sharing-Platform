@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/auth.context';
 import toast from 'react-hot-toast';
 import Api from '../../axiosconfig';
 import "../Navbar/Navbar.css"
-import logo from "../Navbar/logo-png.png"
+import logo from "../Navbar/logo-transparent-png.png"
 
 const Navbar = () => {
     const router = useNavigate();

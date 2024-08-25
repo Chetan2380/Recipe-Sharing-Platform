@@ -34,8 +34,11 @@ const Home = () => {
     return (
         <div className="home-page">
             <div className="home-welcome-container">
-                {state?.user && (<h1>Welcome to RecipeShare, {state?.user?.name}!</h1>)}
-                {!state?.user && (<h1>Welcome to RecipeShare</h1>)}
+                {state?.user ? (
+                    <h1>Welcome to RecipeShare, {state?.user?.name}!</h1>
+                ) : (
+                    <h1>Welcome to RecipeShare</h1>
+                )}
                 <p>Discover and share your favorite recipes</p>
             </div>
             {loading ? (
@@ -52,14 +55,18 @@ const Home = () => {
                                         <h3 className="home-recipe-title">{recipe.title}</h3>
                                         <p className="home-recipe-cuisine">Cuisine: {recipe.cuisine}</p>
                                         <p className="home-recipe-category">Category: {recipe.category}</p>
-                                        <p className="home-recipe-time">Cooking Time: {recipe.cookingTime}</p>
-                                        <p className="home-recipe-rating">Rating: {recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}</p>
-                                        <button
+                                        {/* <button
                                             className="home-view-details-btn"
                                             onClick={() => router(`/single-recipe/${recipe._id}`)}
                                         >
                                             View Details
-                                        </button>
+                                        </button> */}
+                                    </div>
+                                    <div className="home-cooking-time-container">
+                                        <i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}
+                                    </div>
+                                    <div className="home-rating-container">
+                                        <i class="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}
                                     </div>
                                 </div>
                             ))
