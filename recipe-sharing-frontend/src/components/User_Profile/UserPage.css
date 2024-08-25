@@ -1,113 +1,189 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5; 
-    color: #2c2c2c; 
-    margin: 0;
-    padding: 0;
-}
+/* UserPage.css */
 
-.navbar {
-    background-color: #f06909; 
-    padding: 15px;
-    color: #ffffff; 
-}
-
+/* General Styles */
 .user-page-container {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.user-page-welcome-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f6f1;
+    border-bottom: 1px solid #d9e2ec;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.user-page-welcome-container h1 {
+    font-size: 28px;
+    color: #333;
+    margin: 0;
+}
+
+.user-page-welcome-container p {
+    font-size: 16px;
+    color: #7d8c92;
+}
+
+.user-page-content-container {
+    padding: 20px;
+    display: flex;
+    gap: 20px; /* Adjust this value to control the space between user list and recipes */
+}
+
+.user-page-list-container {
+    flex: 1;
+}
+
+.user-page-recipes-container {
+    flex: 2;
+    /* margin-left: 20px;  */
+}
+
+.user-page-list-container h2,
+.user-page-recipes-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.user-page-list {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    gap: 20px;
+    gap: 10px;
 }
 
-.intro-message {
-    text-align: center;
-    background-color: #fff4e6; 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333333; 
-}
-
-.intro-message h1 {
-    font-size: 2.5em;
-    margin: 0;
-    color: #f06909; 
-}
-
-.intro-message p {
-    font-size: 1.2em;
-    color: #f0a500; 
-    line-height: 1.6;
-}
-
-.content-container {
-    display: flex;
-    gap: 20px;
-}
-
-.user-list-container {
-    flex: 1;
-    width: 250px;
-    border-right: 2px solid #ddd;
-    padding-right: 20px;
-    background-color: #2c2c2c; 
-    border-radius: 8px;
-    color: #f0f0f0; 
-    margin-bottom: 20px;
-}
-
-.user-list-container h2 {
-    font-size: 1.5em;
-    color: #f06909; 
-}
-
-.user-item {
-    cursor: pointer;
+.user-page-list-item {
     padding: 10px;
-    border: 1px solid #444; 
-    margin: 5px 0;
+    background-color: #ffffff;
+    border: 1px solid #d9e2ec;
     border-radius: 5px;
-    background-color: #3c3c3c; 
-    margin-bottom: 10px;
-    margin-left: 20px;
-}
-
-.user-item:hover {
-    background-color: #f0a500; 
-    color: #ffffff; 
-}
-
-.user-recipes-container {
-    flex: 3;
-    padding-left: 20px;
-    background-color: #383838; 
-    border-radius: 8px;
-    color: #f0f0f0; 
-}
-
-.recipe-item {
     cursor: pointer;
-    width: 30%;
-    border: 1px solid #444; 
+    transition: background-color 0.3s;
+}
+
+.user-page-list-item.selected {
+    background-color: #e0f7fa;
+}
+
+/* Recipe Card Styles */
+.user-page-recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between; /* Ensure items are spaced evenly */
+}
+
+.user-page-recipe-item {
+    position: relative;
+    background: #ffffff;
     border-radius: 10px;
-    background-color: #4d4d4d; 
-    margin-bottom: 20px;
-    margin-left: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    width: 300px;
+    height: 460px;
 }
 
-.recipe-item:hover {
-    background-color: #f0a500; 
+.user-page-recipe-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.recipe-image {
+.user-page-recipe-image {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 10px 10px 0 0; 
 }
 
-.recipe-item p {
-    padding: 10px;
+.user-page-recipe-info {
+    padding: 15px;
     text-align: center;
-    color: #f0f0f0; 
+}
+
+.user-page-recipe-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Cooking Time and Rating Containers */
+.user-page-cooking-time-container,
+.user-page-rating-container {
+    position: absolute;
+    background: #004b49;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-page-cooking-time-container {
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.user-page-rating-container {
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: 30px;
+    padding: 0 10px;
+}
+
+/* Loading Indicator */
+.user-page-loading-indicator {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 1240px) and (max-width: 1242px){
+    .user-page-recipe-item {
+        width: 240px;
+        height: 420px;
+    }
+}
+
+@media (min-width: 860px) and (max-width: 1239px) {
+    .user-page-recipe-item {
+        width: 240px;
+        height: 400px;
+    }
+    .user-page-content-container {
+        gap: 30px; /* Adjusted gap for tablets and medium screen sizes */
+    }
+}
+
+@media (max-width: 859px) {
+    .user-page-recipe-item {
+        width: calc(50% - 15px); /* Two items per row on mobile devices */
+    }
+    .user-page-content-container {
+        flex-direction: column;
+        gap: 20px; /* Adjusted gap for smaller screens */
+    }
+    .user-page-recipes-container {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 460px) {
+    .user-page-recipe-item {
+        width: 300px;
+        height: 440px;
+        margin: auto;
+    }
 }

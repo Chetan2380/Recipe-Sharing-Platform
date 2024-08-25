@@ -98,7 +98,7 @@ const Navbar = () => {
                                 <div onClick={() => router("/north-east-recipes")}>North East</div>
                             </div>
                         </div>
-                        <div onClick={() => router("/community")}>Community</div>
+                        <div onClick={() => router("/user-page")}>Community</div>
                         {!state?.user ? (
                             <div onClick={() => router("/login")}>Login</div>
                         ) : (
@@ -146,7 +146,7 @@ const Navbar = () => {
                             <div onClick={() => router("/north-east-recipes")}>North East</div>
                         </div>
                     </div>
-                    <div onClick={() => router("/community")}>Community</div>
+                    <div onClick={() => router("/user-page")}>Community</div>
                     {!state?.user ? (
                         <div onClick={() => router("/login")}>Login</div>
                     ) : (

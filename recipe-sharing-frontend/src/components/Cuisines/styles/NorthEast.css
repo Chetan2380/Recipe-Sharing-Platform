@@ -1,11 +1,15 @@
 .north-east-page {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f5f5f0;
+    margin: 0;
     padding: 20px;
 }
 
-.north-east-page >h1{
-    color: black;
+.north-east-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 40px;
 }
 
 .north-east-loading {
@@ -19,19 +23,19 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .north-east-card {
     position: relative;
-    background: gray;
+    background: #ffffff;
     border-radius: 10px;
     overflow: hidden;
-    width: 22%;
-    height: 400px;
+    width: 300px;
+    height: 460px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white;
-    margin-bottom: 30px;
+    color: #333;
 }
 
 .north-east-card:hover {
@@ -51,40 +55,126 @@
 }
 
 .north-east-title {
-    font-size: 20px;
+    font-size: 26px;
     margin: 10px 0;
+    color: #333;
 }
 
 .north-east-cooking-time-container {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
-    background: orange ;
-    color: white;
+    bottom: 0;
+    left: 0;
+    background: #004b49;
+    color: #ffffff;
     padding: 5px;
-    border-radius: 0px 5px 5px 0px;
-    height: 40px;
-    width: 30%;
+    border-radius: 0 5px 5px 0;
+    height: 30px;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
 }
 
 .north-east-rating-container {
     position: absolute;
-    bottom: 0px;
-    right: 0px;
-    background: orange; 
-    color: white;
+    bottom: 0;
+    right: 0;
+    background: #004b49;
+    color: #ffffff;
     padding: 5px;
-    border-radius: 5px 0px 0px 5px;
-    height: 40px;
-    width: 16%;
+    border-radius: 0 0 5px 0;
+    height: 30px;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
 }
 
 .north-east-rating {
     font-size: 14px;
+    margin-left: 5px;
+}
+
+.north-east-cooking-time {
+    font-size: 14px;
+}
+
+@media (min-width: 1240px) {
+    .north-east-card {
+        width: 300px;
+        height: 460px;
+    }
+
+    .north-east-title {
+        font-size: 26px;
+    }
+
+    .north-east-cooking-time-container,
+    .north-east-rating-container {
+        font-size: 14px;
+        height: 30px;
+    }
+}
+
+@media (min-width: 860px) and (max-width: 1239px) {
+    .north-east-card {
+        width: 250px;
+        height: 400px;
+    }
+
+    .north-east-title {
+        font-size: 24px;
+    }
+
+    .north-east-cooking-time-container,
+    .north-east-rating-container {
+        font-size: 12px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 460px) {
+    .north-east-card {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        height: 440px;
+    }
+
+    .north-east-title {
+        font-size: 22px;
+    }
+
+    .north-east-cooking-time-container {
+        height: 25px;
+        width: 36%;
+        font-size: 12px;
+    }
+
+    .north-east-rating-container {
+        height: 25px;
+        width: 20%;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 459px) {
+    .north-east-card {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    .north-east-title {
+        font-size: 20px;
+    }
+
+    .north-east-cooking-time-container,
+    .north-east-rating-container {
+        height: 25px;
+        width: 50%;
+        font-size: 12px;
+    }
 }

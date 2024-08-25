@@ -49,7 +49,7 @@ function App() {
         <Route path="/gujarati-recipes" element={<Gujarati/>}/>
         <Route path="/punjabi-recipes" element={<Punjabi/>}/>
         <Route path="/rajasthani-recipes" element={<Rajasthani/>}/>
-        <Route path="/south-inian-recipes" element={<SouthIndian/>}/>
+        <Route path="/south-indian-recipes" element={<SouthIndian/>}/>
         <Route path="/north-east-recipes" element={<NorthEast/>}/>
         <Route path="/review-rating" element={<ReviewRating/>}/>
         <Route path="/user-page/:userId" element={<UserPage />} />
