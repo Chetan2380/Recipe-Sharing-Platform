@@ -122,8 +122,8 @@ const SingleRecipe = () => {
                                 <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
                                 <p><b>Category</b>: {recipe.category}</p>
                                 <p><b>Cuisine</b>: {recipe.cuisine}</p>
-                                <button onClick={() => handleEdit(recipe)}>Please review recipe</button>
-                                <button onClick={toggleReviews}>
+                                <button onClick={() => handleEdit(recipe)} className='showbutton'>Please review recipe</button>
+                                <button onClick={toggleReviews} className='showbutton'>
                                     {showReviews ? "Hide Reviews" : "Show Reviews"}
                                 </button>
                             </div>
