@@ -88,7 +88,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     width: 300px;
-    height: 460px;
+    height: 420px;
 }
 
 .user-page-recipe-item:hover {
@@ -108,9 +108,13 @@
 }
 
 .user-page-recipe-title {
-    font-size: 18px;
+    font-size: 26px;
     margin: 10px 0;
     color: #333;
+}
+
+.user-page-recipe-cuisine, .user-page-recipe-category {
+    font-size: 18px;
 }
 
 /* Cooking Time and Rating Containers */

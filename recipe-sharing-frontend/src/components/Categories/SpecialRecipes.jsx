@@ -47,6 +47,7 @@ const SpecialRecipes = () => {
                         <img src={recipe.image} alt={recipe.title} className="special-recipe-image" />
                         <div className="special-recipe-details">
                             <h3 className="special-recipe-title">{recipe.title}</h3>
+                            <p className="home-recipe-cuisine">{recipe.cuisine}</p>
                             <div className="special-cooking-time-container">
                                 <p className="special-recipe-cooking-time"><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</p>
                             </div>

@@ -47,6 +47,7 @@
                             <img src={recipe.image} alt={recipe.title} className="non-veg-recipe-image" />
                             <div className="non-veg-recipe-details">
                                 <h3 className="non-veg-recipe-title">{recipe.title}</h3>
+                                <p className="home-recipe-cuisine">{recipe.cuisine}</p>
                                 <div className="non-veg-cooking-time-container">
                                     <p className="non-veg-recipe-cooking-time"><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</p>
                                 </div>

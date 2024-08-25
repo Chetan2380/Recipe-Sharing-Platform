@@ -94,6 +94,8 @@ const UserPage = () => {
                                         <img src={recipe.image} alt="recipe" className="user-page-recipe-image" />
                                         <div className="user-page-recipe-info">
                                             <p className="user-page-recipe-title"><b>{recipe.title}</b></p>
+                                            <p className="user-page-recipe-cuisine">{recipe.cuisine}</p>
+                                            <p className="user-page-recipe-category">{recipe.category}</p>
                                         </div>
                                         <div className="user-page-cooking-time-container">
                                             <i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}

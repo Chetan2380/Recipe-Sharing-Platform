@@ -47,6 +47,7 @@ const Vegan = () => {
                         <img src={recipe.image} alt={recipe.title} className="vegan-recipe-image" />
                         <div className="vegan-recipe-details">
                             <h3 className="vegan-recipe-title">{recipe.title}</h3>
+                            <p className="home-recipe-cuisine">{recipe.cuisine}</p>
                             <div className="vegan-cooking-time-container">
                                 <p className="vegan-recipe-cooking-time"><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</p>
                             </div>

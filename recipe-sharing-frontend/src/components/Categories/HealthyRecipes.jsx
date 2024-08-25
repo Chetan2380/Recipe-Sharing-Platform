@@ -47,6 +47,7 @@ const HealthyRecipes = () => {
                         <img src={recipe.image} alt={recipe.title} className="healthy-recipe-image" />
                         <div className="healthy-recipe-details">
                             <h3 className="healthy-recipe-title">{recipe.title}</h3>
+                            <p className="home-recipe-cuisine">{recipe.cuisine}</p>
                             <div className="healthy-cooking-time-container">
                                 <p className="healthy-recipe-cooking-time"><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</p>
                             </div>

@@ -79,9 +79,13 @@
 }
 
 .home-recipe-title {
-    font-size: 20px;
+    font-size: 26px;
     margin: 10px 0;
     color: #333;
+}
+
+.home-recipe-cuisine, .home-recipe-category {
+    font-size: 18px;
 }
 
 .home-cooking-time-container,
