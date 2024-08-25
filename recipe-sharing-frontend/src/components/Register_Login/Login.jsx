@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../axiosconfig';
 import "./Login.css";
+import Footer from '../Footer/Footer';
 
 const Login = () => {
     const {state,dispatch}=useContext(AuthContext);
@@ -43,6 +44,7 @@ const Login = () => {
         }
       }
       return (
+        <div>
         <div className="login-container">
             <form className="login-form" onSubmit={handleSubmit}>
                 <h1 className="login-heading">Login</h1>
@@ -53,6 +55,8 @@ const Login = () => {
                 <input className="login-submit" type='submit' value="Login" />
                 <p>Don't have account. <span onClick={()=>router("/register")}><b><u>Create Account</u></b></span></p>
             </form>
+        </div>
+        <Footer />
         </div>
     );
 }

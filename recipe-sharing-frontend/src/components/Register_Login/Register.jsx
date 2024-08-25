@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
 import Api from '../../axiosconfig';
 import "./Register.css";
+import Footer from '../Footer/Footer';
 
 const Register = () => {
   const router = useNavigate();
@@ -61,6 +62,7 @@ const Register = () => {
   }, [userData]);
 
   return (
+    <div>
       <div className="register-container">
           <form className="register-form" onSubmit={handleSubmit}>
               <h1 className="register-heading">Register</h1>
@@ -72,6 +74,8 @@ const Register = () => {
               <input className="register-input" type='password' name='password' onChange={handleChange} value={userData.password} /><br />
               <input className="register-submit" type='submit' value="Register" disabled={disable} />
           </form>
+      </div>
+      <Footer />
       </div>
   );
 }
