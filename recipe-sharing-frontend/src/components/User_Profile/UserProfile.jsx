@@ -71,7 +71,15 @@ const UserProfile = () => {
                                     onClick={() => router(`/single-recipe/${recipe._id}`)}
                                 >
                                     <img src={recipe.image} alt="recipe" className="recipe-image" />
-                                    <p><b>{recipe.title}</b></p>
+                                    <div className="recipe-details">
+                                        <p className="recipe-title">{recipe.title}</p>
+                                        {/* <div className="cooking-time-container">
+                                            <i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}
+                                        </div>
+                                        <div className="rating-container">
+                                            <i class="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}
+                                        </div> */}
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -90,15 +98,23 @@ const UserProfile = () => {
                                     onClick={() => router(`/single-recipe/${review.recipeId._id}`)}
                                 >
                                     <img src={review.recipeId.image} alt="recipe" className="recipe-image" />
-                                    <p><b>{review.recipeId.title}</b></p>
+                                    <div className="recipe-details">
+                                        <p className="recipe-title">{review.recipeId.title}</p>
+                                        {/* <div className="cooking-time-container">
+                                            <i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{review.recipeId.cookingTime}
+                                        </div>
+                                        <div className="rating-container">
+                                            <i class="fa-solid fa-star"></i>&nbsp;&nbsp;{review.recipeId.averageRating && review.recipeId.averageRating > 0 ? review.recipeId.averageRating : 'NA'}
+                                        </div> */}
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     )}
                 </div>
             </div>
-        </div>
-        <Footer />
+            </div>
+            <Footer />
         </div>
     );
 }

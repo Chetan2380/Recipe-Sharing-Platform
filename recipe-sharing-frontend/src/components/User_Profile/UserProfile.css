@@ -1,86 +1,92 @@
+/* UserProfile.css */
+
+/* General Styles */
 .user-profile-container {
-    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f0;
+    margin: 0;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
+    box-sizing: border-box;
 }
 
 .user-info-container {
-    flex: 1;
-    margin-right: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .user-box {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
     padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    position: relative;
-    width: 90%;
-    margin-top: 80px;
 }
 
 .profile-letter {
-    background-color: #4A90E2;
-    color: white;
-    width: 100px;
-    height: 100px;
+    background-color: #004b49;
+    color: #ffffff;
     border-radius: 50%;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 56px;
-    font-weight: bold;
-    margin: 0 auto 10px;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
 .user-name {
-    font-size: 44px;
-    margin-bottom: 10px;
-    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
 }
 
 .user-email {
     font-size: 16px;
-    margin-bottom: 20px;
+    color: #666;
 }
 
 .user-recipes-reviews {
-    flex: 2;
     display: flex;
     flex-direction: column;
+    gap: 30px;
 }
 
-.user-recipes-container,
-.user-reviews-container {
-    margin-bottom: 20px;
+.user-recipes-container, .user-reviews-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section-title {
-    font-size: 34px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #004b49;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .recipe-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .recipe-item {
     position: relative;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border: 1px solid #e0e0e0; /* Light border */
+    border-radius: 10px;
     overflow: hidden;
-    width: calc(50% - 20px);
-    height: 250px;
+    width: 300px;
+    height: 440px; /* Slightly decreased height */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #333;
@@ -88,25 +94,74 @@
 
 .recipe-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for border effect */
 }
 
 .recipe-image {
     width: 100%;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
-    object-position: center;
 }
 
-.recipe-item p {
-    margin: 5px 0;
-    font-size: 25px;
-    margin-top: 25px;
-}
-
-.loading-indicator {
+.recipe-details {
+    padding: 15px;
     text-align: center;
-    margin-top: 20px;
-    font-size: 24px;
-    color: #BF5700;
+}
+
+.recipe-title {
+    font-size: 26px;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Responsive Styles */
+
+/* Laptop (min-width: 1240px) */
+@media (min-width: 1240px) {
+    .recipe-item {
+        width: 300px;
+        height: 440px; /* Adjusted height */
+    }
+
+    .recipe-title {
+        font-size: 26px;
+    }
+}
+
+/* Tablet (min-width: 860px) and max-width: 1239px */
+@media (min-width: 860px) and (max-width: 1239px) {
+    .recipe-item {
+        width: 250px;
+        height: 400px; /* Adjusted height */
+    }
+
+    .recipe-title {
+        font-size: 24px;
+    }
+}
+
+/* Mobile (min-width: 460px) and max-width: 859px */
+@media (min-width: 460px) and (max-width: 859px) {
+    .recipe-item {
+        width: 100%;
+        max-width: 300px;
+        height: 400px; /* Adjusted height */
+    }
+
+    .recipe-title {
+        font-size: 22px;
+    }
+}
+
+/* Small Mobile (max-width: 459px) */
+@media (max-width: 459px) {
+    .recipe-item {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    .recipe-title {
+        font-size: 20px;
+    }
 }

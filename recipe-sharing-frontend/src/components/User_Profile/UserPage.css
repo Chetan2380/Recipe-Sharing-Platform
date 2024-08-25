@@ -151,6 +151,10 @@
 
 /* Responsive Adjustments */
 @media (min-width: 1240px) and (max-width: 1242px){
+    .user-page-content-container    {
+        margin-bottom: 20px;
+    }
+
     .user-page-recipe-item {
         width: 240px;
         height: 420px;

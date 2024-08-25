@@ -250,8 +250,6 @@
 
 /* Mobile (min-width: 460px) and max-width: 859px */
 @media (max-width: 460px){
-    .home-page {
-    }
 
     .home-welcome-container {
         padding: 20px 10px;
@@ -277,7 +275,7 @@
     .home-recipe-card {
         width: 100%;
         max-width: 300px;
-        height: auto;
+        height: 420px;
         margin-bottom: 20px;
     }
 
@@ -288,7 +286,7 @@
     .home-cooking-time-container,
     .home-rating-container {
         font-size: 12px;
-        height: auto;
+        height: 30px;
         width: auto;
         padding: 5px;
     }

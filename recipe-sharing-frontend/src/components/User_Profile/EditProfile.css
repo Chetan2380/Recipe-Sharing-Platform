@@ -1,29 +1,97 @@
+/* EditProfile.css */
+
+/* General Styles */
 .edit-profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.edit-profile-container input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-profile-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #004b49; /* Updated button color */
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-profile-container button:disabled {
+  background-color: #ccc;
+}
+
+/* Responsive Styles */
+
+/* Laptop (min-width: 1240px) */
+@media (min-width: 1240px) {
+  .edit-profile-container {
+      max-width: 800px;
+      margin: 20px auto;
   }
-  
+
   .edit-profile-container input {
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+      font-size: 16px;
   }
-  
+
   .edit-profile-container button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #f06909;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+      font-size: 16px;
   }
-  
-  .edit-profile-container button:disabled {
-    background-color: #ccc;
+}
+
+/* Tablet (min-width: 860px) and max-width: 1239px */
+@media (min-width: 860px) and (max-width: 1239px) {
+  .edit-profile-container {
+      max-width: 600px;
+      margin: 20px auto;
   }
-  
+
+  .edit-profile-container input {
+      font-size: 15px;
+  }
+
+  .edit-profile-container button {
+      font-size: 15px;
+  }
+}
+
+/* Mobile (min-width: 460px) and max-width: 859px */
+@media (min-width: 460px) and (max-width: 859px) {
+  .edit-profile-container {
+      max-width: 500px;
+  }
+
+  .edit-profile-container input {
+      font-size: 14px;
+  }
+
+  .edit-profile-container button {
+      font-size: 14px;
+  }
+}
+
+/* Small Mobile (max-width: 459px) */
+@media (max-width: 459px) {
+  .edit-profile-container {
+      max-width: 100%;
+      padding: 0 10px;
+  }
+
+  .edit-profile-container input {
+      font-size: 13px;
+  }
+
+  .edit-profile-container button {
+      font-size: 13px;
+      padding: 8px 16px;
+  }
+}

@@ -53,6 +53,7 @@ const UserPage = () => {
     };
 
     return (
+        <div>
         <div className="user-page-container">
             <div className="user-page-welcome-container">
                 <h1>Welcome to Our Community!</h1>
@@ -108,6 +109,7 @@ const UserPage = () => {
                         </div>
                     )}
                 </div>
+            </div>
             </div>
             <Footer />
         </div>
