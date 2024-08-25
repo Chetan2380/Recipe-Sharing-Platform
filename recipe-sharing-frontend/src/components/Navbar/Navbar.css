@@ -201,63 +201,68 @@
 }
 
 @media (max-width: 860px) and (min-width: 461px) {
-  .navbar-container {
-    padding: 0 10px;
-    height: auto;
+  .navbar-container{
+    height: 240px;
   }
 
-  .navbar-content {
-    flex-direction: column;
-    align-items: flex-start;
+  .logo img {
+    height: 86px;
   }
 
-  .search-container {
-    width: calc(100% - 20px); /* Full width minus padding */
+  .navbar-content{
+    width: 90%;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    justify-content: center; 
   }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-icon {
-    display: block;
-    color: #ffffff;
-    font-size: 24px;
-    cursor: pointer;
-    margin-left: 10px; /* Adjusted margin */
-  }
-
-  .sidebar {
-    display: none; /* Hide sidebar on tablets */
-  }
-
+  /* Ensure nav-links are displayed */
   .nav-links {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #004b49;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: row; /* Align items horizontally */
+    justify-content: space-between;
+    background-color: #004b49; /* Same background as desktop */
+    position: relative; /* Ensure dropdowns position correctly */
+    width: auto; /* Adjust width to fit content */
+    box-shadow: none; /* Remove box shadow if necessary */
+    padding: 0; /* Remove extra padding */
+    margin-top: 20px;
   }
 
-  .nav-links.active {
-    display: flex;
-  }
-
+  /* Adjust dropdown menu styling to fit tablet view */
   .dropdown-menu {
-    display: none;
+    display: none; /* Keep dropdown hidden by default */
     flex-direction: column;
     background-color: #ffffff; /* White background for dropdowns */
     padding: 10px;
+    position: absolute; /* Position absolutely for correct placement */
+    top: 100%; /* Position below the parent item */
+    left: 0;
+    width: 150px; /* Adjust width to fit content */
   }
 
+  /* Show dropdown menu when active */
   .dropdown-menu.show {
     display: flex;
   }
+  
+  /* Adjust the search container to fit in tablet view */
+  .search-container {
+    width: auto; /* Adjust width to fit content */
+    margin: 0; /* Reset margin */
+    margin-top: 20px;
+  }
+
+  /* Display nav-icon only when needed */
+  .nav-icon {
+    display: none; /* Hide nav-icon in tablet view */
+  }
+
+  /* Ensure sidebar is hidden in tablet view */
+  .sidebar {
+    display: none; /* Hide sidebar on tablets */
+  }
 }
+
 
 @media (min-width: 1240px) {
   .search-container {
