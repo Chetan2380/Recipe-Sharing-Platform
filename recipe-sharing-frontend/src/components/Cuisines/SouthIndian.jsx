@@ -54,6 +54,7 @@ const SouthIndian = () => {
                             />
                             <div className="south-indian-details">
                                 <p className="south-indian-title"><b>{recipe.title}</b></p>
+                                <p className="home-recipe-category">{recipe.category}</p>
                             </div>
                             <div className="south-indian-cooking-time-container">
                                 <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>

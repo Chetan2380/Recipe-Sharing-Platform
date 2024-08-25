@@ -54,6 +54,7 @@ const Punjabi = () => {
                             />
                             <div className="punjabi-details">
                                 <p className="punjabi-title"><b>{recipe.title}</b></p>
+                                <p className="home-recipe-category">{recipe.category}</p>
                             </div>
                             <div className="punjabi-cooking-time-container">
                                 <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>

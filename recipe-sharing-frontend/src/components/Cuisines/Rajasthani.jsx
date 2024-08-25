@@ -54,6 +54,7 @@ const Rajasthani = () => {
                             />
                             <div className="rajasthani-details">
                                 <p className="rajasthani-title"><b>{recipe.title}</b></p>
+                                <p className="home-recipe-category">{recipe.category}</p>
                             </div>
                             <div className="rajasthani-cooking-time-container">
                                 <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>

@@ -54,6 +54,7 @@ const Gujarati = () => {
                             />
                             <div className="gujarati-details">
                                 <p className="gujarati-title"><b>{recipe.title}</b></p>
+                                <p className="home-recipe-category">{recipe.category}</p>
                             </div>
                             <div className="gujarati-cooking-time-container">
                                 <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>

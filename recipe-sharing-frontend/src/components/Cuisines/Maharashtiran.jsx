@@ -54,6 +54,7 @@ const Maharashtiran = () => {
                             />
                             <div className="maharashtiran-details">
                                 <p className="maharashtiran-title"><b>{recipe.title}</b></p>
+                                <p className="home-recipe-category">{recipe.category}</p>
                             </div>
                             <div className="maharashtiran-cooking-time-container">
                                 <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>
