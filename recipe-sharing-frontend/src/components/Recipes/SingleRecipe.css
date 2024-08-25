@@ -126,6 +126,7 @@ textarea {
 
     #allrecipesshow {
         padding: 30px;
+        width: 80%;
     }
 
     #sp-title h1 {
@@ -133,7 +134,7 @@ textarea {
     }
 
     #sp-image img {
-        width: 70%; /* Adjusted for larger screens */
+        width: 65%; 
     }
 
     #sp-desctext p {
@@ -146,7 +147,11 @@ textarea {
     }
 
     .showbutton{
-        margin-left: 275px;
+        margin-left: 510px;
+    }
+
+    .reviewbutton{
+        margin-left: 0px;
     }
 
     #editForm h2 {
@@ -161,6 +166,7 @@ textarea {
 
     #allrecipesshow {
         padding: 25px;
+        width: 80%;
     }
 
     #sp-title h1 {
@@ -181,7 +187,11 @@ textarea {
     }
 
     .showbutton{
-        margin-left: 96px;
+        margin-left: 260px;
+    }
+
+    .reviewbutton{
+        margin-left: 0px;
     }
 
     #editForm h2 {
