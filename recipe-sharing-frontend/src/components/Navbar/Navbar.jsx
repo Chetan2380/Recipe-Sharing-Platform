@@ -11,6 +11,8 @@ const Navbar = () => {
     const { state, dispatch } = useContext(AuthContext);
     const [searchTerm, setSearchTerm] = useState("");
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [categoriesOpen, setCategoriesOpen] = useState(false);
+    const [cuisinesOpen, setCuisinesOpen] = useState(false);
 
     const handleLogout = async () => {
         try {
@@ -46,11 +48,13 @@ const Navbar = () => {
     };
 
     const toggleCategoriesMenu = () => {
-        document.querySelector('.dropdown-menu').classList.toggle('show');
+        setCategoriesOpen(!categoriesOpen);
+        if (cuisinesOpen) setCuisinesOpen(false); // Close Cuisines menu if open
     };
 
     const toggleCuisinesMenu = () => {
-        document.querySelector('.dropdown-menu').classList.toggle('show');
+        setCuisinesOpen(!cuisinesOpen);
+        if (categoriesOpen) setCategoriesOpen(false); // Close Categories menu if open
     };
 
     return (
@@ -70,6 +74,44 @@ const Navbar = () => {
                         />
                         <i className="fa-solid fa-magnifying-glass" onClick={handleSearch}></i>
                     </div>
+                    <div className="nav-links">
+                        <div onClick={() => router("/")}>Home</div>
+                        <div onClick={() => router("/all-recipes")}>Recipes</div>
+                        <div className="dropdown">
+                            <div className="dropdown-header" onClick={toggleCategoriesMenu}>Categories</div>
+                            <div className={`dropdown-menu ${categoriesOpen ? 'show' : ''}`}>
+                                <div onClick={() => router("/veg-recipes")}>Veg</div>
+                                <div onClick={() => router("/non-veg-recipes")}>Non Veg</div>
+                                <div onClick={() => router("/vegan-recipes")}>Vegan</div>
+                                <div onClick={() => router("/special-recipes")}>Special Recipes</div>
+                                <div onClick={() => router("/healthy-recipes")}>Healthy</div>
+                            </div>
+                        </div>
+                        <div className="dropdown">
+                            <div className="dropdown-header" onClick={toggleCuisinesMenu}>Cuisines</div>
+                            <div className={`dropdown-menu ${cuisinesOpen ? 'show' : ''}`}>
+                                <div onClick={() => router("/maharashtrian-recipes")}>Maharashtrian</div>
+                                <div onClick={() => router("/gujarati-recipes")}>Gujarati</div>
+                                <div onClick={() => router("/punjabi-recipes")}>Punjabi</div>
+                                <div onClick={() => router("/rajasthani-recipes")}>Rajasthani</div>
+                                <div onClick={() => router("/south-indian-recipes")}>South Indian</div>
+                                <div onClick={() => router("/north-east-recipes")}>North East</div>
+                            </div>
+                        </div>
+                        <div onClick={() => router("/community")}>Community</div>
+                        {!state?.user ? (
+                            <div onClick={() => router("/login")}>Login</div>
+                        ) : (
+                            <div className="dropdown">
+                                <div className="dropdown-header">Profile</div>
+                                <div className="dropdown-menu">
+                                    <div onClick={() => router("/user-profile")}>Your Profile</div>
+                                    <div onClick={() => router("/edit-profile")}>Edit Profile</div>
+                                    <div onClick={handleLogout}>Logout</div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                     <div className="nav-icon" onClick={toggleSidebar}>
                         <i className="fa-solid fa-bars"></i>
                     </div>
@@ -85,7 +127,7 @@ const Navbar = () => {
                     <div onClick={() => router("/all-recipes")}>Recipes</div>
                     <div className="dropdown">
                         <div className="dropdown-header" onClick={toggleCategoriesMenu}>Categories</div>
-                        <div className="dropdown-menu">
+                        <div className={`dropdown-menu ${categoriesOpen ? 'show' : ''}`}>
                             <div onClick={() => router("/veg-recipes")}>Veg</div>
                             <div onClick={() => router("/non-veg-recipes")}>Non Veg</div>
                             <div onClick={() => router("/vegan-recipes")}>Vegan</div>
@@ -95,7 +137,7 @@ const Navbar = () => {
                     </div>
                     <div className="dropdown">
                         <div className="dropdown-header" onClick={toggleCuisinesMenu}>Cuisines</div>
-                        <div className="dropdown-menu">
+                        <div className={`dropdown-menu ${cuisinesOpen ? 'show' : ''}`}>
                             <div onClick={() => router("/maharashtrian-recipes")}>Maharashtrian</div>
                             <div onClick={() => router("/gujarati-recipes")}>Gujarati</div>
                             <div onClick={() => router("/punjabi-recipes")}>Punjabi</div>
