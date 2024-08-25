@@ -126,7 +126,7 @@
 @media (min-width: 860px) and (max-width: 1239px) {
     .vegan-recipe-card {
         width: 250px;
-        height: 400px;
+        height: 440px;
     }
 
     .vegan-recipe-title {
@@ -145,7 +145,7 @@
     .vegan-recipe-card {
         width: 100%;
         max-width: 300px;
-        height: 440px;
+        height: 470px;
     }
 
     .vegan-recipe-title {

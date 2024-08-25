@@ -207,6 +207,14 @@
     height: 240px;
   }
 
+  .navbar-content{
+    max-width: 100%;
+  }
+
+  .nav-links{
+    max-width: 100%;
+  }
+
   .logo img {
     height: 86px;
   }
@@ -265,10 +273,17 @@
   }
 }
 
-
-@media (min-width: 1240px) {
+@media (min-width: 1240px) and (max-width:1241px)  {
   .search-container {
-    width: 320px; /* Adjusted width for laptops and larger screens */
+    width: 300px; /* Adjusted width for laptops and larger screens */
+  }
+
+  .navbar-content{
+    max-width: 98%;
+  }
+
+  .nav-links{
+    max-width: 100%;
   }
 
   .nav-icon {

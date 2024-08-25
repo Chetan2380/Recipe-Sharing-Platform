@@ -77,6 +77,7 @@ const Navbar = () => {
                     <div className="nav-links">
                         <div onClick={() => router("/")}>Home</div>
                         <div onClick={() => router("/all-recipes")}>Recipes</div>
+                        {state?.user?.role === "user" && (<div onClick={() => router("/create-new-recipe")}>Share Recipe</div>)}
                         <div className="dropdown">
                             <div className="dropdown-header" onClick={toggleCategoriesMenu}>Categories</div>
                             <div className={`dropdown-menu ${categoriesOpen ? 'show' : ''}`}>
@@ -125,6 +126,7 @@ const Navbar = () => {
                 <div className="sidebar-menu">
                     <div onClick={() => router("/")}>Home</div>
                     <div onClick={() => router("/all-recipes")}>Recipes</div>
+                    {state?.user?.role === "user" && (<div onClick={() => router("/create-new-recipe")}>Share Recipe</div>)}
                     <div className="dropdown">
                         <div className="dropdown-header" onClick={toggleCategoriesMenu}>Categories</div>
                         <div className={`dropdown-menu ${categoriesOpen ? 'show' : ''}`}>

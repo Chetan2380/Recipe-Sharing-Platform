@@ -35,11 +35,11 @@ const Footer = () => {
                         <div className="footer-categories">
                             <h3>Categories</h3>
                             <ul>
-                                <li onClick={() => router('/category/veg')}>Veg</li>
-                                <li onClick={() => router('/category/non-veg')}>Non Veg</li>
-                                <li onClick={() => router('/category/vegan')}>Vegan</li>
-                                <li onClick={() => router('/category/special-recipes')}>Special Recipes</li>
-                                <li onClick={() => router('/category/healthy')}>Healthy</li>
+                                <li onClick={() => router('/veg-recipes')}>Veg</li>
+                                <li onClick={() => router('/non-veg-recipes')}>Non Veg</li>
+                                <li onClick={() => router('/vegan-recipes')}>Vegan</li>
+                                <li onClick={() => router('/special-recipes')}>Special Recipes</li>
+                                <li onClick={() => router('/healthy-recipes')}>Healthy</li>
                             </ul>
                         </div>
                     </div>

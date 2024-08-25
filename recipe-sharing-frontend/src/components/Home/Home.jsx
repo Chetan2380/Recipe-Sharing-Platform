@@ -49,7 +49,7 @@ const Home = () => {
                     <div className="home-recipes-grid">
                         {latestRecipes.length > 0 ? (
                             latestRecipes.map((recipe) => (
-                                <div key={recipe._id} className="home-recipe-card">
+                                <div key={recipe._id} className="home-recipe-card" onClick={() => router(`/single-recipe/${recipe._id}`)}>
                                     <img src={recipe.image} alt={recipe.title} className="home-recipe-image" />
                                     <div className="home-recipe-info">
                                         <h3 className="home-recipe-title">{recipe.title}</h3>

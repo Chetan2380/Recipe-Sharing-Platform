@@ -122,7 +122,9 @@ export const search = async (req, res) => {
       const { searchedWord } = req.body;
   
       const searchedrecipes = await Recipe.find({
-        $or:[{ingredients: { $regex: searchedWord, $options: "i" }}]
+        $or:[{ingredients: { $regex: searchedWord, $options: "i" }},
+          {title: { $regex: searchedWord, $options: "i" }}
+        ]
         
       });
       res.json({ success: true, searchedrecipes });

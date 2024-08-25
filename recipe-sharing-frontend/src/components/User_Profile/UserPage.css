@@ -168,7 +168,7 @@
 @media (min-width: 860px) and (max-width: 1239px) {
     .user-page-recipe-item {
         width: 240px;
-        height: 400px;
+        height: 440px;
     }
     .user-page-content-container {
         gap: 30px; /* Adjusted gap for tablets and medium screen sizes */
@@ -191,7 +191,7 @@
 @media (max-width: 460px) {
     .user-page-recipe-item {
         width: 300px;
-        height: 440px;
+        height: 470px;
         margin: auto;
     }
 }
