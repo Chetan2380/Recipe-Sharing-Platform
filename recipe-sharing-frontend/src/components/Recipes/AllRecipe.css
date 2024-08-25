@@ -1,102 +1,90 @@
 #main {
-    /* padding: 20px; */
     font-family: Arial, sans-serif;
-    background-color: #242628;
-    margin-top: -22px;
+    background-color: #f5f5f0;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: white;
-    padding-top: 10px;
+    color: #333;
 }
 
-.loading {
+.all-loading {
     text-align: center;
     font-size: 24px;
     color: #BF5700;
 }
 
-.recipes-grid {
+.all-recipes-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    height: auto;
     margin-bottom: 30px;
 }
 
-.recipe-card {
-    position: relative; 
-    background: gray;
+.all-recipe-card {
+    position: relative;
+    background: #ffffff;
     border-radius: 10px;
     overflow: hidden;
-    width: 22%;
-    height: 320px;
+    width: 300px;
+    height: 460px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white;
+    color: #333;
 }
 
-.recipe-card:hover {
+.all-recipe-card:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.recipe-image {
+.all-recipe-image {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    object-position: 50% 57%;
 }
 
-.recipe-details {
+.all-recipe-info {
     padding: 15px;
     text-align: center;
 }
 
-.recipe-title {
-    font-size: 26px;
+.all-recipe-title {
+    font-size: 24px;
     margin: 10px 0;
+    color: #333;
 }
 
-.recipe-time {
-    font-size: 14px;
-    color: #666;
-}
-
-.rating-container {
+.all-recipe-rating-container {
     position: absolute;
-    bottom: 0px;
-    right: 0px;
-    background: orange;
-    color: white;
+    bottom: 0;
+    right: 0;
+    background: #004b49;
+    color: #ffffff;
     padding: 5px;
-    border-radius: 0px 0px 5px 0px;
-    height: 40px;
-    width: 16%;
+    border-radius: 0 0 5px 0;
+    height: 30px;
+    width: 20%;
     display: flex;
     align-items: center;
-}
-
-.cooking-time-container {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    background: orange;
-    color: white;
-    padding: 5px;
-    border-radius: 0px opx 5px 0px;
-    height: 40px;
-    width: 30%;
-}
-
-.recipe-rating {
+    justify-content: center;
     font-size: 14px;
-    margin-left: 7.2px;
 }
 
-.recipe-cooking-time {
+.all-recipe-time-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #004b49;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 0 5px 5px 0;
+    height: 30px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 14px;
 }

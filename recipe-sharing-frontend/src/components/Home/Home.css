@@ -29,7 +29,7 @@
 }
 
 .home-recipes-section h2 {
-    font-size: 24px;
+    font-size: 38px;
     color: #333;
     text-align: center;
     margin-bottom: 20px;
@@ -48,8 +48,8 @@
     border: 1px solid #d9e2ec;
     border-radius: 10px;
     overflow: hidden;
-    width: 250px;
-    height: 420px;
+    width: 300px;
+    height: 460px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -73,7 +73,7 @@
 }
 
 .home-recipe-title {
-    font-size: 18px;
+    font-size: 24px;
     margin: 10px 0;
     color: #333;
 }
@@ -120,7 +120,7 @@
 }
 
 .home-categories-section h2 {
-    font-size: 24px;
+    font-size: 38px;
     color: #333;
     text-align: center;
     margin-bottom: 20px;
