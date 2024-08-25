@@ -21,6 +21,7 @@ const AllRecipes = () => {
             }
         } catch (error) {
             console.log(error);
+            setLoading(false); // Make sure to stop loading on error
         }
     }
 
@@ -38,40 +39,40 @@ const AllRecipes = () => {
 
     return (
         <div>
-        <div className="all-recipes-page">
-            <h1>All Recipes</h1>
-            {loading ? (
-                <div className="all-recipes-loading">
-                    <h1>Loading....</h1>
-                </div>
-            ) : (
-                <div className="all-recipes-grid">
-                    {allRecipes.map((recipe) => (
-                        <div
-                            key={recipe._id}
-                            className="all-recipe-card"
-                            onClick={() => router(`/single-recipe/${recipe._id}`)}
-                        >
-                            <img src={recipe.image} alt={recipe.title} className="all-recipe-image" />
-                            <div className="all-recipe-details">
-                                <h3 className="all-recipe-title">{recipe.title}</h3>
-                                <p className="home-recipe-cuisine">{recipe.cuisine}</p>
-                                <p className="home-recipe-category">{recipe.category}</p>
+            <div className="all-recipes-page">
+                <h1>All Recipes</h1>
+                {loading ? (
+                    <div className="all-recipes-loading">
+                        <div className="loader"></div>
+                    </div>
+                ) : (
+                    <div className="all-recipes-grid">
+                        {allRecipes.map((recipe) => (
+                            <div
+                                key={recipe._id}
+                                className="all-recipe-card"
+                                onClick={() => router(`/single-recipe/${recipe._id}`)}
+                            >
+                                <img src={recipe.image} alt={recipe.title} className="all-recipe-image" />
+                                <div className="all-recipe-details">
+                                    <h3 className="all-recipe-title">{recipe.title}</h3>
+                                    <p className="home-recipe-cuisine">{recipe.cuisine}</p>
+                                    <p className="home-recipe-category">{recipe.category}</p>
+                                </div>
+                                <div className="all-cooking-time-container">
+                                    <p className="all-recipe-cooking-time">
+                                        <i className="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}
+                                    </p>
+                                </div>
+                                <div className="all-rating-container">
+                                    <p className="all-recipe-rating">
+                                        <b><i className="fa-solid fa-star"></i></b> {recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}
+                                    </p>
+                                </div>
                             </div>
-                            <div className="all-cooking-time-container">
-                                <p className="all-recipe-cooking-time">
-                                    <i className="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}
-                                </p>
-                            </div>
-                            <div className="all-rating-container">
-                                <p className="all-recipe-rating">
-                                    <b><i className="fa-solid fa-star"></i></b> {recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            )}
+                        ))}
+                    </div>
+                )}
             </div>
             <Footer />
         </div>
