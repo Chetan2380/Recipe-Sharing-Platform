@@ -53,8 +53,8 @@ const Home = () => {
                                     <img src={recipe.image} alt={recipe.title} className="home-recipe-image" />
                                     <div className="home-recipe-info">
                                         <h3 className="home-recipe-title">{recipe.title}</h3>
-                                        <p className="home-recipe-cuisine">Cuisine: {recipe.cuisine}</p>
-                                        <p className="home-recipe-category">Category: {recipe.category}</p>
+                                        <p className="home-recipe-cuisine">{recipe.cuisine}</p>
+                                        <p className="home-recipe-category">{recipe.category}</p>
                                         {/* <button
                                             className="home-view-details-btn"
                                             onClick={() => router(`/single-recipe/${recipe._id}`)}

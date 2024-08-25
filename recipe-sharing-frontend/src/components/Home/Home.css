@@ -1,7 +1,10 @@
+/* General Styles */
 .home-page {
     font-family: Arial, sans-serif;
     background-color: #f5f5f0;
     padding-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .home-welcome-container {
@@ -10,6 +13,7 @@
     background-color: #f9f6f1;
     border-bottom: 1px solid #d9e2ec;
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 .home-welcome-container h1 {
@@ -26,6 +30,7 @@
 .home-recipes-section {
     padding: 40px 20px;
     background-color: #f5f7f4;
+    box-sizing: border-box;
 }
 
 .home-recipes-section h2 {
@@ -42,18 +47,19 @@
     justify-content: center;
 }
 
+/* Card Styling */
 .home-recipe-card {
     position: relative;
     background: #ffffff;
     border: 1px solid #d9e2ec;
     border-radius: 10px;
     overflow: hidden;
-    width: 300px;
-    height: 460px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    width: 280px;
+    height: 420px;
 }
 
 .home-recipe-card:hover {
@@ -63,7 +69,7 @@
 
 .home-recipe-image {
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -73,40 +79,35 @@
 }
 
 .home-recipe-title {
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px 0;
     color: #333;
 }
 
-.home-cooking-time-container {
+.home-cooking-time-container,
+.home-rating-container {
     position: absolute;
-    bottom: 0;
-    left: 0;
     background: #004b49;
     color: #ffffff;
     padding: 5px;
-    border-radius: 0 5px 5px 0;
-    width: 40%;
+    border-radius: 5px;
+    font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+}
+
+.home-cooking-time-container {
+    bottom: 0;
+    left: 0;
+    width: 40%;
     height: 30px;
 }
 
 .home-rating-container {
-    position: absolute;
     bottom: 0;
     right: 0;
-    background: #004b49;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 5px 0 0 5px;
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
+    width: 30%;
     height: 30px;
 }
 
@@ -133,6 +134,7 @@
     justify-content: center;
 }
 
+/* Home Category Card Styling */
 .home-category-card {
     background: #ffffff;
     border: 1px solid #d9e2ec;
@@ -140,12 +142,12 @@
     padding: 20px;
     text-align: center;
     cursor: pointer;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
     position: relative;
@@ -155,3 +157,196 @@
     background-color: #f0f4f8;
     color: #004b49;
 }
+
+/* Responsive Styles */
+
+/* Laptop (min-width: 1240px) */
+@media (min-width: 1240px) {
+    .home-page {
+        padding-top: 30px;
+    }
+
+    .home-welcome-container {
+        padding: 60px 40px;
+    }
+
+    .home-recipes-section {
+        padding: 60px 40px;
+    }
+
+    .home-recipes-section h2 {
+        font-size: 42px;
+    }
+
+    .home-recipes-grid {
+        gap: 30px;
+    }
+
+    .home-recipe-card {
+        width: 300px;
+        height: 460px;
+    }
+
+    .home-recipe-title {
+        font-size: 24px;
+    }
+
+    .home-cooking-time-container,
+    .home-rating-container {
+        font-size: 14px;
+        height: 30px;
+    }
+
+    .home-category-card {
+        width: 150px;
+        height: 150px;
+        font-size: 16px;
+    }
+}
+
+/* Tablet (min-width: 860px) and max-width: 1239px */
+@media (min-width: 860px) and (max-width: 1239px) {
+    .home-page {
+        padding-top: 20px;
+    }
+
+    .home-welcome-container {
+        padding: 50px 30px;
+    }
+
+    .home-recipes-section {
+        padding: 50px 30px;
+    }
+
+    .home-recipes-section h2 {
+        font-size: 36px;
+    }
+
+    .home-recipes-grid {
+        gap: 25px;
+    }
+
+    .home-recipe-card {
+        width: 250px;
+        height: 400px;
+    }
+
+    .home-recipe-title {
+        font-size: 22px;
+    }
+
+    .home-cooking-time-container,
+    .home-rating-container {
+        font-size: 12px;
+        height: 30px;
+    }
+
+    .home-category-card {
+        width: 130px;
+        height: 130px;
+        font-size: 15px;
+    }
+}
+
+/* Mobile (min-width: 460px) and max-width: 859px */
+@media (max-width: 460px){
+    .home-page {
+    }
+
+    .home-welcome-container {
+        padding: 20px 10px;
+        max-width: 100%;
+    }
+
+    .home-recipes-section {
+        padding: 20px 10px;
+        max-width: 100%;
+    }
+
+    .home-recipes-section h2 {
+        font-size: 28px;
+        margin: 0 0 20px;
+    }
+
+    .home-recipes-grid {
+        gap: 15px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .home-recipe-card {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .home-recipe-title {
+        font-size: 18px;
+    }
+
+    .home-cooking-time-container,
+    .home-rating-container {
+        font-size: 12px;
+        height: auto;
+        width: auto;
+        padding: 5px;
+    }
+
+    .home-category-card {
+        width: 100px;
+        height: 100px;
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile (max-width: 459px) */
+@media (max-width: 459px) {
+    .home-page {
+        padding-top: 5px;
+    }
+
+    .home-welcome-container {
+        padding: 15px 5px;
+    }
+
+    .home-recipes-section {
+        padding: 15px 5px;
+    }
+
+    .home-recipes-section h2 {
+        font-size: 24px;
+        margin: 0 0 15px;
+    }
+
+    .home-recipes-grid {
+        gap: 10px;
+        width: 100%;
+    }
+
+    .home-recipe-card {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .home-recipe-title {
+        font-size: 16px;
+    }
+
+    .home-cooking-time-container,
+    .home-rating-container {
+        font-size: 12px;
+        height: auto;
+        width: auto;
+        padding: 5px;
+    }
+
+    .home-category-card {
+        width: 80px;
+        height: 80px;
+        font-size: 12px;
+    }
+}
+

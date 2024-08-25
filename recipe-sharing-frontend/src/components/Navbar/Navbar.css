@@ -4,18 +4,18 @@
   padding: 0 20px;
   height: 80px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* Ensure padding is included in the width */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .navbar-content {
   display: flex;
   align-items: center;
   height: 100%;
-  max-width: 100%; /* Ensure it does not exceed the viewport width */
+  max-width: 100%;
   margin: 0 auto;
   justify-content: space-between;
-  box-sizing: border-box; /* Ensure padding is included in the width */
+  box-sizing: border-box;
 }
 
 .logo img {
@@ -29,7 +29,7 @@
   border-radius: 5px;
   padding: 5px;
   width: 300px;
-  box-sizing: border-box; /* Ensure padding is included in the width */
+  box-sizing: border-box;
 }
 
 .search-container input {
@@ -39,7 +39,7 @@
   font-size: 14px;
   color: #333;
   width: 100%;
-  box-sizing: border-box; /* Ensure padding is included in the width */
+  box-sizing: border-box;
 }
 
 .search-container i {
@@ -129,4 +129,78 @@
 
 .nav-icon .dropdown-menu > div {
   padding: 10px;
+}
+
+/* Responsive Styles */
+
+@media (min-width: 1240px) {
+  .navbar-container {
+    padding: 0 40px;
+  }
+
+  .search-container {
+    width: 350px;
+  }
+
+  .dropdown-menu {
+    width: 250px;
+  }
+
+  .nav-icon .dropdown-menu {
+    width: 180px;
+  }
+}
+
+@media (min-width: 860px) and (max-width: 1239px) {
+  .navbar-container {
+    padding: 0 30px;
+  }
+
+  .search-container {
+    width: 280px;
+  }
+
+  .dropdown-menu {
+    width: 220px;
+  }
+
+  .nav-icon .dropdown-menu {
+    width: 160px;
+  }
+}
+
+@media (min-width: 460px) and (max-width: 859px) {
+  .navbar-container {
+    padding: 0 20px;
+  }
+
+  .search-container {
+    width: 240px;
+  }
+
+  .dropdown-menu {
+    width: 200px;
+  }
+
+  .nav-icon .dropdown-menu {
+    width: 140px;
+  }
+}
+
+@media (max-width: 459px) {
+  .navbar-container {
+    padding: 0 10px;
+  }
+
+  .search-container {
+    width: 200px;
+  }
+
+  .dropdown-menu {
+    width: 180px;
+  }
+
+  .nav-icon .dropdown-menu {
+    width: 120px;
+  }
 }
