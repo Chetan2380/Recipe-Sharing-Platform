@@ -10,8 +10,9 @@ const Navbar = () => {
     const router = useNavigate();
     const { state, dispatch } = useContext(AuthContext);
     const [searchTerm, setSearchTerm] = useState("");
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
-    async function handleLogout() {
+    const handleLogout = async () => {
         try {
             const response = await Api.post("/auth/logout");
             if (response.data.success) {
@@ -24,9 +25,9 @@ const Navbar = () => {
         } catch (error) {
             toast.error("Failed to logout.");
         }
-    }
+    };
 
-    async function handleSearch() {
+    const handleSearch = async () => {
         try {
             const response = await Api.post("/recipe/search", { searchedWord: searchTerm });
             if (response.data.success) {
@@ -38,29 +39,52 @@ const Navbar = () => {
         } catch (error) {
             toast.error("Failed to search.");
         }
-    }
+    };
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+    };
+
+    const toggleCategoriesMenu = () => {
+        document.querySelector('.dropdown-menu').classList.toggle('show');
+    };
+
+    const toggleCuisinesMenu = () => {
+        document.querySelector('.dropdown-menu').classList.toggle('show');
+    };
 
     return (
-        <div className="navbar-container">
-            <div className="navbar-content">
-                <div className="logo">
-                    <img src={logo} alt="Navbar Logo" />
+        <div>
+            <div className="navbar-container">
+                <div className="navbar-content">
+                    <div className="logo">
+                        <img src={logo} alt="Navbar Logo" />
+                    </div>
+                    <div className="search-container">
+                        <input
+                            type="text"
+                            placeholder="Search recipes..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                        />
+                        <i className="fa-solid fa-magnifying-glass" onClick={handleSearch}></i>
+                    </div>
+                    <div className="nav-icon" onClick={toggleSidebar}>
+                        <i className="fa-solid fa-bars"></i>
+                    </div>
                 </div>
-                {state?.user && (<div className="search-container">
-                    <input
-                        type="text"
-                        placeholder="Search recipes..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                    />
-                    <i className="fa-solid fa-magnifying-glass" onClick={handleSearch}></i>
-                </div>)}
-                <div className="nav-links">
+            </div>
+
+            <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+                <div className="close-btn" onClick={toggleSidebar}>
+                    <i className="fa-solid fa-xmark"></i>
+                </div>
+                <div className="sidebar-menu">
                     <div onClick={() => router("/")}>Home</div>
                     <div onClick={() => router("/all-recipes")}>Recipes</div>
                     <div className="dropdown">
-                        <div className="dropdown-header">Categories</div>
+                        <div className="dropdown-header" onClick={toggleCategoriesMenu}>Categories</div>
                         <div className="dropdown-menu">
                             <div onClick={() => router("/veg-recipes")}>Veg</div>
                             <div onClick={() => router("/non-veg-recipes")}>Non Veg</div>
@@ -70,9 +94,9 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="dropdown">
-                        <div className="dropdown-header">Cuisines</div>
+                        <div className="dropdown-header" onClick={toggleCuisinesMenu}>Cuisines</div>
                         <div className="dropdown-menu">
-                            <div onClick={() => router("maharashtrian-recipes")}>Maharashtrian</div>
+                            <div onClick={() => router("/maharashtrian-recipes")}>Maharashtrian</div>
                             <div onClick={() => router("/gujarati-recipes")}>Gujarati</div>
                             <div onClick={() => router("/punjabi-recipes")}>Punjabi</div>
                             <div onClick={() => router("/rajasthani-recipes")}>Rajasthani</div>
@@ -80,31 +104,23 @@ const Navbar = () => {
                             <div onClick={() => router("/north-east-recipes")}>North East</div>
                         </div>
                     </div>
-                    {state?.user?.role === "user" && (
-                        <div onClick={() => router("/create-new-recipe")}>Add Recipe</div>
-                    )}
-
+                    <div onClick={() => router("/community")}>Community</div>
                     {!state?.user ? (
-                        <div>
-                            {/* <div onClick={() => router("/register")}>Register</div> */}
-                            <div onClick={() => router("/login")}>Login</div>
-                        </div>
+                        <div onClick={() => router("/login")}>Login</div>
                     ) : (
-                        <>
-                            <div className="nav-icon dropdown">
-                                <i className="fa-solid fa-user"></i>
-                                <div className="dropdown-menu">
-                                    <div onClick={() => router("/user-profile")}>Your Profile</div>
-                                    <div onClick={() => router("/edit-profile")}>Edit Profile</div>
-                                    <div onClick={handleLogout}>Logout</div>
-                                </div>
+                        <div className="dropdown">
+                            <div className="dropdown-header">Profile</div>
+                            <div className="dropdown-menu">
+                                <div onClick={() => router("/user-profile")}>Your Profile</div>
+                                <div onClick={() => router("/edit-profile")}>Edit Profile</div>
+                                <div onClick={handleLogout}>Logout</div>
                             </div>
-                        </>
+                        </div>
                     )}
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Navbar;
