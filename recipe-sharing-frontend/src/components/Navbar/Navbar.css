@@ -108,12 +108,14 @@
   .navbar-container {
     padding: 0 10px;
     height: auto;
+    max-width: 100%;
   }
 
   .navbar-content {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 100%;
   }
 
   .search-container {

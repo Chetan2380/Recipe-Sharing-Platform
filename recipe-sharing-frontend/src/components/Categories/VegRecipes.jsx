@@ -47,6 +47,7 @@ const VegRecipes = () => {
                         <img src={recipe.image} alt={recipe.title} className="veg-recipe-image" />
                         <div className="veg-recipe-details">
                             <h3 className="veg-recipe-title">{recipe.title}</h3>
+                            <p className="home-recipe-cuisine">{recipe.cuisine}</p>
                             <div className="veg-cooking-time-container">
                                 <p className="veg-recipe-cooking-time"><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</p>
                             </div>
