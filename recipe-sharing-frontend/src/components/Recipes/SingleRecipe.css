@@ -3,7 +3,19 @@
     font-family: Arial, sans-serif;
     background-color: #f5f5f0;
     padding: 20px;
-    box-sizing: border-box;
+}
+
+/* Loader styles */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.loader-container i {
+    font-size: 80px; /* Adjust size if needed */
+    color: #004b49; /* Match your theme color */
 }
 
 #allrecipesshow {

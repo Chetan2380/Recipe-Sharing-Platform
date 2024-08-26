@@ -12,11 +12,18 @@
     font-size: 40px;
 }
 
-.special-recipes-loading {
-    text-align: center;
-    font-size: 24px;
-    color: #BF5700;
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
+.loader-container i {
+    font-size: 24px;
+    color: #000;
+}
+
 
 .special-recipes-grid {
     display: flex;

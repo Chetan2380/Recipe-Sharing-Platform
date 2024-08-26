@@ -13,11 +13,19 @@
     font-size: 40px;
 }
 
-.punjabi-loading {
-    text-align: center;
-    font-size: 24px;
-    color: #BF5700;
+/* Example CSS for loader */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
+.loader-container i {
+    font-size: 2rem;
+    color: #000; /* Adjust color as needed */
+}
+
 
 .punjabi-grid {
     display: flex;

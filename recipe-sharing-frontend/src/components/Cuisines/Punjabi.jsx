@@ -32,42 +32,40 @@ const Punjabi = () => {
 
       return (
         <div>
-        <div className="punjabi-page">
-        <head>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        </head>
-            <h1>All Punjabi Recipes</h1>
-            <div className="punjabi-grid">
+            <div className="punjabi-page">
+                <head>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+                </head>
+                <h1>All Punjabi Recipes</h1>
                 {loading ? (
-                    <div className="punjabi-loading">Loading....</div>
+                    <div className="loader-container">
+                        <i className="fa-solid fa-spinner fa-spin"></i>
+                    </div>
                 ) : (
-                    allRecipes.map((recipe) => (
-                        <div
-                            key={recipe._id}
-                            className="punjabi-card"
-                            onClick={() => router(`/single-recipe/${recipe._id}`)}
-                        >
-                            <img
-                                className="punjabi-image"
-                                src={recipe.image}
-                                alt="recipe"
-                            />
-                            <div className="punjabi-details">
-                                <p className="punjabi-title"><b>{recipe.title}</b></p>
-                                <p className="home-recipe-category">{recipe.category}</p>
+                    <div className="punjabi-grid">
+                        {allRecipes.map((recipe) => (
+                            <div
+                                key={recipe._id}
+                                className="punjabi-card"
+                                onClick={() => router(`/single-recipe/${recipe._id}`)}
+                            >
+                                <img className="punjabi-image" src={recipe.image} alt="recipe" />
+                                <div className="punjabi-details">
+                                    <p className="punjabi-title"><b>{recipe.title}</b></p>
+                                    <p className="home-recipe-category">{recipe.category}</p>
+                                </div>
+                                <div className="punjabi-cooking-time-container">
+                                    <span><i className="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>
+                                </div>
+                                <div className="punjabi-rating-container">
+                                    <span className="punjabi-rating"><i className="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating ? recipe.averageRating : 'NA'}</span>
+                                </div>
                             </div>
-                            <div className="punjabi-cooking-time-container">
-                                <span><i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}</span>
-                            </div>
-                            <div className="punjabi-rating-container">
-                                <span className="punjabi-rating"><i class="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating ? recipe.averageRating : 'NA'}</span>
-                            </div>
-                        </div>
-                    ))
+                        ))}
+                    </div>
                 )}
             </div>
-        </div>
-        <Footer />
+            <Footer />
         </div>
     );
 }

@@ -54,64 +54,68 @@ const UserPage = () => {
 
     return (
         <div>
-        <div className="user-page-container">
-            <div className="user-page-welcome-container">
-                <h1>Welcome to Our Community!</h1>
-                <p>Explore recipes shared by our users. Click on a username to view their recipes.</p>
-            </div>
-            <div className="user-page-content-container">
-                <div className="user-page-list-container">
-                    <h2>All Users</h2>
-                    {loading ? (
-                        <div className="user-page-loading-indicator"><h1>Loading....</h1></div>
-                    ) : (
-                        <div className="user-page-list">
-                            {users.map((user) => (
-                                <div
-                                    key={user._id}
-                                    onClick={() => handleUserClick(user._id)}
-                                    className={`user-page-list-item ${user._id === selectedUserId ? 'selected' : ''}`}
-                                >
-                                    {user.name}
-                                </div>
-                            ))}
-                        </div>
-                    )}
+            <div className="user-page-container">
+                <div className="user-page-welcome-container">
+                    <h1>Welcome to Our Community!</h1>
+                    <p>Explore recipes shared by our users. Click on a username to view their recipes.</p>
                 </div>
-                <div className="user-page-recipes-container">
-                    <h2>Recipes Added by {selectedUserId ? users.find(user => user._id === selectedUserId)?.name : 'Selected User'}</h2>
-                    {loading ? (
-                        <div className="user-page-loading-indicator"><h1>Loading....</h1></div>
-                    ) : (
-                        <div className="user-page-recipe-list">
-                            {userRecipes.length > 0 ? (
-                                userRecipes.map((recipe) => (
+                <div className="user-page-content-container">
+                    <div className="user-page-list-container">
+                        <h2>All Users</h2>
+                        {loading ? (
+                            <div className="loader-container">
+                                <i className="fa-solid fa-spinner fa-spin"></i>
+                            </div>
+                        ) : (
+                            <div className="user-page-list">
+                                {users.map((user) => (
                                     <div
-                                        className="user-page-recipe-item"
-                                        key={recipe._id}
-                                        onClick={() => router(`/single-recipe/${recipe._id}`)}
+                                        key={user._id}
+                                        onClick={() => handleUserClick(user._id)}
+                                        className={`user-page-list-item ${user._id === selectedUserId ? 'selected' : ''}`}
                                     >
-                                        <img src={recipe.image} alt="recipe" className="user-page-recipe-image" />
-                                        <div className="user-page-recipe-info">
-                                            <p className="user-page-recipe-title"><b>{recipe.title}</b></p>
-                                            <p className="user-page-recipe-cuisine">{recipe.cuisine}</p>
-                                            <p className="user-page-recipe-category">{recipe.category}</p>
-                                        </div>
-                                        <div className="user-page-cooking-time-container">
-                                            <i class="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}
-                                        </div>
-                                        <div className="user-page-rating-container">
-                                            <i class="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}
-                                        </div>
+                                        {user.name}
                                     </div>
-                                ))
-                            ) : (
-                                <p>No recipes found for this user.</p>
-                            )}
-                        </div>
-                    )}
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                    <div className="user-page-recipes-container">
+                        <h2>Recipes Added by {selectedUserId ? users.find(user => user._id === selectedUserId)?.name : 'Selected User'}</h2>
+                        {loading ? (
+                            <div className="loader-container">
+                                <i className="fa-solid fa-spinner fa-spin"></i>
+                            </div>
+                        ) : (
+                            <div className="user-page-recipe-list">
+                                {userRecipes.length > 0 ? (
+                                    userRecipes.map((recipe) => (
+                                        <div
+                                            className="user-page-recipe-item"
+                                            key={recipe._id}
+                                            onClick={() => router(`/single-recipe/${recipe._id}`)}
+                                        >
+                                            <img src={recipe.image} alt="recipe" className="user-page-recipe-image" />
+                                            <div className="user-page-recipe-info">
+                                                <p className="user-page-recipe-title"><b>{recipe.title}</b></p>
+                                                <p className="user-page-recipe-cuisine">{recipe.cuisine}</p>
+                                                <p className="user-page-recipe-category">{recipe.category}</p>
+                                            </div>
+                                            <div className="user-page-cooking-time-container">
+                                                <i className="fa-regular fa-clock"></i>&nbsp;&nbsp;{recipe.cookingTime}
+                                            </div>
+                                            <div className="user-page-rating-container">
+                                                <i className="fa-solid fa-star"></i>&nbsp;&nbsp;{recipe.averageRating && recipe.averageRating > 0 ? recipe.averageRating : 'NA'}
+                                            </div>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p>No recipes found for this user.</p>
+                                )}
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </div>
             </div>
             <Footer />
         </div>

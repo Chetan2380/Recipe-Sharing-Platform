@@ -13,26 +13,20 @@
     font-size: 40px;
 }
 
-.all-recipes-loading {
+/* Loader styles */
+.loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full viewport height */
 }
 
-.loader {
-    width: 80px; /* Adjust the size if needed */
-    height: 80px; /* Adjust the size if needed */
+.loader-container i {
+    font-size: 80px; /* Adjust size if needed */
+    color: #004b49; /* Match your theme color */
 }
 
-.all-recipes-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
+/* Card Loader styles */
 .all-recipe-card {
     position: relative;
     background: #ffffff;
@@ -44,6 +38,44 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #333;
 }
+
+.card-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: a semi-transparent background */
+    z-index: 1; /* Ensure loader is above card content */
+}
+
+.card-loader i {
+    font-size: 50px; /* Adjust size if needed */
+    color: #004b49; /* Match your theme color */
+}
+
+.all-recipes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* .all-recipe-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    height: 470px; 
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
+} */
 
 .all-recipe-card:hover {
     transform: scale(1.05);

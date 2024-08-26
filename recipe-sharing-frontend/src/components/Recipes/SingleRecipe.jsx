@@ -97,79 +97,86 @@ const SingleRecipe = () => {
 
     return (
         <div>
-        <div id="sp-main">
-            {loading ? (
-                <div>
-                    <h1>Loading....</h1>
-                </div>
-            ) : (
-                <div id="allrecipesshow">
-                    {singlerecipe.map((recipe) => (
-                        <div id="sb-recipeshow" key={recipe._id}>
-                            <div id="sp-title">
-                                <h1>{recipe.title}</h1>
-                            </div>
-                            <div id="sp-image">
-                                <img src={recipe.image} alt={recipe.title} />
-                            </div>
-                            <div id="sp-desctext">
-                                <p><b>Ingredients</b>: <br/> {recipe.ingredients.split('\n').map((item, index) => (
-                                    <span key={index}>• {item}<br/></span>
-                                ))}</p>
-                                <p><b>Instructions</b>: <br/> {recipe.instructions.split('\n').map((item, index) => (
-                                    <span key={index}>• {item}<br/></span>
-                                ))}</p>
-                                <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
-                                <p><b>Category</b>: {recipe.category}</p>
-                                <p><b>Cuisine</b>: {recipe.cuisine}</p>
-                                <button onClick={() => handleEdit(recipe)} className='reviewbutton'>Please review recipe</button>
-                                <button onClick={toggleReviews} className='showbutton'>
-                                    {showReviews ? "Hide Reviews" : "Show Reviews"}
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                    {showReviews && (
-                        <div id="review-container">
-                            {recipeReview.map((review) => (
-                                <div className="review-item" key={review._id}>
-                                    <p className="review-rating"><b>Rating:</b> {review.rating}</p>
-                                    <p className="review-text"><b>Review:</b> {review.review}</p>
-                                    <p className="review-username">
-                                        <b>Username:</b> {review.userId ? review.userId.name : 'Anonymous'}
-                                    </p>
+            <div id="sp-main">
+                {loading ? (
+                    <div className="loader-container">
+                        <i className="fa-solid fa-spinner fa-spin"></i>
+                    </div>
+                ) : (
+                    <div id="allrecipesshow">
+                        {singlerecipe.map((recipe) => (
+                            <div id="sb-recipeshow" key={recipe._id}>
+                                <div id="sp-title">
+                                    <h1>{recipe.title}</h1>
                                 </div>
-                            ))}
-                        </div>
-                    )}
-                    {review && (
-                        <div id="editForm">
-                            <h2>Edit Review</h2>
-                            <input
-                                type="number"
-                                name="rating"
-                                value={editFormData.rating}
-                                onChange={handleInputChange}
-                                placeholder="Rating"
-                                min="1" 
-                                max="5"
-                            />
-                            <textarea
-                                name="review"
-                                value={editFormData.review}
-                                onChange={handleInputChange}
-                                placeholder="Review"
-                            />
-                            <button onClick={handleSubmit}>Update Review</button>
-                            <button onClick={() => setReview(null)}>Cancel</button>
-                        </div>
-                    )}
-                </div>
-            )}
-        </div>
-        <Footer />
+                                <div id="sp-image">
+                                    <img src={recipe.image} alt={recipe.title} />
+                                </div>
+                                <div id="sp-desctext">
+                                    <p><b>Ingredients</b>: <br/> {recipe.ingredients.split('\n').map((item, index) => (
+                                        <span key={index}>• {item}<br/></span>
+                                    ))}</p>
+                                    <p><b>Instructions</b>: <br/> {recipe.instructions.split('\n').map((item, index) => (
+                                        <span key={index}>• {item}<br/></span>
+                                    ))}</p>
+                                    <p><b>Cooking Time</b>: {recipe.cookingTime}</p>
+                                    <p><b>Category</b>: {recipe.category}</p>
+                                    <p><b>Cuisine</b>: {recipe.cuisine}</p>
+                                    <button onClick={() => handleEdit(recipe)} className='reviewbutton'>Please review recipe</button>
+                                    <button onClick={toggleReviews} className='showbutton'>
+                                        {showReviews ? "Hide Reviews" : "Show Reviews"}
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                        {showReviews && (
+                            <div id="review-container">
+                                {recipeReview.map((review) => (
+                                    <div className="review-item" key={review._id}>
+                                        <p className="review-rating"><b>Rating:</b> {review.rating}</p>
+                                        <p className="review-text"><b>Review:</b> {review.review}</p>
+                                        <p className="review-username">
+                                            <b>Username:</b> {review.userId ? review.userId.name : 'Anonymous'}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                        {review && (
+                            <div id="sp-review-form">
+                                <h2>Review this Recipe</h2>
+                                <form onSubmit={(e) => {
+                                    e.preventDefault();
+                                    handleSubmit();
+                                }}>
+                                    <label htmlFor="rating">Rating:</label>
+                                    <input
+                                        type="number"
+                                        id="rating"
+                                        name="rating"
+                                        min="1"
+                                        max="5"
+                                        value={editFormData.rating}
+                                        onChange={handleInputChange}
+                                    />
+                                    <label htmlFor="review">Review:</label>
+                                    <textarea
+                                        id="review"
+                                        name="review"
+                                        value={editFormData.review}
+                                        onChange={handleInputChange}
+                                    ></textarea>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+            <Footer />
         </div>
     );
+
 };
 
 export default SingleRecipe;

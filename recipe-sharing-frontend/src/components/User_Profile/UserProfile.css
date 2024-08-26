@@ -64,6 +64,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Loader styles */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.loader-container i {
+    font-size: 80px; /* Adjust size if needed */
+    color: #004b49; /* Match your theme color */
+}
+
+
 .section-title {
     font-size: 20px;
     font-weight: bold;
