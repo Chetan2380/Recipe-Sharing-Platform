@@ -12,7 +12,7 @@ app.use(morgan("combined"));
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "https://recipe-sharing-platform-sand.vercel.app"],
+    origin: ["https://recipe-sharing-platform-sand.vercel.app"],
   })
 );
 dotenv.config();
