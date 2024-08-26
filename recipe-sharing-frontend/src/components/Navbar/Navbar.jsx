@@ -70,7 +70,7 @@ const Navbar = () => {
         <div>
             <div className="navbar-container">
                 <div className="navbar-content">
-                    <div className="logo">
+                    <div className="logo" onClick={router("/")}>
                         <img src={logo} alt="Navbar Logo" />
                     </div>
                     <div className="search-container">

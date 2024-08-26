@@ -192,10 +192,14 @@
 
 
 @media (max-width: 459px) {
+    .all-recipes-page{
+        max-width: 100%;
+    }
+
     .all-recipe-card {
         width: 100%;
         max-width: 280px;
-        height: auto; 
+        height: 440px; 
     }
 
     .all-recipe-title {
