@@ -114,8 +114,12 @@ button:hover {
 
 
 
-.review-rating b, .review-text b, .review-username b {
+.review-rating b, .review-text b {
     color: #004b49;
+}
+
+.review-username b{
+    color: rgb(204, 196, 196);
 }
 
 #editForm {
