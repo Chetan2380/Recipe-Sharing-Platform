@@ -39,11 +39,12 @@
 }
 
 #sp-image img {
-    width: 65%; 
+    width: 56%; 
     height: 500px;
     border-radius: 10px;
     display: block;
     margin: 0 auto; 
+    margin-top: 20px;
 }
 
 #sp-desctext {
