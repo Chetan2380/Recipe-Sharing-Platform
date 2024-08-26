@@ -214,20 +214,12 @@
     height: 240px;
   }
 
-  .navbar-content {
-    max-width: 100%;
-  }
-
-  .nav-links {
-    max-width: 100%;
-  }
-
   .logo img {
     height: 86px;
   }
 
   .navbar-content {
-    width: 90%;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -239,7 +231,7 @@
     justify-content: space-between;
     background-color: #004b49;
     position: relative;
-    width: auto;
+    width: 100%;
     box-shadow: none;
     padding: 0;
     margin-top: 20px;
