@@ -179,10 +179,15 @@
         font-size: 20px;
     }
 
-    .south-indian-cooking-time-container,
+    .south-indian-cooking-time-container {
+        height: 25px;
+        width: 36%;
+        font-size: 12px;
+    }
+
     .south-indian-rating-container {
         height: 25px;
-        width: 50%;
+        width: 20%;
         font-size: 12px;
     }
 }

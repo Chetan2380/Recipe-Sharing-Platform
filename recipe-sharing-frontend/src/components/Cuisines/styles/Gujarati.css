@@ -183,10 +183,15 @@
         font-size: 20px;
     }
 
-    .gujarati-cooking-time-container,
+    .gujarati-cooking-time-container {
+        height: 25px;
+        width: 36%;
+        font-size: 12px;
+    }
+
     .gujarati-rating-container {
         height: 25px;
-        width: 50%;
+        width: 20%;
         font-size: 12px;
     }
 }

@@ -179,10 +179,15 @@
         font-size: 20px;
     }
 
-    .rajasthani-cooking-time-container,
+    .rajasthani-cooking-time-container {
+        height: 25px;
+        width: 36%;
+        font-size: 12px;
+    }
+
     .rajasthani-rating-container {
         height: 25px;
-        width: 50%;
+        width: 20%;
         font-size: 12px;
     }
 }

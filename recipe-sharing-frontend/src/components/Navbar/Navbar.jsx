@@ -13,6 +13,7 @@ const Navbar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [categoriesOpen, setCategoriesOpen] = useState(false);
     const [cuisinesOpen, setCuisinesOpen] = useState(false);
+    const [profileOpen, setProfileOpen] = useState(false); 
 
     const handleLogout = async () => {
         try {
@@ -49,12 +50,20 @@ const Navbar = () => {
 
     const toggleCategoriesMenu = () => {
         setCategoriesOpen(!categoriesOpen);
-        if (cuisinesOpen) setCuisinesOpen(false); 
+        if (cuisinesOpen) setCuisinesOpen(false);
+        if (profileOpen) setProfileOpen(false); 
     };
 
     const toggleCuisinesMenu = () => {
         setCuisinesOpen(!cuisinesOpen);
         if (categoriesOpen) setCategoriesOpen(false);
+        if (profileOpen) setProfileOpen(false); 
+    };
+
+    const toggleProfileMenu = () => {
+        setProfileOpen(!profileOpen);
+        if (categoriesOpen) setCategoriesOpen(false);
+        if (cuisinesOpen) setCuisinesOpen(false);
     };
 
     return (
@@ -104,8 +113,8 @@ const Navbar = () => {
                             <div onClick={() => router("/login")}>Login</div>
                         ) : (
                             <div className="dropdown">
-                                <div className="dropdown-header">Profile</div>
-                                <div className="dropdown-menu">
+                                <div className="dropdown-header" onClick={toggleProfileMenu}>Profile</div> 
+                                <div className={`dropdown-menu ${profileOpen ? 'show' : ''}`}>
                                     <div onClick={() => router("/user-profile")}>Your Profile</div>
                                     <div onClick={() => router("/edit-profile")}>Edit Profile</div>
                                     <div onClick={handleLogout}>Logout</div>
@@ -153,8 +162,8 @@ const Navbar = () => {
                         <div onClick={() => router("/login")}>Login</div>
                     ) : (
                         <div className="dropdown">
-                            <div className="dropdown-header">Profile</div>
-                            <div className="dropdown-menu">
+                            <div className="dropdown-header" onClick={toggleProfileMenu}>Profile</div> 
+                            <div className={`dropdown-menu ${profileOpen ? 'show' : ''}`}>
                                 <div onClick={() => router("/user-profile")}>Your Profile</div>
                                 <div onClick={() => router("/edit-profile")}>Edit Profile</div>
                                 <div onClick={handleLogout}>Logout</div>

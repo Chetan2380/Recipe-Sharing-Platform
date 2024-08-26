@@ -293,18 +293,30 @@
         font-size: 18px;
     }
 
-    .home-cooking-time-container,
+    /* .home-cooking-time-container,
     .home-rating-container {
         font-size: 12px;
         height: 30px;
         width: auto;
         padding: 5px;
-    }
+    } */
 
     .home-category-card {
         width: 100px;
         height: 100px;
         font-size: 14px;
+    }
+
+    .home-cooking-time-container {
+        height: 25px;
+        width: 36%;
+        font-size: 12px;
+    }
+
+    .home-rating-container {
+        height: 25px;
+        width: 20%;
+        font-size: 12px;
     }
 }
 
