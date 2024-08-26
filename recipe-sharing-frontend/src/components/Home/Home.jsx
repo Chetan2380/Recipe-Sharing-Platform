@@ -12,24 +12,32 @@ const Home = () => {
     const [latestRecipes, setLatestRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchLatestRecipes = async () => {
-            try {
-                const response = await Api.get('/recipe/latest-recipes');
-                if (response.data.success) {
-                    setLatestRecipes(response.data.recipes);
-                } else {
-                    toast.error(response.data.error);
-                }
-            } catch (error) {
-                toast.error('Failed to fetch latest recipes.');
-            } finally {
-                setLoading(false);
+    const fetchLatestRecipes = async () => {
+        try {
+            const response = await Api.get('/recipe/latest-recipes');
+            if (response.data.success) {
+                setLatestRecipes(response.data.recipes);
+            } else {
+                toast.error(response.data.error);
             }
-        };
-
+        } catch (error) {
+            toast.error('Failed to fetch latest recipes.');
+        } finally {
+            setLoading(false);
+        }
+    };
+    
+    useEffect(() => {
         fetchLatestRecipes();
     }, []);
+
+    useEffect(() => {
+        if (state.searchResults.length > 0) {
+            latestRecipes(state.searchResults);
+        } else {
+            fetchLatestRecipes();
+        }
+    }, [state.searchResults]);
 
     return (
         <div className="home-page">
