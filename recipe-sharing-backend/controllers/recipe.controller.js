@@ -117,22 +117,53 @@ export const CreateNewRecipe = async (req, res) => {
   };
 
 
-export const search = async (req, res) => {
+  export const search = async (req, res) => {
     try {
-      const { searchedWord } = req.body;
-  
-      const searchedrecipes = await Recipe.find({
-        $or:[{ingredients: { $regex: searchedWord, $options: "i" }},
-          {title: { $regex: searchedWord, $options: "i" }}
-        ]
-        
-      });
-      res.json({ success: true, searchedrecipes });
+        const { searchedWord } = req.body;
+
+        // Perform the initial search for recipes
+        const searchedRecipes = await Recipe.aggregate([
+            {
+                $match: {
+                    $or: [
+                        { ingredients: { $regex: searchedWord, $options: "i" } },
+                        { title: { $regex: searchedWord, $options: "i" } }
+                    ]
+                }
+            },
+            {
+                $lookup: {
+                    from: 'reviews',
+                    localField: '_id',
+                    foreignField: 'recipeId',
+                    as: 'reviews'
+                }
+            },
+            {
+                $addFields: {
+                    averageRating: {
+                        $cond: {
+                            if: { $gt: [{ $size: '$reviews' }, 0] },
+                            then: { $divide: [{ $sum: '$reviews.rating' }, { $size: '$reviews' }] },
+                            else: 0
+                        }
+                    }
+                }
+            },
+            {
+                $project: {
+                    reviews: 0 // Exclude reviews field from the final result
+                }
+            }
+        ]);
+
+        res.json({ success: true, searchedRecipes });
     } catch (error) {
-      console.log(error, "error");
-      return res.json({ error: error, success: false });
+        console.log(error, "error");
+        return res.json({ error: error.message, success: false });
     }
-  };
+};
+
 
 
   export const GetLatestRecipes = async (req, res) => {

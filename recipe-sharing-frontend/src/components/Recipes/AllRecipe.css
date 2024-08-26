@@ -206,10 +206,15 @@
         font-size: 20px;
     }
 
-    .all-cooking-time-container,
-    .all-rating-container {
+    .all-cooking-time-container{
         height: 25px;
-        width: 50%;
+        width: 36%;
+        font-size: 12px;
+    }
+
+    .all-rating-container{
+        height: 25px;
+        width: 20%;
         font-size: 12px;
     }
 }
