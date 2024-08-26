@@ -10,9 +10,7 @@ const Home = () => {
     const { state } = useContext(AuthContext);
     const router = useNavigate();
     const [latestRecipes, setLatestRecipes] = useState([]);
-    const [filteredRecipes, setFilteredRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         const fetchLatestRecipes = async () => {
@@ -20,7 +18,6 @@ const Home = () => {
                 const response = await Api.get('/recipe/latest-recipes');
                 if (response.data.success) {
                     setLatestRecipes(response.data.recipes);
-                    setFilteredRecipes(response.data.recipes); // Initialize filteredRecipes
                 } else {
                     toast.error(response.data.error);
                 }
@@ -34,27 +31,13 @@ const Home = () => {
         fetchLatestRecipes();
     }, []);
 
-    useEffect(() => {
-        // Filter recipes based on search term
-        if (searchTerm) {
-            const results = latestRecipes.filter(recipe =>
-                recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-            setFilteredRecipes(results);
-        } else {
-            setFilteredRecipes(latestRecipes);
-        }
-    }, [searchTerm, latestRecipes]);
-
-    const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
+    
 
     return (
         <div className="home-page">
-            <head>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-            </head>
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        </head>
             <div className="home-welcome-container">
                 {state?.user ? (
                     <h1>Welcome to RecipeShare, {state?.user?.name}!</h1>
@@ -63,17 +46,6 @@ const Home = () => {
                 )}
                 <p>Discover and share your favorite recipes</p>
             </div>
-            
-            <div className="home-search-container">
-                <input
-                    type="text"
-                    placeholder="Search recipes..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    className="home-search-input"
-                />
-            </div>
-
             {loading ? (
                 <div className="home-loader">
                     <i className="fa-solid fa-spinner fa-spin"></i>
@@ -82,8 +54,8 @@ const Home = () => {
                 <section className="home-recipes-section">
                     <h2>Latest Recipes</h2>
                     <div className="home-recipes-grid">
-                        {filteredRecipes.length > 0 ? (
-                            filteredRecipes.map((recipe) => (
+                        {latestRecipes.length > 0 ? (
+                            latestRecipes.map((recipe) => (
                                 <div
                                     key={recipe._id}
                                     className="home-recipe-card"
