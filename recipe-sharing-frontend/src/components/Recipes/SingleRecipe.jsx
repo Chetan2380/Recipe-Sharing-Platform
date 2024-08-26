@@ -136,7 +136,7 @@ const SingleRecipe = () => {
                                         <p className="review-rating"><b>Rating:</b> {review.rating}</p>
                                         <p className="review-text"><b>Review:</b> {review.review}</p>
                                         <p className="review-username">
-                                            <b>Username:</b> {review.userId ? review.userId.name : 'Anonymous'}
+                                            <i><b>~</b> {review.userId ? review.userId.name : 'Anonymous'}</i>
                                         </p>
                                     </div>
                                 ))}
