@@ -130,6 +130,9 @@ const Navbar = () => {
 
             <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="close-btn" onClick={toggleSidebar}>
+                    <div className="logo" onClick={()=>router("/")}>
+                        <img src={logo} alt="Navbar Logo" />
+                    </div>
                     <i className="fa-solid fa-xmark"></i>
                 </div>
                 <div className="sidebar-menu">

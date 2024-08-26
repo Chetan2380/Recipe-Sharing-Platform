@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+.logo:hover{
+  cursor: pointer;
+}
+
 .logo img {
   height: 76px;
 }
