@@ -1,4 +1,3 @@
-/* Base Navbar Styles */
 .navbar-container {
   width: 100%;
   background-color: #004b49;
@@ -29,7 +28,7 @@
   background: #ffffff;
   border-radius: 5px;
   padding: 5px;
-  width: 320px; /* Default width for larger screens */
+  width: 320px;
   box-sizing: border-box;
 }
 
@@ -70,7 +69,6 @@
   display: none;
 }
 
-/* Desktop, Laptop, and Tablet */
 .nav-links .dropdown {
   position: relative;
 }
@@ -85,7 +83,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #ffffff; /* White background for dropdowns */
+  background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -95,13 +93,13 @@
 
 .dropdown-menu div {
   padding: 10px;
-  color: #333; /* Dark text color for readability */
+  color: #333;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .dropdown-menu div:hover {
-  background-color: #f0f0f0; /* Light grey background on hover */
+  background-color: #f0f0f0;
 }
 
 @media (max-width: 460px) {
@@ -119,7 +117,7 @@
   }
 
   .search-container {
-    width: 70%; /* Full width minus padding */
+    width: 70%;
     margin-top: 10px;
   }
 
@@ -132,7 +130,7 @@
     color: #ffffff;
     font-size: 24px;
     cursor: pointer;
-    margin-left: 10px; /* Adjusted margin */
+    margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -149,7 +147,7 @@
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 1000;
-    overflow-y: auto; /* Allows scrolling */
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
   }
@@ -169,7 +167,7 @@
   .sidebar-menu {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Ensures the menu takes up remaining space */
+    flex-grow: 1;
   }
 
   .sidebar-menu div {
@@ -185,33 +183,38 @@
   .dropdown-menu {
     display: none;
     flex-direction: column;
-    background-color: #ffffff; /* White background for dropdowns */
+    background-color: #ffffff;
     padding: 10px;
-    position: static; /* Positioned relative to the parent element */
-    top: auto; /* Reset top position */
+    position: static;
+    top: auto;
     width: 90%;
     margin-left: -5px;
   }
 
   .dropdown-menu.show {
     display: flex;
+    background-color: #ffffff;
   }
 
   .dropdown-header {
     cursor: pointer;
   }
+
+  .dropdown-menu.show {
+    background-color: #ffffff;
+  }
 }
 
 @media (max-width: 860px) and (min-width: 461px) {
-  .navbar-container{
+  .navbar-container {
     height: 240px;
   }
 
-  .navbar-content{
+  .navbar-content {
     max-width: 100%;
   }
 
-  .nav-links{
+  .nav-links {
     max-width: 100%;
   }
 
@@ -219,79 +222,120 @@
     height: 86px;
   }
 
-  .navbar-content{
+  .navbar-content {
     width: 90%;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align items */
-    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  /* Ensure nav-links are displayed */
+
   .nav-links {
     display: flex;
-    flex-direction: row; /* Align items horizontally */
+    flex-direction: row;
     justify-content: space-between;
-    background-color: #004b49; /* Same background as desktop */
-    position: relative; /* Ensure dropdowns position correctly */
-    width: auto; /* Adjust width to fit content */
-    box-shadow: none; /* Remove box shadow if necessary */
-    padding: 0; /* Remove extra padding */
+    background-color: #004b49;
+    position: relative;
+    width: auto;
+    box-shadow: none;
+    padding: 0;
     margin-top: 20px;
   }
 
-  /* Adjust dropdown menu styling to fit tablet view */
   .dropdown-menu {
-    display: none; /* Keep dropdown hidden by default */
+    display: none;
     flex-direction: column;
-    background-color: #ffffff; /* White background for dropdowns */
+    background-color: #ffffff;
     padding: 10px;
-    position: absolute; /* Position absolutely for correct placement */
-    top: 100%; /* Position below the parent item */
+    position: absolute;
+    top: 100%;
     left: 0;
-    width: 150px; /* Adjust width to fit content */
+    width: 150px;
   }
 
-  /* Show dropdown menu when active */
   .dropdown-menu.show {
     display: flex;
   }
-  
-  /* Adjust the search container to fit in tablet view */
+
   .search-container {
-    width: auto; /* Adjust width to fit content */
-    margin: 0; /* Reset margin */
+    width: auto;
+    margin: 0;
     margin-top: 20px;
   }
 
-  /* Display nav-icon only when needed */
   .nav-icon {
-    display: none; /* Hide nav-icon in tablet view */
+    display: none;
   }
 
-  /* Ensure sidebar is hidden in tablet view */
   .sidebar {
-    display: none; /* Hide sidebar on tablets */
+    display: none;
   }
 }
 
-@media (min-width: 1240px) and (max-width:1241px)  {
-  .search-container {
-    width: 300px; /* Adjusted width for laptops and larger screens */
+@media (min-width: 1240px) and (max-width: 1241px) {
+  .navbar-container {
+    height: 80px;
   }
 
-  .navbar-content{
+  .search-container {
+    width: 300px;
+  }
+
+  .navbar-content {
+    max-width: 98%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: auto;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 150px;
+  }
+
+  .dropdown-menu.show {
+    display: flex;
+  }
+}
+@media (min-width: 1240px) and (max-width: 1241px) {
+  .search-container {
+    width: 300px;
+  }
+
+  .navbar-content {
     max-width: 98%;
   }
 
-  .nav-links{
+  .nav-links {
     max-width: 100%;
   }
 
   .nav-icon {
-    display: none; /* Hide menu icon on larger screens */
+    display: none;
   }
 
   .sidebar {
-    display: none; /* Hide sidebar on larger screens */
+    display: none;
   }
 
   .nav-links {

@@ -42,7 +42,7 @@ const AllRecipes = () => {
                 <h1>All Recipes</h1>
                 {loading ? (
                     <div className="all-recipes-loading">
-                        <img src="/path/to/your/Animation - 1724602910538.gif" alt="Loading..." className="loader" />
+                        <img src="./Animation - 1724602910538.gif" alt="Loading..." className="loader" />
                     </div>
                 ) : (
                     <div className="all-recipes-grid">

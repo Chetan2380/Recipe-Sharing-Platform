@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import AllRoutes from "./routes/index.js"
+import session from 'express-session';
 const app = express();
 app.use(cookieParser());
 app.use(morgan("combined"));
@@ -16,6 +17,13 @@ app.use(
 );
 dotenv.config();
 app.use(express.json());
+
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: true, sameSite: 'None' }
+}));
 
 app.get("/", function (req, res) {
   res.send("working.");
