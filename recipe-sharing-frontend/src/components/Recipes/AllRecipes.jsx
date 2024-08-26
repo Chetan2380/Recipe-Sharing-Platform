@@ -55,7 +55,7 @@ const AllRecipes = () => {
                                 className="all-recipe-card"
                                 onClick={() => router(`/single-recipe/${recipe._id}`)}
                             >
-                                {/* Show loader inside card if loading */}
+                                
                                 {loading ? (
                                     <div className="card-loader">
                                         <i className="fa-solid fa-spinner fa-spin"></i>

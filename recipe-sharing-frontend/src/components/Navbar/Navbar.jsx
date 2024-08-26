@@ -49,12 +49,12 @@ const Navbar = () => {
 
     const toggleCategoriesMenu = () => {
         setCategoriesOpen(!categoriesOpen);
-        if (cuisinesOpen) setCuisinesOpen(false); // Close Cuisines menu if open
+        if (cuisinesOpen) setCuisinesOpen(false); 
     };
 
     const toggleCuisinesMenu = () => {
         setCuisinesOpen(!cuisinesOpen);
-        if (categoriesOpen) setCategoriesOpen(false); // Close Categories menu if open
+        if (categoriesOpen) setCategoriesOpen(false);
     };
 
     return (

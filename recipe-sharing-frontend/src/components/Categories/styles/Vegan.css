@@ -1,4 +1,4 @@
-/* General Styles */
+
 .vegan-recipes-page {
     font-family: Arial, sans-serif;
     background-color: #f5f5f0;
@@ -109,9 +109,7 @@
     font-size: 14px;
 }
 
-/* Responsive Styles */
 
-/* Laptop (min-width: 1240px) */
 @media (min-width: 1240px) {
     .vegan-recipe-card {
         width: 300px;
@@ -129,7 +127,7 @@
     }
 }
 
-/* Tablet (min-width: 860px) and max-width: 1239px */
+
 @media (min-width: 860px) and (max-width: 1239px) {
     .vegan-recipe-card {
         width: 250px;
@@ -147,7 +145,7 @@
     }
 }
 
-/* Mobile (min-width: 460px) and max-width: 859px */
+
 @media (min-width: 460px) and (max-width: 859px) {
     .vegan-recipe-card {
         width: 100%;
@@ -172,7 +170,7 @@
     }
 }
 
-/* Small Mobile (max-width: 459px) */
+
 @media (max-width: 459px) {
     .vegan-recipe-card {
         width: 100%;

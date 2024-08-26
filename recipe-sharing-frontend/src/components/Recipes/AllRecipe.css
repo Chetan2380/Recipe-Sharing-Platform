@@ -1,4 +1,3 @@
-/* General Styles */
 .all-recipes-page {
     font-family: Arial, sans-serif;
     background-color: #f5f5f0;
@@ -13,27 +12,27 @@
     font-size: 40px;
 }
 
-/* Loader styles */
+
 .loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
 }
 
 .loader-container i {
-    font-size: 80px; /* Adjust size if needed */
-    color: #004b49; /* Match your theme color */
+    font-size: 80px; 
+    color: #004b49; 
 }
 
-/* Card Loader styles */
+
 .all-recipe-card {
     position: relative;
     background: #ffffff;
     border-radius: 10px;
     overflow: hidden;
     width: 300px;
-    height: 470px; /* Adjusted height */
+    height: 470px; 
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #333;
@@ -48,13 +47,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: a semi-transparent background */
-    z-index: 1; /* Ensure loader is above card content */
+    background-color: rgba(255, 255, 255, 0.8); 
+    z-index: 1; 
 }
 
 .card-loader i {
-    font-size: 50px; /* Adjust size if needed */
-    color: #004b49; /* Match your theme color */
+    font-size: 50px; 
+    color: #004b49; 
 }
 
 .all-recipes-grid {
@@ -65,17 +64,7 @@
     margin-bottom: 30px;
 }
 
-/* .all-recipe-card {
-    position: relative;
-    background: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 300px;
-    height: 470px; 
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #333;
-} */
+
 
 .all-recipe-card:hover {
     transform: scale(1.05);
@@ -140,13 +129,11 @@
     font-size: 14px;
 }
 
-/* Responsive Styles */
 
-/* Laptop (min-width: 1240px) */
 @media (min-width: 1240px) and (max-width: 1242px) {
     .all-recipe-card {
         width: 300px;
-        height: 430px; /* Adjusted height */
+        height: 430px; 
     }
 
     .all-recipe-title {
@@ -160,11 +147,11 @@
     }
 }
 
-/* Tablet (min-width: 860px) and max-width: 1239px */
+
 @media (min-width: 860px) and (max-width: 1239px) {
     .all-recipe-card {
         width: 250px;
-        height: 460px; /* Adjusted height */
+        height: 460px; 
     }
 
     .all-recipe-title {
@@ -178,12 +165,12 @@
     }
 }
 
-/* Mobile (min-width: 460px) and max-width: 859px */
+
 @media (min-width: 460px) and (max-width: 859px) {
     .all-recipe-card {
         width: 100%;
         max-width: 300px;
-        height: 470px; /* Adjusted height */
+        height: 470px; 
     }
 
     .all-recipe-title {
@@ -203,12 +190,12 @@
     }
 }
 
-/* Small Mobile (max-width: 459px) */
+
 @media (max-width: 459px) {
     .all-recipe-card {
         width: 100%;
         max-width: 280px;
-        height: auto; /* Adjusted height */
+        height: auto; 
     }
 
     .all-recipe-title {

@@ -1,21 +1,20 @@
-/* General Styles */
 #sp-main {
     font-family: Arial, sans-serif;
     background-color: #f5f5f0;
     padding: 20px;
 }
 
-/* Loader styles */
+
 .loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
 }
 
 .loader-container i {
-    font-size: 80px; /* Adjust size if needed */
-    color: #004b49; /* Match your theme color */
+    font-size: 80px;
+    color: #004b49; 
 }
 
 #allrecipesshow {
@@ -40,11 +39,11 @@
 }
 
 #sp-image img {
-    width: 65%; /* Decreased size of image */
+    width: 65%; 
     height: 500px;
     border-radius: 10px;
     display: block;
-    margin: 0 auto; /* Center image horizontally */
+    margin: 0 auto; 
 }
 
 #sp-desctext {
@@ -96,15 +95,15 @@ button:hover {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    position: relative; /* Ensure the container is positioned relative for absolute positioning of the username */
+    position: relative; 
 }
 
 .review-username {
     position: absolute;
-    bottom: 10px; /* Adjust the distance from the bottom as needed */
-    right: 10px;  /* Adjust the distance from the right as needed */
+    bottom: 10px; 
+    right: 10px;  
     margin: 0;
-    font-size: 14px; /* Adjust font size if needed */
+    font-size: 14px;
     color: #004b49;
 }
 
@@ -112,9 +111,7 @@ button:hover {
     margin: 5px 0;
 }
 
-/* .review-rating, .review-text, .review-username {
-    margin: 5px 0;
-} */
+
 
 .review-rating b, .review-text b, .review-username b {
     color: #004b49;
@@ -200,7 +197,7 @@ textarea {
     }
 
     #sp-image img {
-        width: 75%; /* Adjusted for tablets */
+        width: 75%; 
     }
 
     #sp-desctext p {
@@ -239,7 +236,7 @@ textarea {
     }
 
     #sp-image img {
-        width: 80%; /* Adjusted for mobile screens */
+        width: 80%; 
     }
 
     #sp-desctext p {
@@ -271,7 +268,7 @@ textarea {
     }
 
     #sp-image img {
-        width: 85%; /* Adjusted for very small screens */
+        width: 85%; 
     }
 
     #sp-desctext p {

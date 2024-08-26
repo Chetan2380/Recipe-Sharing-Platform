@@ -12,7 +12,7 @@
     font-size: 40px;
 }
 
-/* Example CSS for loader */
+
 .loader-container {
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@
 
 .loader-container i {
     font-size: 2rem;
-    color: #000; /* Adjust color as needed */
+    color: #000; 
 }
 
 

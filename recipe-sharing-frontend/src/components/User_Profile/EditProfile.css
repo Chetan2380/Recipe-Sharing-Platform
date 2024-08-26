@@ -1,6 +1,3 @@
-/* EditProfile.css */
-
-/* General Styles */
 .edit-profile-container {
   display: flex;
   flex-direction: column;
@@ -20,7 +17,7 @@
 .edit-profile-container button {
   padding: 10px 20px;
   border: none;
-  background-color: #004b49; /* Updated button color */
+  background-color: #004b49; 
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -30,9 +27,7 @@
   background-color: #ccc;
 }
 
-/* Responsive Styles */
 
-/* Laptop (min-width: 1240px) */
 @media (min-width: 1240px) {
   .edit-profile-container {
       max-width: 800px;
@@ -48,7 +43,7 @@
   }
 }
 
-/* Tablet (min-width: 860px) and max-width: 1239px */
+
 @media (min-width: 860px) and (max-width: 1239px) {
   .edit-profile-container {
       max-width: 600px;
@@ -64,7 +59,7 @@
   }
 }
 
-/* Mobile (min-width: 460px) and max-width: 859px */
+
 @media (min-width: 460px) and (max-width: 859px) {
   .edit-profile-container {
       max-width: 500px;
@@ -79,7 +74,7 @@
   }
 }
 
-/* Small Mobile (max-width: 459px) */
+
 @media (max-width: 459px) {
   .edit-profile-container {
       max-width: 100%;

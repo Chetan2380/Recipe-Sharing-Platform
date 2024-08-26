@@ -1,6 +1,4 @@
-/* UserPage.css */
 
-/* General Styles */
 .user-page-container {
     font-family: Arial, sans-serif;
     background-color: #f5f5f0;
@@ -31,7 +29,7 @@
 .user-page-content-container {
     padding: 20px;
     display: flex;
-    gap: 20px; /* Adjust this value to control the space between user list and recipes */
+    gap: 20px; 
 }
 
 .user-page-list-container {
@@ -40,7 +38,6 @@
 
 .user-page-recipes-container {
     flex: 2;
-    /* margin-left: 20px;  */
 }
 
 .user-page-list-container h2,
@@ -50,17 +47,17 @@
     margin-bottom: 10px;
 }
 
-/* Loader styles */
+
 .loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
 }
 
 .loader-container i {
-    font-size: 80px; /* Adjust size if needed */
-    color: #004b49; /* Match your theme color */
+    font-size: 80px; 
+    color: #004b49; 
 }
 
 
@@ -83,12 +80,12 @@
     background-color: #e0f7fa;
 }
 
-/* Recipe Card Styles */
+
 .user-page-recipe-list {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: space-between; /* Ensure items are spaced evenly */
+    justify-content: space-between; 
 }
 
 .user-page-recipe-item {
@@ -131,7 +128,7 @@
     font-size: 18px;
 }
 
-/* Cooking Time and Rating Containers */
+
 .user-page-cooking-time-container,
 .user-page-rating-container {
     position: absolute;
@@ -161,13 +158,12 @@
     padding: 0 10px;
 }
 
-/* Loading Indicator */
+
 .user-page-loading-indicator {
     text-align: center;
     padding: 20px;
 }
 
-/* Responsive Adjustments */
 @media (min-width: 1240px) and (max-width: 1242px){
     .user-page-content-container    {
         margin-bottom: 20px;
@@ -185,17 +181,17 @@
         height: 440px;
     }
     .user-page-content-container {
-        gap: 30px; /* Adjusted gap for tablets and medium screen sizes */
+        gap: 30px; 
     }
 }
 
 @media (max-width: 859px) {
     .user-page-recipe-item {
-        width: calc(50% - 15px); /* Two items per row on mobile devices */
+        width: calc(50% - 15px); 
     }
     .user-page-content-container {
         flex-direction: column;
-        gap: 20px; /* Adjusted gap for smaller screens */
+        gap: 20px; 
     }
     .user-page-recipes-container {
         margin-left: 0;
