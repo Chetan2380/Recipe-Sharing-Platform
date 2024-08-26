@@ -19,7 +19,7 @@ dotenv.config();
 app.use(express.json());
 
 app.use(session({
-  secret: 'your-secret-key',
+  secret: 'MYSECRETKEY',
   resave: false,
   saveUninitialized: false,
   cookie: { secure: true, sameSite: 'None' }

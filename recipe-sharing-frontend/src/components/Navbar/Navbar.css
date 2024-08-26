@@ -102,6 +102,10 @@
   background-color: #f0f0f0;
 }
 
+.sidebar{
+  display: none;
+}
+
 @media (max-width: 460px) {
   .navbar-container {
     padding: 0 10px;
