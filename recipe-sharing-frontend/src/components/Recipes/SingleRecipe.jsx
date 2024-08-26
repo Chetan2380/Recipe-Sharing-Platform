@@ -95,14 +95,6 @@ const SingleRecipe = () => {
         }
     }, [id]);
 
-    useEffect(() => {
-        if (state.searchResults.length > 0) {
-            singlerecipe(state.searchResults);
-        } else {
-            GetSingleRecipe();
-        }
-    }, [state.searchResults]);
-
     return (
         <div>
             <div id="sp-main">
