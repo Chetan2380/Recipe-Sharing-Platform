@@ -13,7 +13,6 @@ app.use(
   cors({
     credentials: true,
     origin: ["https://recipe-sharing-platform-sand.vercel.app"],
-    // origin: ["http://localhost:3000"],
   })
 );
 dotenv.config();
